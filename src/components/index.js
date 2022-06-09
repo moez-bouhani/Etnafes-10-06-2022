@@ -28,7 +28,7 @@ let components = {
   Notifications
 };
 
-export{
+export {
   Card,
   BaseInput,
   SidebarPlugin,

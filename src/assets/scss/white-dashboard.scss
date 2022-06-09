@@ -1,4 +1,3 @@
-
 /*
  =========================================================
  * Vue White Dashboard - v1.0.0
@@ -15,8 +14,8 @@
 
  */
 
- // Core
-
+// Core
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
 @import "white-dashboard/custom/functions";
 @import "white-dashboard/bootstrap/functions";
 
@@ -26,7 +25,7 @@
 @import "white-dashboard/custom/mixins";
 @import "white-dashboard/bootstrap/mixins";
 
- // Bootstrap components
+// Bootstrap components
 
 @import "white-dashboard/bootstrap/root";
 @import "white-dashboard/bootstrap/reboot";
@@ -61,27 +60,27 @@
 @import "white-dashboard/bootstrap/utilities";
 @import "white-dashboard/bootstrap/print";
 
- // Custom components
+// Custom components
 
- @import "white-dashboard/custom/alerts.scss";
- @import "white-dashboard/custom/buttons.scss";
- @import "white-dashboard/custom/dropdown.scss";
- @import "white-dashboard/custom/footer.scss";
- @import "white-dashboard/custom/forms.scss";
- @import "white-dashboard/custom/images.scss";
- @import "white-dashboard/custom/modal.scss";
- @import "white-dashboard/custom/navbar.scss";
- @import "white-dashboard/custom/type.scss";
- @import "white-dashboard/custom/tables";
- @import "white-dashboard/custom/checkboxes-radio";
- @import "white-dashboard/custom/fixed-plugin";
- @import "white-dashboard/custom/sidebar-and-main-panel.scss";
- @import "white-dashboard/custom/misc.scss";
- @import "white-dashboard/custom/rtl.scss";
- @import "white-dashboard/custom/input-group.scss";
+@import "white-dashboard/custom/alerts.scss";
+@import "white-dashboard/custom/buttons.scss";
+@import "white-dashboard/custom/dropdown.scss";
+@import "white-dashboard/custom/footer.scss";
+@import "white-dashboard/custom/forms.scss";
+@import "white-dashboard/custom/images.scss";
+@import "white-dashboard/custom/modal.scss";
+@import "white-dashboard/custom/navbar.scss";
+@import "white-dashboard/custom/type.scss";
+@import "white-dashboard/custom/tables";
+@import "white-dashboard/custom/checkboxes-radio";
+@import "white-dashboard/custom/fixed-plugin";
+@import "white-dashboard/custom/sidebar-and-main-panel.scss";
+@import "white-dashboard/custom/misc.scss";
+@import "white-dashboard/custom/rtl.scss";
+@import "white-dashboard/custom/input-group.scss";
 
 
- // Vendor / Plugins
+// Vendor / Plugins
 
 @import "white-dashboard/custom/vendor/plugin-perfect-scrollbar.scss";
 @import "white-dashboard/custom/vendor/plugin-animate-bootstrap-notify.scss";

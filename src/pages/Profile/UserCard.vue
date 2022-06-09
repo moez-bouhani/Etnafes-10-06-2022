@@ -6,16 +6,17 @@
       <div class="block block-three"></div>
       <div class="block block-four"></div>
       <a href="#">
-        <img class="avatar" src="../../assets/img/anime6.png" alt="...">
+        <img loading="lazy"
+          style="width: 170px !important; height: 170px !important"
+          class="avatar"
+          src="../../assets/img/admin.jpg"
+          alt="..."
+        />
         <h5 class="title">{{ user.fullName }}</h5>
       </a>
-      <p class="description">
-        {{user.title}}
-      </p>
+      <p class="description">{{ user.title }}</p>
     </div>
-    <p class="card-description">
-      {{user.description}}
-    </p>
+    <p class="card-description">{{ user.description }}</p>
     <div slot="footer" class="button-container">
       <base-button icon round class="btn-facebook">
         <i class="fab fa-facebook"></i>
@@ -30,26 +31,24 @@
   </card>
 </template>
 <script>
-import {
-  Card
-} from "@/components/index";
+import { Card } from "@/components/index";
 
-import BaseButton from '@/components/BaseButton';
+import BaseButton from "@/components/BaseButton";
 
 export default {
   components: {
     Card,
-    BaseButton
+    BaseButton,
   },
   props: {
     user: {
       type: Object,
       default: () => {
         return {};
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 </script>
 <style>
 </style>

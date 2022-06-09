@@ -1,4 +1,3 @@
-
 export const basicOptions = {
   maintainAspectRatio: false,
   legend: {
@@ -27,8 +26,8 @@ export let blueChartOptions = {
         zeroLineColor: "transparent",
       },
       ticks: {
-        suggestedMin: 60,
-        suggestedMax: 125,
+        suggestedMin: 0,
+        suggestedMax: 10,
         padding: 20,
         fontColor: "#2380f7"
       }
@@ -156,8 +155,8 @@ export let greenChartOptions = {
         zeroLineColor: "transparent",
       },
       ticks: {
-        suggestedMin: 50,
-        suggestedMax: 125,
+        suggestedMin: 0,
+        suggestedMax: 6,
         padding: 20,
         fontColor: "#9e9e9e"
       }
@@ -199,8 +198,8 @@ export let barChartOptions = {
         zeroLineColor: "transparent",
       },
       ticks: {
-        suggestedMin: 60,
-        suggestedMax: 120,
+        suggestedMin: 0,
+        suggestedMax: 7,
         padding: 20,
         fontColor: "#9e9e9e"
       }

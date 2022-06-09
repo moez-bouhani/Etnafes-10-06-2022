@@ -1,10 +1,3 @@
-export default {
-  colors: {
-    default: "#344675",
-    primary: "#42b883",
-    info: "#1d8cf8",
-    danger: "#fd5d93",
-    teal: "#00d6b4",
-    primaryGradient: ['rgba(76, 211, 150, 0.1)', 'rgba(53, 183, 125, 0)', 'rgba(119,52,169,0)'],
-  }
-}
+export const apiDomain = 'https://etnafesapi20212018.etnafes.com' //local ana nejeeeeeh
+//export const apiDomain = 'http://localhost:8000' //en ligne
+export const API_URL = JSON.stringify('https://etnafes.com/sendsms.php')

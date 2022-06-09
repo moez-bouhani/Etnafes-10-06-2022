@@ -1,17 +1,33 @@
 <template class="white-content">
-  <div id="app">
+  <div id="app" style="overflow-x: hidden">
+    <!-- Messenger Plugin de discussion Code -->
+
+    <div v-if="this.$store.state.loggedIn == true">
+      <!--   <logout></logout> -->
+      <!--   <close></close> -->
+    </div>
     <div class="content">
       <notifications></notifications>
       <router-view :key="$route.fullPath"></router-view>
     </div>
+
+   
   </div>
 </template>
 
 <script>
+import logout from "@/pages/logout.vue";
+import close from "@/pages/logout_close.vue";
+
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 Vue.use(BootstrapVue);
 export default {
+   name: 'app' ,
+  components: {
+    logout,
+    close,
+  },
   methods: {
     disableRTL() {
       if (!this.$rtl.isRTL) {
@@ -21,12 +37,12 @@ export default {
     toggleNavOpen() {
       let root = document.getElementsByTagName("html")[0];
       root.classList.toggle("nav-open");
-    }
+    },
   },
   mounted() {
     this.$watch("$route", this.disableRTL, { immediate: true });
     this.$watch("$sidebar.showSidebar", this.toggleNavOpen);
-  }
+  },
 };
 </script>
 

@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- <div>
-    <center><h2 style="line-height:50px;color:#17a2b8;letter-spacing:4px;font-family: 'Indie Flower', cursive;">MWS-Travel</h2></center>
-    </div>-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a
         class="navbar-brand"
@@ -59,9 +56,6 @@
               <router-link class="dropdown-item" to="/packs">Gafsa</router-link>
               <router-link class="dropdown-item" to="/packs">Touzeur</router-link>
               <router-link class="dropdown-item" to="/packs">Jendouba</router-link>
-
-              <!-- <div class="dropdown-divider"></div> -->
-              <!-- <a class="dropdown-item" href="#">Something else here</a> -->
             </div>
           </li>
           <li class="nav-item">
@@ -73,10 +67,10 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input
+            aria-label="Search"
             class="form-control mr-sm-2"
             type="search"
             placeholder="Search"
-            aria-label="Search"
           />
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -88,12 +82,50 @@
     </div>
   </div>
 </template>
-<style>
-.bg-light {
-  background-color: #fff !important;
-}
 
-.navbar-light .navbar-brand {
-  color: #17a2b8;
-}
-</style>
+<script>
+import TopNavbarHome from "./Layout/TopNavbarHome.vue";
+import Footer from "./Layout/Footer.vue";
+import { apiDomain } from "../../config";
+import axios from "axios";
+export default {
+  components: {
+    TopNavbarHome,
+    Footer
+  },
+  data() {
+    return {
+      token: null
+    };
+  },
+
+  computed: {
+    loggedIn() {
+      return this.$store.getters.get_loggedIn;
+    },
+
+    user() {
+      return this.$store.getters.get_user;
+    }
+  },
+  methods: {
+    performLogout() {
+      this.$store
+        .dispatch("performLogoutAction")
+        .then(res => {
+          this.$router.push("/");
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+
+    checkUserStatus() {
+      if (localStorage.getItem("token") != null) {
+        this.token = localStorage.getItem("token");
+      }
+    }
+  }
+};
+</script>
+

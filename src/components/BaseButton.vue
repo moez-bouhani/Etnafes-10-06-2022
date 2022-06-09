@@ -14,7 +14,8 @@
       {'btn-simple':simple},
       {'btn-link':link},
       {'disabled':disabled && tag!=='button'}
-    ]">
+    ]"
+  >
     <slot name="loading">
       <i v-if="loading" class="fas fa-spinner fa-spin"></i>
     </slot>
@@ -23,13 +24,13 @@
 </template>
 <script>
 export default {
-  name:"base-button",
+  name: "base-button",
   props: {
     tag: {
       type: String,
       default: "button"
     },
-    nativeType:{
+    nativeType: {
       type: String,
       default: "button"
     },
@@ -42,27 +43,27 @@ export default {
       type: String,
       default: "default"
     },
-    nativeType:{
+    nativeType: {
       type: String,
       default: "button"
     },
-    size:{
+    size: {
       type: String,
-      default:""
+      default: ""
     },
-    simple:{
+    simple: {
       type: Boolean
     },
-    link:{
+    link: {
       type: Boolean
     }
   },
-  methods:{
-    handleClick(evt){
+  methods: {
+    handleClick(evt) {
       this.$emit("click", evt);
     }
   }
-}
+};
 </script>
 <style>
 </style>

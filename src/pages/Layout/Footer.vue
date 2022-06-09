@@ -1,60 +1,181 @@
 <template>
-  <!--
-=============================================
-Footer
-==============================================
-  -->
-  <footer class="bg-one">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="footer-logo">
-            <a href="index.html">ETNAFES</a>
+  <section id="contact" style="background-color: #fff">
+    <div class="section-header">
+      <div class="section-title">
+        <br />
+        <br />
+        <center>
+          <h3 style="color: #333" class="d-none d-lg-block">Nos partenaires</h3>
+          <h3
+            class="col d-lg-none"
+            style="color: #333; margin-bottom: 0px !important"
+          >
+            Nos partenaires
+          </h3>
+        </center>
+      </div>
+      <span class="section-divider"></span>
+    </div>
+    <div class="container d-none d-lg-block">
+      <div class="row wow fadeInUp">
+        <div class="col-md-1"></div>
+        <div class="col-mx-2">
+          <div class="contact-about">
+            <span>
+              <div>
+                <img loading="lazy"
+                  alt="media web services"
+                  class="width_img_footer img_num1"
+                  src="/logos/MWS-MEDIA--WEB-SERVICES-tourism--ETNAFES-voyage.jpg"
+                />
+              </div>
+            </span>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-12 footer-list">
-          <ul>
-            <li>
-              <router-link :to="{name:'team'}">Notre équipe</router-link>
-            </li>
-            <li>
-              <a href class="tran3s">Nos services</a>
-            </li>
-          </ul>
+        <div class="col-mx-2">
+          <div class="contact-about">
+            <span>
+              <div>
+                <img loading="lazy"
+                  alt="EDJEF"
+                  class="width_img_footer img_num2"
+                  src="/logos/EDJEF--ETNAFES-voyage.jpg" 
+                />
+              </div>
+            </span>
+          </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-12 footer-list">
-          <ul>
-            <li>
-              <a href="/fr/analyse" class="tran3s">Outil d'analyse</a>
-            </li>
-            <li>
-              <a href="/fr/test-numerique" class="tran3s">Outil de test</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- /.row -->
+        <!-- start up act -->
 
-      <div class="bottom-footer clearfix">
-        <p class="float-left">
-          &copy; 2020
-          <a href="/" class="tran3s p-color">ETNAFES</a>. Tous droits réservés
-        </p>
+        <div class="col-mx-2">
+          <div class="contact-about">
+            <span>
+              <div>
+                <img loading="lazy"
+                  alt="Startup Act"
+                  class="width_img_start img_num3"
+                  src="/start_up_act.png"
+                />
+              </div>
+            </span>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-mx-2">
+          <div class="contact-about">
+            <span>
+              <div>
+                <img loading="lazy"
+                  alt="Tunisia Inspiring"
+                  class="width_img_footer img_num4"
+                  src="/logos/tourism--ETNAFES-voyage.jpg" 
+                />
+              </div>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- /.container -->
-  </footer>
+    <br />
+
+    <div class="container d-lg-none">
+      <div class="row wow fadeInUp">
+        <div class="col">
+          <div class="contact-about">
+            <span>
+              <div>
+                <img loading="lazy"
+                  alt="media web services"
+                  class="width_img_footer"
+                  src="/logos/MWS-MEDIA--WEB-SERVICES-tourism--ETNAFES-voyage.jpg" 
+                />
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contact-about">
+            <span>
+              <div>
+                <img loading="lazy"
+                  alt="EDJEF"
+                  class="width_img_footer"
+                  src="/logos/EDJEF--ETNAFES-voyage.jpg" 
+                />
+              </div>
+            </span>
+          </div>
+        </div>
+        <!-- start up act -->
+
+        <div class="col">
+          <div class="contact-about">
+            <span>
+              <div>
+                <img loading="lazy"
+                  alt="Startup Act"
+                  class="width_img_start"
+                  src="/start_up_act.png" 
+                />
+              </div>
+            </span>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col">
+          <div class="contact-about">
+            <span>
+              <div>
+                <img loading="lazy"
+                  alt="Tunisia Inspiring"
+                  class="width_img_footer"
+                  src="/logos/tourism--ETNAFES-voyage.jpg"
+                />
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bottom-footer clearfix"
+      style="background-color: #f1f1f1; padding-top: 20px; padding-bottom: 20px"
+    >
+      <p class="float-left">
+        &copy; {{ new Date().getFullYear() }}
+        <a href="/" class="tran3s p-color">Etnafes</a>. Tous droits
+        réservés&nbsp;&nbsp;
+        <a href="/conditions_utilisation">Mentions Légales</a>&nbsp;
+        <a href="/contact">Contact</a>
+      </p>
+
+      <p class="float-right">
+        Suivez nous:
+        <a href="https://www.facebook.com/ETNAFES/" target="_blank">
+          <i class="fab fa-facebook-square"></i> </a
+        >&nbsp;
+        <a href="https://www.instagram.com/etnafes.tn/" target="_blank">
+          <i class="fab fa-instagram"></i>&nbsp;
+        </a>
+        <a
+          href="https://www.linkedin.com/company/etnafes/about/"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin"></i> </a
+        >&nbsp;&nbsp;&nbsp;
+      </p>
+    </div>
+  </section>
 </template>
 <style scoped>
 /*----------------------- Footer ---------------------*/
 footer.bg-one {
-  /* background: url(../images/home/footer.png) no-repeat center center;
-  background-size: cover; */
   background-color: #fff;
 }
 
 footer {
-  padding-top: 100px;
+  padding-top: 30px;
 }
 
 footer .footer-logo h5 a {
@@ -123,11 +244,12 @@ footer .bottom-footer ul li h3 {
 }
 
 footer .row [class*="col-"] {
-  margin-bottom: 60px;
+  margin-bottom: 0px;
 }
 
 footer .bottom-footer {
-  padding: 25px 0 30px 0;
+  /* padding: 25px 0 30px 0; */
+  padding: 0px;
 }
 a {
   font-family: "Poppins", sans-serif;
@@ -152,3 +274,22 @@ p {
   font-size: 16px;
 }
 </style>
+
+
+  <script>
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
+import axios from "axios";
+import { apiDomain } from "../../config";
+export default {
+  components: {
+    VueperSlides,
+    VueperSlide,
+  },
+  data() {
+    return {
+      apiDomain: "https://etnafesapi20212018.etnafes.com",
+    };
+  },
+};
+</script>
