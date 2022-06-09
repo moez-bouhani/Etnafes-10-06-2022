@@ -1,8 +1,8 @@
 <template>
   <div class="content">
     <div>
-      <b-card no-body>
-        <b-tabs card style="margin-top: -35px !important">
+      <b-card no-body class="mt-4">
+        <b-tabs card style="margin-top: -38px !important">
           <b-tab title="Réservations pack" active>
             <template #title>
               {{ filteredReservationsPack.length }} Réservations pack
