@@ -330,57 +330,6 @@
             <!--    <h2>Connection</h2> -->
             <div>Utilisez votre compte</div>
 
-            <div class="d-flex justify-content-between">
-              <!-- primary -->
-              <p-radio
-                v-model="acteur"
-                value="Voyageur"
-                class="p-default p-round p-thick"
-                color="primary-o"
-                >Voyageur</p-radio
-              >
-
-              <!-- success -->
-              <p-radio
-                radio
-                v-model="acteur"
-                value="Artisan"
-                class="p-default p-round p-thick"
-                color="success-o"
-                >Artisan</p-radio
-              >
-
-              <!-- info -->
-              <p-radio
-                v-model="acteur"
-                value="Guide"
-                class="p-default p-round p-thick"
-                color="info-o"
-                >Guide</p-radio
-              >
-            </div>
-
-            <div class="d-flex justify-content-between">
-              <!-- success -->
-              <p-radio
-                radio
-                v-model="acteur"
-                value="Prestataire service"
-                class="p-default p-round p-thick"
-                color="danger-o"
-                >Prestataire service</p-radio
-              >
-
-              <!-- info -->
-              <p-radio
-                v-model="acteur"
-                value="Hebérgeur"
-                class="p-default p-round p-thick"
-                color="warning-o"
-                >Hebérgeur</p-radio
-              >
-            </div>
-
             <div class="form-group" style="margin-bottom: -6px">
               <input
                 style="
@@ -682,9 +631,7 @@ export default {
         })
         .then((res) => {
           this.isLoading = false;
-          if (this.acteur == "Voyageur") {
-            this.$router.push("/dashboard_client");
-          }
+          this.$router.push("/espace_etanfes");
         })
         .catch((error) => {
           if (error.response && error.response.status == 401) {
@@ -729,7 +676,7 @@ export default {
           //this.$noty.success("veuillez vérifier votre compte.");
 
           this.$noty.success("Connexion réussie.");
-          this.$router.push("/");
+          this.$router.push("/espace_etanfes");
           /*  } */
         })
         .catch((error) => {
@@ -799,7 +746,7 @@ export default {
           this.isCreatingInscrire = false;
           this.isCreating = false;
           //  this.$noty.success("Connexion réussie.");
-          this.$router.push("/profile");
+          this.$router.push("/espace_etanfes");
         })
         .catch((error) => {
           this.isCreating = false;

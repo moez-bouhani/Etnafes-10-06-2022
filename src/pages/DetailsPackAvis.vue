@@ -954,7 +954,7 @@
       </p>
       <b-carousel
         id="carousel-1"
-        v-model="slide"
+      
         :interval="4000"
         controls
         indicators
@@ -1460,7 +1460,7 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
+                       
                           :interval="4000"
                           controls
                           indicators
@@ -2235,7 +2235,7 @@
                     <div>
                       <b-carousel
                         id="carousel-1"
-                        v-model="slide"
+                     
                         :interval="4000"
                         controls
                         indicators

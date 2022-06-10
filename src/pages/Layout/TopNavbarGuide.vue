@@ -21,7 +21,11 @@
           </button>
         </div>
         <a href="/">
-          <img loading="lazy" src="/images/logo-etnafes-couleur.png" width="10%" />
+          <img
+            loading="lazy"
+            src="/images/logo-etnafes-couleur.png"
+            width="10%"
+          />
         </a>
       </div>
       <button
@@ -100,13 +104,14 @@
           <drop-down>
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
               <div class="photo">
-                <img loading="lazy"
-                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/${user.photo}`"
+                <img
+                  loading="lazy"
+                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
                   alt="Profile Photo"
                 />
               </div>
               <b class="caret d-none d-lg-block d-xl-block"></b>
-              <p class="d-lg-none">Log out</p>
+              <p class="d-lg-none">{{ client.user }}</p>
             </a>
             <ul class="dropdown-menu dropdown-navbar">
               <li class="nav-link">
@@ -147,6 +152,7 @@ export default {
   },
   data() {
     return {
+      client: [],
       notifications: [],
       searchModalVisible: false,
       searchQuery: "",
@@ -165,9 +171,20 @@ export default {
   },
   created() {
     this.fetchNotifications();
+    this.fetchclient(this.$store.state.user.id);
   },
 
   methods: {
+    fetchclient(id) {
+      fetch(
+        `${apiDomain}/api/client/${this.$store.state.user.id}?token=${this.$store.state.token}`
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          this.client = res;
+        })
+        .catch((err) => console.log(err));
+    },
     markAsRead() {
       axios
         .get(`${apiDomain}/api/mark-all-read/${this.user.id}`)

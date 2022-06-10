@@ -5,7 +5,7 @@
       title="Etnafes-Tourisme et attractions locales"
       image="https://etnafes.com/images/foret-etnafes-voyage111.jpg"
     />
-   <!--  <h2>Sticky Element: Scroll Down to See the Effect</h2>
+    <!--  <h2>Sticky Element: Scroll Down to See the Effect</h2>
 <p>Scroll down this page to see how  sticky positioning works.</p>
 <div class="sticky">I will stick to the screen when you reach my scroll position</div> -->
     <div v-if="login == true">
@@ -553,8 +553,6 @@
     </b-modal>
 
     <div class="container" style="margin-bottom: 70px">
-     
-       
       <!-- <button
         type="button"
         @click="hasHistory() 
@@ -683,41 +681,54 @@
 
             <br />
             <b-tabs content-class="mt-3" justified>
-              <b-tab no-body >
+              <b-tab no-body>
                 <template #title v-if="hebergement.url_video">
                   Photos
                 </template>
                 <div id="app" class="container d-lg-none">
-            
                   <slider :autoplay="false" autoplayTimeout="100000">
                     <slider-item
                       v-for="(i, index) in get_image"
                       :key="index"
                       :style="i"
                     >
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/${i}`"
                       />
                     </slider-item>
-                  </slider> 
-
-            </div>
-            <div class="d-none d-lg-block">
-                <lingallery :iid.sync="currentId" :width="600" :height="400" responsive="true" :items="get_image_url"/>
-                <!-- <vue-gallery-slideshow 
+                  </slider>
+                </div>
+                <div class="d-none d-lg-block">
+                  <lingallery
+                    :iid.sync="currentId"
+                    :width="600"
+                    :height="400"
+                    responsive="true"
+                    :items="get_image_url"
+                  />
+                  <!-- <vue-gallery-slideshow 
                     style="posision: fixed"
                     :images="get_image_url"
                     index="0"
                     @close="index = null"
                   >
                   </vue-gallery-slideshow> -->
-                  <p style="margin-top:15px;padding-left:20px;padding-right:20px;padding-bottom:20px;">{{ hebergement.description }}</p>
-            </div>
-                
-              
+                  <p
+                    style="
+                      margin-top: 15px;
+                      padding-left: 20px;
+                      padding-right: 20px;
+                      padding-bottom: 20px;
+                    "
+                  >
+                    {{ hebergement.description }}
+                  </p>
+                </div>
+
                 <!-- <b-carousel
                   class="carousel-item22 d-none d-lg-block"
-                  v-model="slide"
+               
                   :interval="400000"
                   controls
                   indicators
@@ -738,7 +749,7 @@
 
                 <b-carousel
                   class="carousel-item23 d-lg-none"
-                  v-model="slide"
+               
                   :interval="400000"
                   controls
                   indicators
@@ -769,37 +780,40 @@
 
               <b-tab no-body title="Images 360" v-if="hebergement.url_video">
                 <div
-              class="d-none d-lg-block"
-              v-if="
-                hebergement.images_hebergement360 &&
-                hebergement.images_hebergement360.length != 0
-              "
-            >
-              <div class="container" style="padding-bottom: 20px">
-                <center>
-                  <h3 style="line-height: 40px; color: #000; padding-top: 30px">
-                    Virtual Reality 360°
-                    <hr style="border-top: 2px solid #ff931f; width: 10%" />
-                  </h3>
-                </center>
-                <div class="row">
-                  <Vr360
-                    style="width: 50vw; height: 35vh; padding-bottom: 20px"
-                    class="col-md-4"
-                    v-for="(image, k) in hebergement.images_hebergement360"
-                    v-bind:key="k"
-                    :imgSrc="`https://etnafes.com/hebergement360/${image.url_image}`"
-                  />
+                  class="d-none d-lg-block"
+                  v-if="
+                    hebergement.images_hebergement360 &&
+                    hebergement.images_hebergement360.length != 0
+                  "
+                >
+                  <div class="container" style="padding-bottom: 20px">
+                    <center>
+                      <h3
+                        style="
+                          line-height: 40px;
+                          color: #000;
+                          padding-top: 30px;
+                        "
+                      >
+                        Virtual Reality 360°
+                        <hr style="border-top: 2px solid #ff931f; width: 10%" />
+                      </h3>
+                    </center>
+                    <div class="row">
+                      <Vr360
+                        style="width: 50vw; height: 35vh; padding-bottom: 20px"
+                        class="col-md-4"
+                        v-for="(image, k) in hebergement.images_hebergement360"
+                        v-bind:key="k"
+                        :imgSrc="`https://etnafes.com/hebergement360/${image.url_image}`"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            
               </b-tab>
             </b-tabs>
 
             <div class="row">
-
-             
               <!-- <div class="col-md-12">
                 <p style="padding: 20px">{{ hebergement.description }}</p>
               </div> -->
@@ -814,7 +828,6 @@
                 <div class="col-md-4">
                   <b-carousel
                     class="carousel-item-chambre"
-                    v-model="slide"
                     :interval="400000"
                     controls
                     indicators
@@ -837,7 +850,8 @@
                 <div class="col-md-4">
                   <div class="row" style="font-weight: bold; margin: 0">
                     <div>
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         src="https://img.icons8.com/material-outlined/24/000000/bed.png"
                       />&nbsp;{{ chambre.nb_lit }} lit(s)
                     </div>
@@ -845,7 +859,8 @@
 
                   <div class="row" style="font-weight: bold; margin: 0">
                     <div>
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         src="https://img.icons8.com/material-outlined/24/000000/person-male.png"
                       />&nbsp;{{ chambre.nb_places }} personne(s)
                     </div>
@@ -864,7 +879,6 @@
                     type="submit"
                     fill
                     @click="
-                    
                       Saveloading();
                       fetchChambre(chambre.id);
                     "
@@ -910,14 +924,17 @@
                   </span>
 
                   <span v-if="hebergement.lave_linge == 1">
-                    <img loading="lazy" src="/tumble-dry-etnafes.png" /> Lave-linge
+                    <img loading="lazy" src="/tumble-dry-etnafes.png" />
+                    Lave-linge
                   </span>
                   <span v-if="hebergement.climatisation == 1">
-                    <img loading="lazy" src="/air-conditioner-etnafes.png" /> Climatisation
+                    <img loading="lazy" src="/air-conditioner-etnafes.png" />
+                    Climatisation
                   </span>
 
                   <span v-if="hebergement.eau_chaude == 1">
-                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau Chaude
+                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau
+                    Chaude
                   </span>
 
                   <span v-if="hebergement.salle_de_bain == 1">
@@ -939,13 +956,15 @@
                   <br />
                   <h2 style="margin-top: 30px">&nbsp;</h2>
                   <div v-if="hebergement.climatisation == 1">
-                    <img loading="lazy" src="/air-conditioner-etnafes.png" /> Climatisation
+                    <img loading="lazy" src="/air-conditioner-etnafes.png" />
+                    Climatisation
                     <br />
                     <br />
                   </div>
 
                   <div v-if="hebergement.eau_chaude == 1">
-                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau Chaude
+                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau
+                    Chaude
                     <br />
                     <br />
                   </div>
@@ -970,7 +989,7 @@
                     <br />
                   </div>
                 </div>
-                <br>
+                <br />
               </div>
 
               <div class="row d-lg-none">
@@ -985,19 +1004,23 @@
                   >&nbsp;
 
                   <span v-if="hebergement.television == 1">
-                    <img loading="lazy" src="/tv-etnafes.png" /> Télévision </span
+                    <img loading="lazy" src="/tv-etnafes.png" />
+                    Télévision </span
                   >&nbsp;
 
                   <span v-if="hebergement.chauffage == 1">
-                    <img loading="lazy" src="/heating-etnafes.png" /> Chauffage </span
+                    <img loading="lazy" src="/heating-etnafes.png" />
+                    Chauffage </span
                   >&nbsp;
 
                   <span v-if="hebergement.cuisine == 1">
-                    <img loading="lazy" src="/kitchen-etnafes.png" /> Cuisine </span
+                    <img loading="lazy" src="/kitchen-etnafes.png" />
+                    Cuisine </span
                   >&nbsp;
 
                   <span v-if="hebergement.lave_linge == 1">
-                    <img loading="lazy" src="/tumble-dry-etnafes.png" /> Lave-linge </span
+                    <img loading="lazy" src="/tumble-dry-etnafes.png" />
+                    Lave-linge </span
                   >&nbsp;
 
                   <span v-if="hebergement.climatisation == 1">
@@ -1006,7 +1029,8 @@
                   >&nbsp;
 
                   <span v-if="hebergement.eau_chaude == 1">
-                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau Chaude </span
+                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau
+                    Chaude </span
                   >&nbsp;
 
                   <span v-if="hebergement.salle_de_bain == 1">
@@ -1140,7 +1164,8 @@
                 >
                   <div class="row">
                     <div class="col-md-4">
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${avisheb.client.photo}`"
                         alt="Profile Photo"
                         width="60%"
@@ -1177,7 +1202,8 @@
                   <center>
                     <div class="row" style="padding: 7px">
                       <div class="col-mx-4">
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${avisheb.client.photo}`"
                           alt="Profile Photo"
                           width="40%"
@@ -1226,43 +1252,51 @@
               </button>
             </div>
             <gmap-map
-            class="d-none d-lg-block"
-            :center="center"
-            :zoom="12"
-            style="width: 100%; height: 420px"
-          >
-            <GmapMarker
-              icon="/Etnafes-icon01.png"
-              :position="markersh.position"
-              @click="toggleInfoWindow(markersh)"
-            ></GmapMarker>
-            <gmap-info-window
-              :options="infoOptions"
-              :position="infoWindowPos"
-              :opened="infoWinOpen"
-              @closeclick="infoWinOpen = false"
+              class="d-none d-lg-block"
+              :center="center"
+              :zoom="12"
+              style="width: 100%; height: 420px"
             >
-              <info-content :content="InfoDepanneur"></info-content>
-            </gmap-info-window>
-          </gmap-map>
+              <GmapMarker
+                icon="/Etnafes-icon01.png"
+                :position="markersh.position"
+                @click="toggleInfoWindow(markersh)"
+              ></GmapMarker>
+              <gmap-info-window
+                :options="infoOptions"
+                :position="infoWindowPos"
+                :opened="infoWinOpen"
+                @closeclick="infoWinOpen = false"
+              >
+                <info-content :content="InfoDepanneur"></info-content>
+              </gmap-info-window>
+            </gmap-map>
           </b-card>
 
           <!-- <facebook :url="url" scale="3"></facebook> -->
         </div>
 
-        <div class="col-md-4 d-none d-lg-block" id="map" ref="map" style="position: fixed;
-  bottom: 10px;
- top:10px;
- width:33%;
-  right: 0;z-index:1">
-        <!-- par chambre -->
+        <div
+          class="col-md-4 d-none d-lg-block"
+          id="map"
+          ref="map"
+          style="
+            position: fixed;
+            bottom: 10px;
+            top: 10px;
+            width: 33%;
+            right: 0;
+            z-index: 1;
+          "
+        >
+          <!-- par chambre -->
           <!-- v-if="hebergement.type == 'par chambre' && chambre.length != 0" -->
 
           <div
             v-if="hebergement.type == 'par chambre' && chambre.length != 0"
             class="card d-none d-lg-block card-fixed"
             style="
-             margin-top: 60px;
+              margin-top: 60px;
               border: 1px solid rgb(51, 51, 51);
               width: 77%;
               margin-left: 51px;
@@ -1420,7 +1454,6 @@
               border: 1px solid rgb(51, 51, 51);
               width: 77%;
               margin-left: 51px;
-              
             "
           >
             <div class="card-body">
@@ -1443,7 +1476,8 @@
                         Aucune chambre sélectionnée...
                       </p>
                       <div class="col-md-10 offset-md-1">
-                        <date-range-picker disabled
+                        <date-range-picker
+                          disabled
                           required
                           style="
                             width: 100%;
@@ -1465,7 +1499,6 @@
                 </div>
 
                 <div class="row">
-                  
                   <center>
                     <b-button
                       style="margin-left: 90px; margin-top: 20px"
@@ -1497,15 +1530,10 @@
                 <!-- supprimz -->
                 <div class="row">
                   <div class="col-md-12">
-                    <h3 style="color: #333">
-                      Total:0.00 DT
-                      
-                    </h3>
+                    <h3 style="color: #333">Total:0.00 DT</h3>
 
                     <p style="color: rgb(51, 51, 51); margin-top: -25px">
-                      Détails:
-                      0 nuits,
-                      0 personnes<br />
+                      Détails: 0 nuits, 0 personnes<br />
                     </p>
                   </div>
                   <div
@@ -1537,7 +1565,7 @@
           <!-- end par chambre -->
           <br class="d-none d-lg-block" />
 
-           <!-- <gmap-map
+          <!-- <gmap-map
             class="d-none d-lg-block"
             :center="center"
             :zoom="12"
@@ -1557,7 +1585,7 @@
               <info-content :content="InfoDepanneur"></info-content>
             </gmap-info-window>
           </gmap-map>  -->
-                 <!-- par personne -->
+          <!-- par personne -->
           <div
             v-if="
               hebergement.type == 'par personne' ||
@@ -1575,7 +1603,6 @@
             <div class="card-body">
               <!-- Form -->
               <form name>
-
                 <div class="row" style="margin-top: 25px">
                   <div class="col-sm-12 col-xs-3">
                     <div class="row">
@@ -1584,7 +1611,8 @@
                         >{{ hebergement.prix_adulte }} DT / nuit
                         <br />
 
-                        Sélectionnez les dates voir le prix.</span>
+                        Sélectionnez les dates voir le prix.</span
+                      >
                       <div class="col-md-10 offset-md-1">
                         <date-range-picker
                           required
@@ -1768,11 +1796,13 @@
                     </h3>
 
                     <p style="color: rgb(51, 51, 51); margin-top: -25px">
-                      Détails: {{ calculIntervalDateRes_calender.length }} nuits,{{ nb_adulte }} adultes,
-                      {{
-                          Number(nb_enfant15) + Number(nb_enfant4)
-                        }}
-                        enfants
+                      Détails:
+                      {{ calculIntervalDateRes_calender.length }} nuits,{{
+                        nb_adulte
+                      }}
+                      adultes,
+                      {{ Number(nb_enfant15) + Number(nb_enfant4) }}
+                      enfants
                     </p>
                   </div>
                   <div class="col-md-7" v-if="get_date_complet.length > 0">
@@ -1822,18 +1852,9 @@
           </gmap-map>
           <!-- style="background-color: #ff931f; border: 0px; margin-top: 40px" -->
 
-   
-
-          
-
           <div
             class="card d-none d-lg-block"
-            style="
-              
-              border: 0px;
-              margin-top: 2px;
-              margin-bottom: 40px;
-            "
+            style="border: 0px; margin-top: 2px; margin-bottom: 40px"
           >
             <!--Card content-->
             <div class="card-body">
@@ -1842,7 +1863,8 @@
                 class="dark-grey-text text-center"
                 style="margin-top: 5px; font-family: 'Poppins', sans-serif"
               >
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   width="15%"
                   style="border-radius: 50%"
                   :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${hebergeur.photo}`"
@@ -1901,7 +1923,8 @@
                 class="dark-grey-text text-center"
                 style="margin-top: 5px; font-family: 'Poppins', sans-serif"
               >
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   width="15%"
                   style="border-radius: 50%"
                   :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${hebergeur.photo}`"
@@ -1945,7 +1968,6 @@
           </div>
         </div>
 
-
         <div class="col-md-4 d-lg-none" id="map" ref="map">
           <gmap-map
             class="d-lg-none"
@@ -1984,7 +2006,8 @@
                 class="dark-grey-text text-center"
                 style="margin-top: 5px; font-family: 'Poppins', sans-serif"
               >
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   width="15%"
                   style="border-radius: 50%"
                   :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${hebergeur.photo}`"
@@ -2494,8 +2517,7 @@ import { IntegerPlusminus } from "vue-integer-plusminus";
 import VueNumberInput from "@smartweb/vue-number-input";
 import Vue from "vue";
 import VueGallerySlideshow from "vue-gallery-slideshow";
-import Lingallery from 'lingallery';
-
+import Lingallery from "lingallery";
 
 export default {
   metaInfo: {
@@ -2549,7 +2571,6 @@ export default {
     SocialSharing,
     DateRangePicker,
     VueGallerySlideshow,
-
   },
   data() {
     let vv = new Date();
@@ -2799,16 +2820,14 @@ export default {
     }
   },
   computed: {
-
     get_image() {
-       var result = [];
+      var result = [];
       var moyenne = "";
 
       const res = this.hebergement.images_hebergement;
       for (var i = 0; i < res.length; i++) {
-          moyenne =res[i].url_image;
-          result.push(moyenne);
- 
+        moyenne = res[i].url_image;
+        result.push(moyenne);
       }
 
       return result;
@@ -2820,12 +2839,11 @@ export default {
 
       const res = this.hebergement.images_hebergement;
       for (var i = 0; i < res.length; i++) {
-          moyenne =
-            "https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/" +
-            res[i].url_image;
-          // result.push(moyenne);
-          result.push({ src: moyenne, thumbnail:moyenne });
- 
+        moyenne =
+          "https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/" +
+          res[i].url_image;
+        // result.push(moyenne);
+        result.push({ src: moyenne, thumbnail: moyenne });
       }
 
       return result;
@@ -3149,7 +3167,7 @@ export default {
         this.loading = !true;
       }, 800);
     },
-  
+
     dateFormatHebrgement(classes, date) {
       if (!classes.disabled) {
         classes.disabled = date.getTime() < new Date();

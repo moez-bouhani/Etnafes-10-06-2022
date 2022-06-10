@@ -145,7 +145,7 @@
       </p>
       <b-carousel
         id="carousel-1"
-        v-model="slide"
+     
         :interval="4000"
         controls
         indicators
@@ -1923,10 +1923,6 @@ export default {
   height: 140px !important;
   object-fit: cover;
 }
-
-
-
-
 
 .MyCustomClass1 {
   width: 100%;

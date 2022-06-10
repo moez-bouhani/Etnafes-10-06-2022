@@ -8,7 +8,7 @@
             <!--    <div class="col-md-6">
             <b-carousel
               id="carousel-PAgence222"
-              v-model="slide"
+           
               :interval="4000"
               controls
               indicators

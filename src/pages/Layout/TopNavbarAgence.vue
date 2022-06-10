@@ -22,7 +22,11 @@
         </div>
         <!-- <a class="navbar-brand" href="javascript:void(0)">{{ $route.name }}</a> -->
         <a href="/">
-          <img loading="lazy" src="/images/logo-etnafes-couleur.png" width="10%" />
+          <img
+            loading="lazy"
+            src="/images/logo-etnafes-couleur.png"
+            width="10%"
+          />
         </a>
       </div>
       <button
@@ -77,12 +81,12 @@
             >
               <i class="tim-icons icon-sound-wave"></i>
               <p class="d-lg-none text-left">Notifications</p>
-              <span class="badge badge-danger" @click="resetNotification">{{
+              <!--  <span class="badge badge-danger" >{{
                 reservations.length
-              }}</span>
+              }}</span> -->
             </a>
             <div>
-              <ul
+              <!--  <ul
                 class="not dropdown-menu dropdown-menu-right dropdown-navbar"
                 id="feed"
                 ref="feed"
@@ -107,12 +111,13 @@
                   >
                     <div class="row">
                       <a href="#" class="nav-item dropdown-item">
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           class="photo"
                           :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${notification.dateres.photo}`"
                           alt="Profile Photo"
                         />&nbsp;
-                        <!-- v-for="client in notification.client" :key="client.id" -->
+                     
                         <b>
                           {{ notification.client.nom }}
                           {{ notification.client.prenom }}
@@ -140,15 +145,16 @@
                     <img loading="lazy" src="not-disturb-etnafes.png" />
                   </p>
                 </div>
-              </ul>
+              </ul> -->
             </div>
           </drop-down>
           <drop-down>
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
               <div class="photo">
                 <!-- <img loading="lazy" src="@/assets/img/anime3.png" alt="Profile Photo" /> -->
-                <img loading="lazy"
-                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_agence/${adagence.photo}`"
+                <img
+                  loading="lazy"
+                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
                   alt="Profile Photo"
                 />
               </div>
@@ -202,6 +208,7 @@ export default {
   },
   data() {
     return {
+      client: [],
       reservations: [],
       adagence: {},
       notifications: [],
@@ -233,9 +240,20 @@ export default {
   created() {
     this.fetchReservations(this.$store.state.user.id);
     this.fetchagenceadmin(this.$store.state.user.id);
+    this.fetchclient(this.$store.state.user.id);
   },
 
   methods: {
+    fetchclient(id) {
+      fetch(
+        `${apiDomain}/api/client/${this.$store.state.user.id}?token=${this.$store.state.token}`
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          this.client = res;
+        })
+        .catch((err) => console.log(err));
+    },
     resetNotification: function () {
       if (this.reservations.length > 0) {
         this.reservations.length = 0;

@@ -1,11 +1,12 @@
 <template>
   <div class="content">
     <div class="row">
-      <div class="card mb-3" style="max-width: 540px">
+      <div class="card mb-3" style="width: 100%">
         <div class="row g-0">
           <div class="col-md-4">
-            <img loading="lazy"
-              style="padding: 10px"
+            <img
+              loading="lazy"
+              style="padding: 10px; width: 70%"
               :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
               alt="Profile Photo"
             />&nbsp;
@@ -26,11 +27,12 @@
         </div>
       </div>
       &nbsp;&nbsp;
-      <div class="card mb-3" style="max-width: 540px">
+      <div class="card mb-3" style="width: 100%">
         <div class="row g-0">
           <div class="col-md-4">
-            <img loading="lazy"
-              style="padding: 10px"
+            <img
+              loading="lazy"
+              style="padding: 10px; width: 70%"
               :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/${guide.carte_professionnel}`"
               alt="Profile Photo"
             />&nbsp;

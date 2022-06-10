@@ -10,7 +10,6 @@
           <div class="col-md-6">
             <b-carousel
               id="carousel-1"
-              v-model="slide"
               :interval="4000"
               controls
               indicators

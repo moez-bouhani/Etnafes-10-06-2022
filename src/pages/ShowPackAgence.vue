@@ -18,7 +18,8 @@
       </ol>
     </nav>
 
-    <div hidden ><!-- v-if="loaded == false" -->
+    <div hidden>
+      <!-- v-if="loaded == false" -->
       <center>
         <div
           class="spinner-grow text-dark"
@@ -56,8 +57,9 @@
     <div
       class="container"
       style="margin-bottom: 70px"
-      v-if="pack.adagence_id == propagence[0].id "
-    ><!-- && loaded == true -->
+      v-if="pack.adagence_id == propagence[0].id"
+    >
+      <!-- && loaded == true -->
       <div class="row">
         <div class="col-md-8">
           <b-card no-body>
@@ -79,7 +81,6 @@
                   >
                     <b-carousel
                       id="carousel-1"
-                      v-model="slide"
                       :interval="4000"
                       controls
                       indicators
@@ -131,7 +132,6 @@
                   >
                     <b-card-footer class="footer-slider">
                       <b-carousel
-                        v-model="slide"
                         :interval="4000"
                         controls
                         indicators
@@ -249,7 +249,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
                           :interval="4000"
                           controls
                           indicators
@@ -446,7 +445,7 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
+                       
                           :interval="4000"
                           controls
                           indicators

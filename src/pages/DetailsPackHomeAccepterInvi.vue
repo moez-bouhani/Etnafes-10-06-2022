@@ -335,7 +335,6 @@
       </p>
       <b-carousel
         id="carousel-1"
-        v-model="slide"
         :interval="4000"
         controls
         indicators
@@ -1456,7 +1455,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
                           :interval="4000"
                           controls
                           indicators
@@ -2306,7 +2304,6 @@
                     <div>
                       <b-carousel
                         id="carousel-1"
-                        v-model="slide"
                         :interval="4000"
                         controls
                         indicators
@@ -2789,8 +2786,8 @@
             <div class="row m-0" style="padding: 10px">
               <span style="color: #333">
                 - Invité un(e) personne <br />
-                - Gagnier 2000 DT a votre compte sur chaque réservation
-                réussite de votre part.
+                - Gagnier 2000 DT a votre compte sur chaque réservation réussite
+                de votre part.
               </span>
             </div>
             <div class="row m-0">

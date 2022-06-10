@@ -74,6 +74,7 @@ import Agences from '@/pages/Agences.vue'
 
 import inscrit_femme from '@/pages/inscrit_femme.vue'
 
+import espace_etanfes from '@/pages/espace_etanfes.vue'
 
 import DetailsPackHome from '@/pages/DetailsPackHome.vue'
 import DetailsPackHomeAccepterInvi from '@/pages/DetailsPackHomeAccepterInvi.vue'
@@ -907,6 +908,24 @@ const routes = [
   },
 
   {
+    path: '/espace_etanfes',
+    name: 'espace_etanfes',
+    component: espace_etanfes,
+    beforeEnter: (to, from, next) => {
+      if (store.state.loggedIn == true) {
+        next()
+      } else {
+        next('/')
+      }
+    },
+    meta: {
+      guest: true
+    }
+  },
+
+  
+
+  {
     path: '/register/guide',
     name: 'RegisterGuide',
     component: RegisterGuide,
@@ -1343,39 +1362,7 @@ const routes = [
       },
 
 
-      {
-        path: '/nouveaurestaurant',
-        name: 'nouveau_restaurant',
-        component: resolve => require(['@/pages/NouveauRestaurant'], resolve),
-          beforeEnter: (to, from, next) => {
-            if (store.state.loggedIn == true) {
-            if (store.state.user.active == 1)
-            next()
-            else {
-            next('/client')
-            }
-            } else {
-            next('/client')
-            }
-            },
-      },
-
-      {
-        path: '/nouveaurestaurant',
-        name: 'nouveau_restaurantactive',
-        component: resolve => require(['@/pages/NouveauRestaurantActive'], resolve),
-          beforeEnter: (to, from, next) => {
-            if (store.state.loggedIn == true) {
-            if (store.state.user.active == 1)
-            next()
-            else {
-            next('/client')
-            }
-            } else {
-            next('/client')
-            }
-            },
-      },
+   
       {
         path: "notifications/client",
         name: "NotificationsClient",
@@ -1498,7 +1485,7 @@ const routes = [
       
     ]
   },
-
+/* resto moez */
   {
     path: "/",
     component: DashboardLayoutPropRestau,
@@ -1522,10 +1509,46 @@ const routes = [
         component: DashboardProprietaireRestau,
       },
 
+
+
+      {
+        path: '/nouveaurestaurant',
+        name: 'nouveau_restaurant',
+        component: resolve => require(['@/pages/NouveauRestaurant'], resolve),
+          beforeEnter: (to, from, next) => {
+            if (store.state.loggedIn == true) {
+            if (store.state.user.active == 1)
+            next()
+            else {
+            next('/client')
+            }
+            } else {
+            next('/client')
+            }
+            },
+      },
+
+      {
+        path: '/nouveaurestaurant',
+        name: 'nouveau_restaurantactive',
+        component: resolve => require(['@/pages/NouveauRestaurantActive'], resolve),
+          beforeEnter: (to, from, next) => {
+            if (store.state.loggedIn == true) {
+            if (store.state.user.active == 1)
+            next()
+            else {
+            next('/proprietaire/restaurant')
+            }
+            } else {
+            next('/proprietaire/restaurant')
+            }
+            },
+      },
+
       {
         path: "proprietaire/restaurant",
         name: "ProprietaireRestaurant",
-        component: ProprietaireRestauProfile,
+        component: ClientProfile,
       },
 
       {
@@ -1603,10 +1626,10 @@ const routes = [
             if (store.state.user.active == 1)
             next()
             else {
-            next('/client')
+            next('/hebergeur')
             }
             } else {
-            next('/client')
+            next('/hebergeur')
             }
             },
       },
@@ -2031,11 +2054,9 @@ const routes = [
     redirect: "dashboard",
     beforeEnter: (to, from, next) => {
       if (store.state.loggedIn == true) {
-      if (store.state.user.role == 10)
+
       next()
-      else {
-      next('/')
-      }
+     
       } else {
       next('/')
       }
@@ -2049,7 +2070,7 @@ const routes = [
       },
 
       {
-        path: "femme",
+        path: "Artisan",
          name: "femme",
         component: FemmeProfile,
       },

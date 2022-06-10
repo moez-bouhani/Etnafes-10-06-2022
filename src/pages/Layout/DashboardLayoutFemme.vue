@@ -13,7 +13,7 @@
         </template>
       </sidebar-link>
 
-      <sidebar-link class="menuAdmin" to="/femme">
+      <sidebar-link class="menuAdmin" to="/Artisan">
         <i class="tim-icons icon-single-02"></i>
         <template v-if="!isRTL">
           <p style="color: #fff">Profile</p>

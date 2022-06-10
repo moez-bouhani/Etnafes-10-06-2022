@@ -27,7 +27,7 @@
       <sidebar-link to="/allrestaurants">
         <i class="tim-icons icon-notes"></i>
         <template v-if="!isRTL">
-          <p style="color:#fff">Les restaurants</p>
+          <p style="color:#fff">Mes restaurants</p>
         </template>
         <template v-else>
           <p>طباعة</p>

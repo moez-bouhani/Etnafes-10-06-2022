@@ -614,16 +614,6 @@
               </ul>
             </div>
           </drop-down>-->
-          <div v-if="!loggedIn">
-            <div id="fb-root"></div>
-            <div
-              async
-              defer
-              crossorigin="anonymous"
-              src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0&appId=283287456919492&autoLogAppEvents=1"
-              nonce="j2GaPHAw"
-            ></div>
-          </div>
 
           <drop-down>
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -631,20 +621,20 @@
                 <!-- <img loading="lazy" src="@/assets/img/anime3.png" alt="Profile Photo" /> -->
                 <img
                   loading="lazy"
-                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${user.photo}`"
+                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${clientt.photo}`"
                   alt="Profile Photo"
                 />
               </div>
               <b class="caret d-none d-lg-block d-xl-block"></b>
-              <p class="d-lg-none">Log out</p>
+              <p class="d-lg-none">{{ clientt.nom }}</p>
             </a>
             <ul class="dropdown-menu dropdown-navbar">
               <li class="nav-link">
-                <a href="/user" class="nav-item dropdown-item">Profile</a>
+                <a href="/Artisan" class="nav-item dropdown-item">Profil</a>
               </li>
               <li class="nav-link">
-                <a href="/statistiques" class="nav-item dropdown-item"
-                  >Dashboard</a
+                <a href="/listes_mes_produit" class="nav-item dropdown-item">
+                  Mes produits</a
                 >
               </li>
               <li class="dropdown-divider"></li>
@@ -714,6 +704,7 @@ export default {
       hebergements: [],
       hebergementsUnread: [],
       clients: [],
+      clientt: [],
       proprietaires: [],
       guides: [],
       adagences: [],
@@ -733,6 +724,7 @@ export default {
   },
 
   created() {
+    this.fetchuser(this.$store.state.user.id);
     /* this.fetchProprietaires();
     this.fetchGuides();
     this.fetchAdagences();
@@ -751,6 +743,16 @@ export default {
     },
   },
   methods: {
+    fetchuser(id) {
+      fetch(
+        `${apiDomain}/api/client/${this.$store.state.user.id}?token=${this.$store.state.token}`
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          this.clientt = res;
+        })
+        .catch((err) => console.log(err));
+    },
     fetchReservations() {
       fetch(`${apiDomain}/api/allreservations?token=${this.$store.state.token}`)
         .then((res) => res.json())
@@ -869,6 +871,7 @@ export default {
         this.reservationsPack.length = 0;
       }
     },
+
     fetchClients() {
       fetch(`${apiDomain}/api/allclients?token=${this.$store.state.token}`)
         .then((res) => res.json())

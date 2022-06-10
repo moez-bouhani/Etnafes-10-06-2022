@@ -1,15 +1,20 @@
 <template>
   <div class="content">
-    <!-- <router-link :to="{name:'nouveau_hebergement'}">
+    <router-link :to="{ name: 'nouveau_hebergement' }">
       <button
         type="button"
         class="btn btn-outline-success mt-3"
-        style="color:#fff;margin-bottom:20px;border-radius: 18px 0px 18px 0px;"
+        style="
+          color: #fff;
+          margin-bottom: 20px;
+          border-radius: 18px 0px 18px 0px;
+        "
       >
         <i class="fa fa-plus"></i>
         &nbsp;&nbsp;Nouveau Hébergement
       </button>
-    </router-link>-->
+    </router-link>
+
     <div class="row" v-if="heblength != 0">
       <div class="col-md-12">
         <div>
@@ -24,7 +29,7 @@
                 style="
                   border: 1px solid #ebebeb;
                   width: 100%;
-                  height: 30px;
+                  height: 50px;
                   margin-bottom: 10px;
                 "
               />

@@ -129,7 +129,7 @@
 </template>
 <style lang="scss"></style>
 <script>
-import TopNavbar from "./TopNavbarClient.vue";
+import TopNavbar from "./TopNavbarAgence.vue";
 import ContentFooter from "./ContentFooter.vue";
 import DashboardContent from "./DashboardContent.vue";
 import SidebarShare from "./SidebarSharePlugin.vue";

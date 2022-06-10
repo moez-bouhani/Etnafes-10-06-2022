@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-md-1">
           <router-link :to="{ name: 'Home' }">
-            <img loading="lazy"
+            <img
+              loading="lazy"
               class="logo_top_nav"
               alt="logo"
               src="/images/logo-etnafes-couleur-blanc.png"
@@ -20,9 +21,9 @@
         <div class="col-md-10 testresp">
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
-             <b-nav-item>
+              <b-nav-item>
                 <router-link class="nav-link" to="/">Accueil</router-link>
-              </b-nav-item> 
+              </b-nav-item>
               <b-nav-item class="d-none d-lg-block">
                 <router-link class="nav-link" to="/packs"
                   >Nos Circuits</router-link
@@ -47,11 +48,10 @@
               </b-nav-item>
 
               <b-nav-item v-if="!loggedIn" class="d-none d-lg-block">
-                <router-link class="nav-link" to="/inscritfemme" 
+                <router-link class="nav-link" to="/inscritfemme"
                   >Espace Femme R/A</router-link
                 >
               </b-nav-item>
-
 
               <b-nav-item v-if="!loggedIn" class="d-lg-none">
                 <router-link class="nav-link" to="/login/femme"
@@ -97,32 +97,41 @@
                 <b-dropdown-item href="#">RU</b-dropdown-item>
                 <b-dropdown-item href="#">FA</b-dropdown-item>
               </b-nav-item-dropdown>
-
+              <b-nav-item v-if="loggedIn">
+                <router-link class="nav-link" to="/espace_etanfes">{{
+                  espace
+                }}</router-link>
+              </b-nav-item>
               <b-nav-item-dropdown right v-if="loggedIn">
                 <template v-slot:button-content>
                   <em>{{ user.nom }} {{ user.prenom }}</em>
                   &nbsp;
                   <em v-if="user.role == 1">{{ user.name }}&nbsp;</em>
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     v-if="user.role == 1"
                     :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_admins/${user.photo}`"
                     alt="Profile Photo"
                     class="photo"
                   />
-                  <img loading="lazy"
+
+                  <img
+                    loading="lazy"
                     v-if="user.role != 1 && user.provider != null"
                     :src="`${client.photo}`"
                     alt="Profile Photo"
                     class="photo"
                   />
 
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     v-if="user.role != 1 && user.provider == null"
                     :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
                     alt="Profile Photo"
                     class="photo"
                   />
                 </template>
+                <!-- espace etanfes admin -->
 
                 <!-- admin -->
                 <b-dropdown-item v-if="user.role == 1" href="/user"
@@ -132,65 +141,141 @@
                 <b-dropdown-item v-if="user.role == 1" href="/statistiques"
                   >Dashboard</b-dropdown-item
                 >
-
+                <!-- espace etanfes admin -->
                 <!-- client -->
-                <b-dropdown-item v-if="user.role == 2" to="/dashboard_client">
-                  <router-link to="/dashboard_client">Dashboard</router-link>
-                </b-dropdown-item>
-                <b-dropdown-item v-if="user.role == 2" to="/client">
-                  <router-link to="/client">Profile</router-link>
-                </b-dropdown-item>
-                <b-dropdown-item
-                  v-if="user.role == 2"
-                  to="/reservations-client"
-                >
-                  <router-link to="/reservations-client"
-                    >Mes réservations</router-link
-                  >
-                </b-dropdown-item>
+                <div v-if="espace == 'Espace Voyageur'">
+                  <b-dropdown-item to="/dashboard_client">
+                    <router-link to="/dashboard_client">Dashboard</router-link>
+                  </b-dropdown-item>
+                  <b-dropdown-item to="/client">
+                    <router-link to="/client">Profile</router-link>
+                  </b-dropdown-item>
+                  <b-dropdown-item to="/reservations-client">
+                    <router-link to="/reservations-client"
+                      >Mes réservations</router-link
+                    >
+                  </b-dropdown-item>
+                </div>
+                <!-- artisan -->
+                <div v-if="espace == 'Espace Artisan'">
+                  <b-dropdown-item to="/dashboard_femme">
+                    <router-link to="/dashboard_femme">Dashboard</router-link>
+                  </b-dropdown-item>
 
-                <b-dropdown-item v-if="user.role == 2" to="/nouveauhebergement">
-                  <router-link to="/nouveauhebergement">Hébergeur</router-link>
-                </b-dropdown-item>
+                  <b-dropdown-item to="/Artisan">
+                    <router-link to="/Artisan">Profile</router-link>
+                  </b-dropdown-item>
 
-                <b-dropdown-item v-if="user.role == 2" to="/nouveaupack/agence">
-                  <router-link to="/nouveaupack/agence"
-                    >Prestataire de Services</router-link
-                  >
-                </b-dropdown-item>
+                  <b-dropdown-item to="/ajouter_produit_femme">
+                    <router-link to="/ajouter_produit_femme"
+                      >Ajouter produit</router-link
+                    >
+                  </b-dropdown-item>
 
-                <b-dropdown-item to="/guide/cv" v-if="user.role == 2">
-                  <router-link to="/guide/cv">Guide</router-link>
-                </b-dropdown-item>
-                <b-dropdown-item to="/nouveaurestaurant" v-if="user.role == 2">
-                  <router-link to="/nouveaurestaurant"
-                    >Proprietaire Resraurant</router-link
-                  >
-                </b-dropdown-item>
+                  <b-dropdown-item to="/listes_mes_produit">
+                    <router-link to="/listes_mes_produit"
+                      >Mes produits</router-link
+                    >
+                  </b-dropdown-item>
+                </div>
 
-                <b-dropdown-item
-                  to="/notifications/client"
-                  v-if="user.role == 2"
-                >
-                  <!-- class="nav-link" -->
-                  <router-link to="/notifications/client"
-                    >Notifications</router-link
-                  >
-                </b-dropdown-item>
+                <!-- guide -->
+                <div v-if="espace == 'Espace Guid'">
+                  <b-dropdown-item to="/dashboard_guide">
+                    <router-link to="/dashboard_guide">Dashboard</router-link>
+                  </b-dropdown-item>
 
-                <!-- femme -->
-                 <b-dropdown-item v-if="user.role == 10" to="/dashboard_femme">
-                  <router-link to="/dashboard_femme">Dashboard</router-link>
-                </b-dropdown-item>
-                <b-dropdown-item v-if="user.role == 10" to="/femme">
-                  <router-link to="/femme">Profile</router-link>
-                </b-dropdown-item>
-                <b-dropdown-item v-if="user.role == 10" to="/ajouter_produit_femme">
-                  <router-link to="/ajouter_produit_femme">Ajouter Produit</router-link>
-                </b-dropdown-item>
-                <b-dropdown-item v-if="user.role == 10" to="/listes_mes_produit">
-                  <router-link to="/listes_mes_produit">Liste des Produits</router-link>
-                </b-dropdown-item>
+                  <b-dropdown-item to="/guide">
+                    <router-link to="/guide">Profile</router-link>
+                  </b-dropdown-item>
+
+                  <b-dropdown-item to="/guide/cv">
+                    <router-link to="/guide/cv">Mon Cv</router-link>
+                  </b-dropdown-item>
+                </div>
+
+                <!-- agence -->
+                <div v-if="espace == 'Espace Préstataire de service'">
+                  <b-dropdown-item to="/dashboard_agence">
+                    <router-link to="/dashboard_agence">Dashboard</router-link>
+                  </b-dropdown-item>
+
+                  <b-dropdown-item to="/profil">
+                    <router-link to="/profil">Profile</router-link>
+                  </b-dropdown-item>
+
+                  <b-dropdown-item to="/MesFilialesAgence">
+                    <router-link to="/MesFilialesAgence">
+                      Mes Filiales</router-link
+                    >
+                  </b-dropdown-item>
+
+                  <b-dropdown-item to="/MesPacksAgence">
+                    <router-link to="/MesPacksAgence"> Mes Packs</router-link>
+                  </b-dropdown-item>
+                </div>
+
+                <!-- hebergeur -->
+                <div v-if="espace == 'Espace Hébergeu'">
+                  <b-dropdown-item to="/dashboard_proprietaire">
+                    <router-link to="/dashboard_proprietaire"
+                      >Dashboard</router-link
+                    >
+                  </b-dropdown-item>
+
+                  <b-dropdown-item to="/hebergeur">
+                    <router-link to="/hebergeur">Profile</router-link>
+                  </b-dropdown-item>
+
+                  <b-dropdown-item to="/NouveauHebergement">
+                    <router-link to="/NouveauHebergement">
+                      Ajouter hébergement</router-link
+                    >
+                  </b-dropdown-item>
+
+                  <b-dropdown-item to="/allhebergements">
+                    <router-link to="/allhebergements">
+                      Mes hébergements</router-link
+                    >
+                  </b-dropdown-item>
+                  <b-dropdown-item to="/reservations-hebergement">
+                    <router-link to="/reservations-hebergement">
+                      Mes réservations</router-link
+                    >
+                  </b-dropdown-item>
+                </div>
+
+                <!-- resto -->
+                <div v-if="espace == 'Espace Restaurant'">
+                  <b-dropdown-item to="/dashboard_proprietaire_restau">
+                    <router-link to="/dashboard_proprietaire_restau"
+                      >Dashboard</router-link
+                    >
+                  </b-dropdown-item>
+
+                  <b-dropdown-item to="/proprietaire/restaurant">
+                    <router-link to="/proprietaire/restaurant"
+                      >Profile</router-link
+                    >
+                  </b-dropdown-item>
+
+                  <!--   <b-dropdown-item to="/NouveauHebergement">
+                    <router-link to="/NouveauHebergement">
+                      Ajouter hébergement</router-link
+                    >
+                  </b-dropdown-item> -->
+
+                  <b-dropdown-item to="/allrestaurants">
+                    <router-link to="/allrestaurants">
+                      Mes restaurants</router-link
+                    >
+                  </b-dropdown-item>
+                  <!--  <b-dropdown-item to="/reservations-hebergement">
+                    <router-link to="/reservations-hebergement">
+                      Mes réservations</router-link
+                    >
+                  </b-dropdown-item> -->
+                </div>
 
                 <b-dropdown-item @click.prevent="performLogout"
                   >Déconnexion</b-dropdown-item
@@ -220,6 +305,7 @@ export default {
       proprestau: [],
       scrollPosition: null,
       token: null,
+      espace: localStorage.getItem("espace", this.espace),
     };
   },
   mounted() {

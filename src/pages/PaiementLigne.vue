@@ -886,7 +886,7 @@
               v-if="pack.activite_id_principal != 3"
               id="carousel-PAgence"
               class="d-none d-lg-block"
-              v-model="slide"
+           
               :interval="4000"
               controls
               indicators
@@ -912,7 +912,7 @@
               v-if="pack.activite_id_principal != 3"
               class="d-lg-none"
               id="carousel-PAgence-responsive"
-              v-model="slide"
+           
               :interval="4000"
               controls
               indicators
@@ -938,7 +938,7 @@
             <b-carousel
               hidden
               v-if="pack.activite_id_principal == 3"
-              v-model="slide"
+           
               :interval="4000"
               controls
               indicators

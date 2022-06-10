@@ -173,14 +173,16 @@
               </div>
             </div>
             <div class="col-md-1" style="margin-top: -50px; margin-left: 864px">
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 alt="edit ville"
                 v-if="paysshow == false"
                 src="/edit-property-35-etnafes.png"
                 @click="paysshow = true"
               />
 
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 v-if="paysshow == true"
                 src="/edit-property-etnafes.png"
                 @click="paysshow = false"
@@ -327,7 +329,8 @@
                       <option value="14">14</option>
                       <option value="15">15</option>
                     </select>
-                    <img loading="lazy"
+                    <img
+                      loading="lazy"
                       style="margin-top: -20px"
                       src="/minus-etnafes.png"
                       v-on:click="removeAge(index)"
@@ -385,7 +388,8 @@
                       <img loading="lazy" src="/paiment-etnafes-tn.png" />
                     </div>
                     <div class="col-md-1">
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         class="fleche"
                         onmouseover="this.style.cursor='pointer'"
                         @click="fetchAgence(agence.id)"
@@ -461,7 +465,6 @@
           <b-card no-body style="padding: 10px; border: solid 1px">
             <b-carousel
               id="carousel-PAgence"
-              v-model="slide"
               :interval="4000"
               controls
               indicators
@@ -544,7 +547,6 @@
           <div class="col-md-6">
             <b-carousel
               id="carousel-PAgence2"
-              v-model="slide"
               :interval="4000"
               controls
               indicators

@@ -128,24 +128,28 @@
               >
             </p>
             <div id="app" class="container d-lg-none">
-            
-                  <slider :autoplay="false" autoplayTimeout="100000">
-                    <slider-item
-                      v-for="(i, index) in get_image"
-                      :key="index"
-                      :style="i"
-                    >
-                      <img loading="lazy"
-                        :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/${i}`"
-                      />
-                    </slider-item>
-                  </slider> 
-
+              <slider :autoplay="false" autoplayTimeout="100000">
+                <slider-item
+                  v-for="(i, index) in get_image"
+                  :key="index"
+                  :style="i"
+                >
+                  <img
+                    loading="lazy"
+                    :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/${i}`"
+                  />
+                </slider-item>
+              </slider>
             </div>
             <div class="d-none d-lg-block">
-
-              <lingallery :iid.sync="currentId" :width="600" :height="400" responsive="true" :items="get_image_url"/>
-            <!-- <vue-gallery-slideshow 
+              <lingallery
+                :iid.sync="currentId"
+                :width="600"
+                :height="400"
+                responsive="true"
+                :items="get_image_url"
+              />
+              <!-- <vue-gallery-slideshow 
                     style="posision: fixed"
                     :images="get_image_url"
                     index="0"
@@ -155,7 +159,7 @@
             </div>
             <!-- <b-carousel
               id="carousel-1"
-              v-model="slide"
+           
               :interval="4000"
               controls
               indicators
@@ -197,14 +201,17 @@
                   </span>
 
                   <span v-if="hebergement.lave_linge == 1">
-                    <img loading="lazy" src="/tumble-dry-etnafes.png" /> Lave-linge
+                    <img loading="lazy" src="/tumble-dry-etnafes.png" />
+                    Lave-linge
                   </span>
                   <span v-if="hebergement.climatisation == 1">
-                    <img loading="lazy" src="/air-conditioner-etnafes.png" /> Climatisation
+                    <img loading="lazy" src="/air-conditioner-etnafes.png" />
+                    Climatisation
                   </span>
 
                   <span v-if="hebergement.eau_chaude == 1">
-                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau Chaude
+                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau
+                    Chaude
                   </span>
 
                   <span v-if="hebergement.salle_de_bain == 1">
@@ -226,13 +233,15 @@
                   <br />
                   <h2 style="margin-top: 30px">&nbsp;</h2>
                   <div v-if="hebergement.climatisation == 1">
-                    <img loading="lazy" src="/air-conditioner-etnafes.png" /> Climatisation
+                    <img loading="lazy" src="/air-conditioner-etnafes.png" />
+                    Climatisation
                     <br />
                     <br />
                   </div>
 
                   <div v-if="hebergement.eau_chaude == 1">
-                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau Chaude
+                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau
+                    Chaude
                     <br />
                     <br />
                   </div>
@@ -271,19 +280,23 @@
                   >&nbsp;
 
                   <span v-if="hebergement.television == 1">
-                    <img loading="lazy" src="/tv-etnafes.png" /> Télévision </span
+                    <img loading="lazy" src="/tv-etnafes.png" />
+                    Télévision </span
                   >&nbsp;
 
                   <span v-if="hebergement.chauffage == 1">
-                    <img loading="lazy" src="/heating-etnafes.png" /> Chauffage </span
+                    <img loading="lazy" src="/heating-etnafes.png" />
+                    Chauffage </span
                   >&nbsp;
 
                   <span v-if="hebergement.cuisine == 1">
-                    <img loading="lazy" src="/kitchen-etnafes.png" /> Cuisine </span
+                    <img loading="lazy" src="/kitchen-etnafes.png" />
+                    Cuisine </span
                   >&nbsp;
 
                   <span v-if="hebergement.lave_linge == 1">
-                    <img loading="lazy" src="/tumble-dry-etnafes.png" /> Lave-linge </span
+                    <img loading="lazy" src="/tumble-dry-etnafes.png" />
+                    Lave-linge </span
                   >&nbsp;
 
                   <span v-if="hebergement.climatisation == 1">
@@ -292,7 +305,8 @@
                   >&nbsp;
 
                   <span v-if="hebergement.eau_chaude == 1">
-                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau Chaude </span
+                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau
+                    Chaude </span
                   >&nbsp;
 
                   <span v-if="hebergement.salle_de_bain == 1">
@@ -353,8 +367,7 @@ import Footer from "./Layout/Footer.vue";
 import { apiDomain } from "../config";
 import InfoDepanneur from "./InfoDepanneur.vue";
 import VueGallerySlideshow from "vue-gallery-slideshow";
-import Lingallery from 'lingallery';
-
+import Lingallery from "lingallery";
 
 export default {
   components: {
@@ -368,7 +381,6 @@ export default {
     MapMarker,
     MapInfoWindow,
     VueGallerySlideshow,
-
   },
   data() {
     return {
@@ -453,33 +465,30 @@ export default {
     });
   },
 
-  computed:{
-
+  computed: {
     get_image() {
-       var result = [];
-      var moyenne = "";
-
-      const res = this.hebergement.images_hebergement;
-      for (var i = 0; i < res.length; i++) {
-          moyenne =res[i].url_image;
-          result.push(moyenne);
- 
-      }
-
-      return result;
-    },
- get_image_url() {
       var result = [];
       var moyenne = "";
 
       const res = this.hebergement.images_hebergement;
       for (var i = 0; i < res.length; i++) {
-          moyenne =
-            "https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/" +
-            res[i].url_image;
-          // result.push(moyenne);
-           result.push({ src: moyenne, thumbnail:moyenne });
- 
+        moyenne = res[i].url_image;
+        result.push(moyenne);
+      }
+
+      return result;
+    },
+    get_image_url() {
+      var result = [];
+      var moyenne = "";
+
+      const res = this.hebergement.images_hebergement;
+      for (var i = 0; i < res.length; i++) {
+        moyenne =
+          "https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/" +
+          res[i].url_image;
+        // result.push(moyenne);
+        result.push({ src: moyenne, thumbnail: moyenne });
       }
 
       return result;

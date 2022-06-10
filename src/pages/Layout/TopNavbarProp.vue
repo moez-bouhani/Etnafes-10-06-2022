@@ -23,7 +23,11 @@
         <!-- <a class="navbar-brand" href="javascript:void(0)">{{ $route.name }}</a> -->
         <div>
           <a href="/">
-            <img loading="lazy" src="/images/logo-etnafes-couleur.png" width="10%" />
+            <img
+              loading="lazy"
+              src="/images/logo-etnafes-couleur.png"
+              width="10%"
+            />
           </a>
         </div>
       </div>
@@ -79,12 +83,12 @@
             >
               <i class="tim-icons icon-sound-wave"></i>
               <p class="d-lg-none text-left">Notifications</p>
-              <span class="badge badge-danger" @click="resetNotification">{{
+              <!--  <span class="badge badge-danger" @click="resetNotification">{{
                 reservations.length + reservationsPack.length
-              }}</span>
+              }}</span> -->
             </a>
             <div>
-              <ul class="not dropdown-menu dropdown-menu-right dropdown-navbar">
+              <!-- <ul class="not dropdown-menu dropdown-menu-right dropdown-navbar">
                 <div>
                   <b-tabs content-class="mt-3">
                     <b-tab title="Réservations libres" active>
@@ -109,7 +113,8 @@
                         >
                           <div class="row">
                             <a href="#" class="nav-item dropdown-item">
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 class="photo"
                                 :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${notification.date.photo}`"
                                 alt="Profile Photo"
@@ -183,7 +188,8 @@
                         >
                           <div class="row">
                             <a href="#" class="nav-item dropdown-item">
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 class="photo"
                                 :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${notification.date.photo}`"
                                 alt="Profile Photo"
@@ -237,7 +243,7 @@
                     </b-tab>
                   </b-tabs>
                 </div>
-              </ul>
+              </ul> -->
             </div>
           </drop-down>
           <drop-down>
@@ -249,8 +255,9 @@
             >
               <div class="photo">
                 <!-- <img loading="lazy" src="@/assets/img/anime3.png" alt="Profile Photo" /> -->
-                <img loading="lazy"
-                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_prop/${user.image}`"
+                <img
+                  loading="lazy"
+                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
                   alt="Profile Photo"
                 />
               </div>
@@ -271,7 +278,7 @@
               </li>
               <li class="nav-link">
                 <a href="/allhebergements" class="nav-item dropdown-item"
-                  >Hebergements</a
+                  >Mes Hebergements</a
                 >
               </li>
 
@@ -316,6 +323,7 @@ export default {
   },
   data() {
     return {
+      client: [],
       position: { scrollTop: 0, scrollLeft: 0 },
       heberg: [],
       msg: "",
@@ -336,11 +344,21 @@ export default {
     this.fetchReservations(this.$store.state.user.id);
     this.fetchUnreadNotifications(this.$store.state.user.id);
     this.fetchReadNotifications(this.$store.state.user.id);
-
+    this.fetchclient(this.$store.state.user.id);
     this.fetchNotifications();
   },
 
   methods: {
+    fetchclient(id) {
+      fetch(
+        `${apiDomain}/api/client/${this.$store.state.user.id}?token=${this.$store.state.token}`
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          this.client = res;
+        })
+        .catch((err) => console.log(err));
+    },
     makeread(id, reservation) {
       fetch(`${apiDomain}/api/reservation-read/${id}`, {
         method: "put",

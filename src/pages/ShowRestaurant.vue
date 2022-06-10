@@ -18,36 +18,49 @@
       </ol>
     </nav>
 
-     <div v-if="loaded==false">
-    <center>
-    <div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>
-</center>
-  </div>
-    <div class="jumbotron" v-if="proprietairerestau.id == proprestau[0].id && loaded==true">
+    <div v-if="loaded == false">
+      <center>
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </center>
+    </div>
+    <div
+      class="jumbotron"
+      v-if="proprietairerestau.id == proprestau[0].id && loaded == true"
+    >
       <div class="row">
         <div class="col-md-7">
           <b-carousel
             id="carousel-1"
-            v-model="slide"
             :interval="4000"
             controls
             indicators
@@ -77,7 +90,11 @@
       </div>
     </div>
 
-    <div class="container" v-if="proprietairerestau.id != proprestau[0].id && loaded==true">>
+    <div
+      class="container"
+      v-if="proprietairerestau.id != proprestau[0].id && loaded == true"
+    >
+      >
       <card>
         <p>Vous n'avez pas le droit de consulter ce restaurant</p>
       </card>
@@ -95,7 +112,7 @@ export default {
   },
   data() {
     return {
-      loaded :false,
+      loaded: false,
 
       apiDomain: "https://etnafesapi20212018.etnafes.com",
       formstate: {},

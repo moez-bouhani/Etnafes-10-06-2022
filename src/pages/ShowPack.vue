@@ -45,7 +45,6 @@
                   <b-card-footer v-if="!isHidden22 && k == index">
                     <b-carousel
                       id="carousel-1"
-                      v-model="slide"
                       :interval="4000"
                       controls
                       indicators
@@ -78,7 +77,6 @@
                 <b-carousel
                   v-if="isHidden22"
                   id="carousel-1"
-                  v-model="slide"
                   :interval="4000"
                   controls
                   indicators
@@ -119,7 +117,6 @@
                     <b-card-footer>
                       <b-carousel
                         id="carousel-1"
-                        v-model="slide"
                         :interval="4000"
                         controls
                         indicators
@@ -284,7 +281,7 @@
                       <b-card-footer>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
+                       
                           :interval="4000"
                           controls
                           indicators
@@ -327,7 +324,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
                           :interval="4000"
                           controls
                           indicators
@@ -372,7 +368,8 @@
                             <small>
                               <span v-if="heb.hebergement.salle_de_bain == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Salle de bain"
                                   src="/bath-etnafes-21.png"
@@ -382,7 +379,8 @@
 
                               <span v-if="heb.hebergement.lave_linge == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Lave linge"
                                   src="/tumble-dry-etnafes-21.png"
@@ -391,7 +389,8 @@
 
                               <span v-if="heb.hebergement.chauffage == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Chauffage"
                                   src="/heating-etnafes-21.png"
@@ -399,7 +398,8 @@
                               </span>
                               <span v-if="heb.hebergement.television == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Television"
                                   src="/tv-etnafes-21.png"
@@ -408,7 +408,8 @@
 
                               <span v-if="heb.hebergement.climatisation == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Climatisation"
                                   src="/air-conditioner-etnafes-21.png"
@@ -417,7 +418,8 @@
 
                               <span v-if="heb.hebergement.eau_chaude == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Eau chaude"
                                   src="/water-heater-etnafes-21.png"
@@ -430,7 +432,8 @@
                                 "
                               >
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Espace de travail"
                                   src="/computer-etnafes-21.png"
@@ -439,7 +442,8 @@
 
                               <span v-if="heb.hebergement.espace_enfant == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Espace enfant"
                                   src="/espace-enfant-etnafes-21.png"
@@ -448,7 +452,8 @@
 
                               <span v-if="heb.hebergement.wifi == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="WiFi"
                                   src="/wifi-etnafes-21.png"
@@ -457,7 +462,8 @@
 
                               <span v-if="heb.hebergement.cuisine == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Cuisine"
                                   src="/kitchen-etnafes-21.png"
@@ -525,7 +531,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
                           :interval="4000"
                           controls
                           indicators

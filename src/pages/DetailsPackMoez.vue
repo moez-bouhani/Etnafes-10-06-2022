@@ -699,7 +699,6 @@
       <div class="col-md-8 offset-md-2">
         <b-carousel
           id="carousel-1"
-          v-model="slide"
           :interval="4000"
           controls
           indicators
@@ -778,7 +777,8 @@
           <div class="col-md-6">
             <h2 style="margin-top: 30px">&nbsp;</h2>
             <div v-if="hebergement.climatisation == 1">
-              <img loading="lazy" src="/air-conditioner-etnafes.png" /> Climatisation
+              <img loading="lazy" src="/air-conditioner-etnafes.png" />
+              Climatisation
               <br />
             </div>
 
@@ -897,7 +897,8 @@
           >
             <div class="row">
               <div class="col-md-4">
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/1602251763-11598521261.png`"
                   alt="Profile Photo"
                   width="60%"
@@ -932,7 +933,8 @@
           >
             <div class="row">
               <div class="col-mx-4">
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/1602251763-11598521261.png`"
                   alt="Profile Photo"
                   width="40%"
@@ -992,7 +994,6 @@
       <div class="col-md-8 offset-md-2">
         <b-carousel
           id="carousel-1"
-          v-model="slide"
           :interval="15000"
           controls
           indicators
@@ -1115,7 +1116,6 @@
                   >
                     <b-carousel
                       id="carousel-1"
-                      v-model="slide"
                       :interval="4000"
                       controls
                       indicators
@@ -1150,7 +1150,8 @@
                   style="padding: 0px 13px 13px 13px"
                 >
                   <div class="col-md-12">
-                    <img loading="lazy"
+                    <img
+                      loading="lazy"
                       alt="pack"
                       id="carousel22"
                       :src="`${apiDomain}/myapp/public/uploads/files_packs/${pack.image_couverture}`"
@@ -1169,7 +1170,7 @@
                       style="padding: 1px 15px 1px 15px"
                     >
                       <!-- <b-carousel
-                        v-model="slide"
+                     
                         :interval="4000"
                         controls
                         indicators
@@ -1202,7 +1203,8 @@
                           v-b-modal.modal-zone
                           link="#"
                         >
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             width="100%"
                             :src="`${apiDomain}/myapp/public/uploads/files_zones/${image.url_image}`"
                           />
@@ -1277,7 +1279,8 @@
 
                 <div v-for="(zone, i) in pack.zone_pack" v-bind:key="'zz2' + i">
                   <h4 style="color: #333">
-                    <img loading="lazy"
+                    <img
+                      loading="lazy"
                       style="max-width: 2.5%"
                       draggable="false"
                       role="img"
@@ -1339,7 +1342,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
                           :interval="4000"
                           controls
                           indicators
@@ -1384,7 +1386,8 @@
                             <small>
                               <span v-if="heb.hebergement.salle_de_bain == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Salle de bain"
                                   src="/bath-etnafes-21.png"
@@ -1394,7 +1397,8 @@
 
                               <span v-if="heb.hebergement.lave_linge == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Lave linge"
                                   src="/tumble-dry-etnafes-21.png"
@@ -1403,7 +1407,8 @@
 
                               <span v-if="heb.hebergement.chauffage == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Chauffage"
                                   src="/heating-etnafes-21.png"
@@ -1411,7 +1416,8 @@
                               </span>
                               <span v-if="heb.hebergement.television == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Television"
                                   src="/tv-etnafes-21.png"
@@ -1420,7 +1426,8 @@
 
                               <span v-if="heb.hebergement.climatisation == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Climatisation"
                                   src="/air-conditioner-etnafes-21.png"
@@ -1429,7 +1436,8 @@
 
                               <span v-if="heb.hebergement.eau_chaude == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Eau chaude"
                                   src="/water-heater-etnafes-21.png"
@@ -1442,7 +1450,8 @@
                                 "
                               >
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Espace de travail"
                                   src="/computer-etnafes-21.png"
@@ -1451,7 +1460,8 @@
 
                               <span v-if="heb.hebergement.espace_enfant == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Espace enfant"
                                   src="/espace-enfant-etnafes-21.png"
@@ -1460,7 +1470,8 @@
 
                               <span v-if="heb.hebergement.wifi == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="WiFi"
                                   src="/wifi-etnafes-21.png"
@@ -1469,7 +1480,8 @@
 
                               <span v-if="heb.hebergement.cuisine == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Cuisine"
                                   src="/kitchen-etnafes-21.png"
@@ -1541,7 +1553,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
                           :interval="4000"
                           controls
                           indicators
@@ -1607,10 +1618,7 @@
 
             <div id="app" class="container d-lg-none">
               <div>
-                <div
-                  class="row"
-                  style="background: #222a42; color: #fff"
-                >
+                <div class="row" style="background: #222a42; color: #fff">
                   <div class="col">
                     <label style="color: #fff; padding: 5px !important"
                       >Photos</label
@@ -1646,7 +1654,6 @@
                     >
                       <b-carousel
                         id="carousel-1"
-                        v-model="slide"
                         :interval="4000"
                         controls
                         indicators
@@ -1681,7 +1688,8 @@
                     style="padding: 0px 13px 13px 13px"
                   >
                     <div class="col-md-12">
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         alt="pack"
                         id="carousel22"
                         :src="`${apiDomain}/myapp/public/uploads/files_packs/${pack.image_couverture}`"
@@ -1700,7 +1708,7 @@
                         style="padding: 1px 15px 1px 15px"
                       >
                         <!-- <b-carousel
-                        v-model="slide"
+                     
                         :interval="4000"
                         controls
                         indicators
@@ -1733,7 +1741,8 @@
                             v-b-modal.modal-zone
                             link="#"
                           >
-                            <img loading="lazy"
+                            <img
+                              loading="lazy"
                               width="100%"
                               :src="`${apiDomain}/myapp/public/uploads/files_zones/${image.url_image}`"
                             />
@@ -1759,11 +1768,7 @@
             >
               <div
                 class="row"
-                style="
-                  background: #222a42;
-                  color: #fff;
-                  margin-top: -15px;
-                "
+                style="background: #222a42; color: #fff; margin-top: -15px"
               >
                 <div class="col">
                   <label style="color: #fff; padding: 5px !important"
@@ -1840,11 +1845,7 @@
             <div id="app" class="container d-lg-none">
               <div
                 class="row"
-                style="
-                  background: #222a42;
-                  color: #fff;
-                  margin-top: -15px;
-                "
+                style="background: #222a42; color: #fff; margin-top: -15px"
               >
                 <div class="col">
                   <label style="color: #fff; padding: 5px !important"
@@ -1877,7 +1878,8 @@
 
                 <div v-for="(zone, i) in pack.zone_pack" v-bind:key="'zz2' + i">
                   <h4 style="color: #333">
-                    <img loading="lazy"
+                    <img
+                      loading="lazy"
                       style="max-width: 2.5%"
                       draggable="false"
                       role="img"
@@ -1902,11 +1904,7 @@
             >
               <div
                 class="row"
-                style="
-                  background: #222a42;
-                  color: #fff;
-                  margin-top: -15px;
-                "
+                style="background: #222a42; color: #fff; margin-top: -15px"
               >
                 <div class="col">
                   <label style="color: #fff; padding: 5px !important"
@@ -1966,11 +1964,7 @@
             >
               <div
                 class="row"
-                style="
-                  background: #222a42;
-                  color: #fff;
-                  margin-top: -15px;
-                "
+                style="background: #222a42; color: #fff; margin-top: -15px"
               >
                 <div class="col">
                   <label style="color: #fff; padding: 5px !important"
@@ -2007,7 +2001,6 @@
                     <div>
                       <b-carousel
                         id="carousel-1"
-                        v-model="slide"
                         :interval="4000"
                         controls
                         indicators
@@ -2052,7 +2045,8 @@
                           <small>
                             <span v-if="heb.hebergement.salle_de_bain == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Salle de bain"
                                 src="/bath-etnafes-21.png"
@@ -2062,7 +2056,8 @@
 
                             <span v-if="heb.hebergement.lave_linge == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Lave linge"
                                 src="/tumble-dry-etnafes-21.png"
@@ -2071,7 +2066,8 @@
 
                             <span v-if="heb.hebergement.chauffage == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Chauffage"
                                 src="/heating-etnafes-21.png"
@@ -2079,7 +2075,8 @@
                             </span>
                             <span v-if="heb.hebergement.television == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Television"
                                 src="/tv-etnafes-21.png"
@@ -2088,7 +2085,8 @@
 
                             <span v-if="heb.hebergement.climatisation == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Climatisation"
                                 src="/air-conditioner-etnafes-21.png"
@@ -2097,7 +2095,8 @@
 
                             <span v-if="heb.hebergement.eau_chaude == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Eau chaude"
                                 src="/water-heater-etnafes-21.png"
@@ -2110,7 +2109,8 @@
                               "
                             >
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Espace de travail"
                                 src="/computer-etnafes-21.png"
@@ -2119,7 +2119,8 @@
 
                             <span v-if="heb.hebergement.espace_enfant == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Espace enfant"
                                 src="/espace-enfant-etnafes-21.png"
@@ -2128,7 +2129,8 @@
 
                             <span v-if="heb.hebergement.wifi == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="WiFi"
                                 src="/wifi-etnafes-21.png"
@@ -2137,7 +2139,8 @@
 
                             <span v-if="heb.hebergement.cuisine == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Cuisine"
                                 src="/kitchen-etnafes-21.png"
@@ -2177,11 +2180,7 @@
             <div id="app" class="container d-lg-none">
               <div
                 class="row"
-                style="
-                  background: #222a42;
-                  color: #fff;
-                  margin-top: -15px;
-                "
+                style="background: #222a42; color: #fff; margin-top: -15px"
               >
                 <div class="col">
                   <label style="color: #fff; padding: 5px !important"
@@ -2233,7 +2232,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
                           :interval="4000"
                           controls
                           indicators
@@ -2285,11 +2283,7 @@
             <div id="app" class="container d-lg-none">
               <div
                 class="row"
-                style="
-                  background: #222a42;
-                  color: #fff;
-                  margin-top: -15px;
-                "
+                style="background: #222a42; color: #fff; margin-top: -15px"
               >
                 <div class="col">
                   <label style="color: #fff; padding: 5px !important"
@@ -2503,7 +2497,11 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
         <span style="color: #000">{{
           (calculMoyenne / nbcom).toFixed(2)
         }}</span>
-        <img loading="lazy" src="/star-etnafes.png" style="margin-top: -3px" />&nbsp;
+        <img
+          loading="lazy"
+          src="/star-etnafes.png"
+          style="margin-top: -3px"
+        />&nbsp;
         <span style="color: #000" class="d-none d-lg-block"
           >({{ nbcom }} commentaires)</span
         >
@@ -2536,7 +2534,8 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
         >
           <div class="row">
             <div class="col-md-4">
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 :src="`https://etnafesapi20212018.etnafes.com/${avispack.client.photo}`"
                 alt="Profile Photo"
               />
@@ -2571,7 +2570,8 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
             <center>
               <div class="row">
                 <div class="col-mx-4">
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     width="40% !important"
                     :src="`https://etnafesapi20212018.etnafes.com/${avispack.client.photo}`"
                   />

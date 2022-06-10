@@ -22,7 +22,8 @@
         </div>
         <!-- <a class="navbar-brand" href="javascript:void(0)">{{ $route.name }}</a> -->
         <router-link :to="{ name: 'Home' }">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             class="style_img_top_nav_cli"
             src="/images/logo-etnafes-couleur.png"
           />
@@ -81,7 +82,7 @@
             >
               <i class="tim-icons icon-sound-wave"></i>
               <p class="d-lg-none text-left">Notifications</p>
-             <!--  <span class="badge badge-danger" @click="resetNotification">
+              <!--  <span class="badge badge-danger" @click="resetNotification">
                 {{ reservationsp.length }}
               </span> -->
             </a>
@@ -139,13 +140,15 @@
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
               <div class="photo">
                 <!-- <img loading="lazy" src="@/assets/img/anime3.png" alt="Profile Photo" /> -->
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   v-if="user.provider != null"
                   :src="`${client.photo}`"
                   alt="Profile Photo"
                 />
 
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   v-if="user.provider == null"
                   :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
                   alt="Profile Photo"
@@ -169,24 +172,7 @@
                   >Mes Réservations</a
                 >
               </li>
-              <li class="nav-link">
-                <a href="/nouveauhebergement" class="nav-item dropdown-item"
-                  >Hébergeur</a
-                >
-              </li>
-              <li class="nav-link">
-                <a href="/nouveaupack/agence" class="nav-item dropdown-item"
-                  >Prestataire de Services</a
-                >
-              </li>
-              <li class="nav-link">
-                <a href="/guide/cv" class="nav-item dropdown-item">Guide</a>
-              </li>
-              <li class="nav-link">
-                <a href="/nouveaurestaurant" class="nav-item dropdown-item"
-                  >Proprietaire Resraurant</a
-                >
-              </li>
+
               <li class="nav-link">
                 <a href="/notifications/client" class="nav-item dropdown-item"
                   >Notifications</a

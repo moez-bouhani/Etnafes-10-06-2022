@@ -335,7 +335,6 @@
       </p>
       <b-carousel
         id="carousel-1"
-        v-model="slide"
         :interval="4000"
         controls
         indicators
@@ -870,7 +869,7 @@
                     name: 'PaiementAgence',
                     params: { id: pack.id },
                     query: {
-                       agence_id: pack.agence_id,
+                      agence_id: pack.agence_id,
                       ville_id: pack.ville_id,
                       date_deb: pack.date_deb,
                       nb_adulte: nb_adulte,
@@ -1457,7 +1456,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
                           :interval="4000"
                           controls
                           indicators
@@ -2307,7 +2305,6 @@
                     <div>
                       <b-carousel
                         id="carousel-1"
-                        v-model="slide"
                         :interval="4000"
                         controls
                         indicators
@@ -2709,7 +2706,7 @@
                     name: 'PaiementPack',
                     params: { id: pack.id },
                     query: {
-                       agence_id: pack.agence_id,
+                      agence_id: pack.agence_id,
                       ville_id: pack.ville_id,
                       date_deb: pack.date_deb,
                       nb_adulte: nb_adulte,
@@ -2749,7 +2746,7 @@
                   </div> -->
                 </router-link>
 
-           <!--      <button
+                <!--      <button
                   v-if="
                     !loggedIn &&
                     pack.date_deb > new Date().toISOString().split('T')[0] &&
@@ -2866,7 +2863,7 @@
                   name: 'PaiementPack',
                   params: { id: pack.id },
                   query: {
-                      agence_id: pack.agence_id,
+                    agence_id: pack.agence_id,
                     ville_id: pack.ville_id,
                     date_deb: pack.date_deb,
                     nb_adulte: nb_adulte,
@@ -3222,7 +3219,7 @@
             name: 'PaiementPack',
             params: { id: pack.id },
             query: {
-               agence_id: pack.agence_id,
+              agence_id: pack.agence_id,
               ville_id: pack.ville_id,
               date_deb: pack.date_deb,
               nb_adulte: nb_adulte,

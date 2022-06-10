@@ -77,7 +77,6 @@
             </p>
             <b-carousel
               id="carousel-1"
-              v-model="slide"
               :interval="4000"
               controls
               indicators
@@ -152,7 +151,8 @@
                   </div>
 
                   <div v-if="hebergement.lave_linge == 1">
-                    <img loading="lazy" src="/tumble-dry-etnafes.png" /> Lave-linge
+                    <img loading="lazy" src="/tumble-dry-etnafes.png" />
+                    Lave-linge
                     <br />
                     <br />
                   </div>
@@ -168,7 +168,8 @@
                   <br />
                   <h2 style="margin-top: 30px">&nbsp;</h2>
                   <div v-if="hebergement.climatisation == 1">
-                    <img loading="lazy" src="/air-conditioner-etnafes.png" /> Climatisation
+                    <img loading="lazy" src="/air-conditioner-etnafes.png" />
+                    Climatisation
                     <br />
                     <br />
                   </div>
@@ -181,7 +182,8 @@
                   </div>
 
                   <div v-if="hebergement.eau_chaude == 1">
-                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau Chaude
+                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau
+                    Chaude
                     <br />
                     <br />
                   </div>
@@ -249,7 +251,8 @@
                 >
                   <div class="row">
                     <div class="col-md-4">
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/1602251763-11598521261.png`"
                         alt="Profile Photo"
                         width="60%"

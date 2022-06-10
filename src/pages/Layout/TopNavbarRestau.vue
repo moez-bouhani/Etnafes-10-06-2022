@@ -22,7 +22,11 @@
         </div>
         <!-- <a class="navbar-brand" href="javascript:void(0)">{{ $route.name }}</a> -->
         <a href="/">
-          <img loading="lazy" src="/images/logo-etnafes-couleur.png" width="10%" />
+          <img
+            loading="lazy"
+            src="/images/logo-etnafes-couleur.png"
+            width="10%"
+          />
         </a>
       </div>
       <button
@@ -78,11 +82,8 @@
             >
               <i class="tim-icons icon-sound-wave"></i>
               <p class="d-lg-none text-left">Notifications</p>
-              <span class="badge badge-danger">{{
-                unreadNotifications.length
-              }}</span>
             </a>
-            <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
+            <!--   <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
               <li
                 class="nav-link"
                 v-for="(notification, i) in notifications"
@@ -96,14 +97,15 @@
                   {{ notification.created_at }}</a
                 >
               </li>
-            </ul>
+            </ul> -->
           </drop-down>
           <drop-down>
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
               <div class="photo">
                 <!-- <img loading="lazy" src="@/assets/img/anime3.png" alt="Profile Photo" /> -->
-                <img loading="lazy"
-                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_prop_restau/${proprietaire.image}`"
+                <img
+                  loading="lazy"
+                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
                   alt="Profile Photo"
                 />
               </div>
@@ -127,7 +129,7 @@
               </li>
               <li class="nav-link">
                 <a href="/allrestaurants" class="nav-item dropdown-item"
-                  >Restaurants</a
+                  >Mes Restaurants</a
                 >
               </li>
               <li class="dropdown-divider"></li>
@@ -159,6 +161,7 @@ export default {
   },
   data() {
     return {
+      client: [],
       proprietaire: {},
       notifications: [],
       searchModalVisible: false,
@@ -179,9 +182,20 @@ export default {
   created() {
     this.fetchproprietaire(this.$store.state.user.id);
     this.fetchNotifications();
+    this.fetchclient(this.$store.state.user.id);
   },
 
   methods: {
+    fetchclient(id) {
+      fetch(
+        `${apiDomain}/api/client/${this.$store.state.user.id}?token=${this.$store.state.token}`
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          this.client = res;
+        })
+        .catch((err) => console.log(err));
+    },
     fetchproprietaire(id) {
       fetch(`${apiDomain}/api/proprietaire_restau/${id}`)
         .then((res) => res.json())

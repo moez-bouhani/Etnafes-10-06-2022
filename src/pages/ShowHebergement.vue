@@ -3,9 +3,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb" style="background-color: #a6bfe6 !important">
         <li class="breadcrumb-item">
-          <router-link :to="{ name: 'hebergement_actif' }"
-            >Espace Hébergeur</router-link
-          >
+          <router-link to="/allhebergements">Mes Hébergements</router-link>
         </li>
         <li
           class="breadcrumb-item active"
@@ -17,34 +15,45 @@
       </ol>
     </nav>
 
-    <div v-if="loaded==false">
-    <center>
-    <div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>
-</center>
-  </div>
+    <div v-if="loaded == false">
+      <center>
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </center>
+    </div>
     <div
       class="container"
       style="margin-bottom: 70px"
-      v-if="hebergement.proprietaire_id == prop[0].id && loaded==true"
+      v-if="hebergement.proprietaire_id == prop[0].id && loaded == true"
     >
       <div class="row">
         <div class="col-md-8">
@@ -81,7 +90,6 @@
             <b-carousel
               id="carousel-1"
               autoplay="false"
-              v-model="slide"
               :interval="9000"
               controls
               indicators
@@ -166,7 +174,8 @@
                   </div>
 
                   <div v-if="hebergement.lave_linge == 1">
-                    <img loading="lazy" src="/tumble-dry-etnafes.png" /> Lave-linge
+                    <img loading="lazy" src="/tumble-dry-etnafes.png" />
+                    Lave-linge
                     <br />
                     <br />
                   </div>
@@ -182,7 +191,8 @@
                   <br />
                   <h2 style="margin-top: 30px">&nbsp;</h2>
                   <div v-if="hebergement.climatisation == 1">
-                    <img loading="lazy" src="/air-conditioner-etnafes.png" /> Climatisation
+                    <img loading="lazy" src="/air-conditioner-etnafes.png" />
+                    Climatisation
                     <br />
                     <br />
                   </div>
@@ -195,7 +205,8 @@
                   </div>
 
                   <div v-if="hebergement.eau_chaude == 1">
-                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau Chaude
+                    <img loading="lazy" src="/water-heater-etnafes.png" /> Eau
+                    Chaude
                     <br />
                     <br />
                   </div>
@@ -263,7 +274,8 @@
                 >
                   <div class="row">
                     <div class="col-md-4">
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/1602251763-11598521261.png`"
                         alt="Profile Photo"
                         width="60%"
@@ -339,7 +351,10 @@
         </div>
       </div>
     </div>
-    <div class="container" v-if="hebergement.proprietaire_id != prop[0].id && loaded==true">
+    <div
+      class="container"
+      v-if="hebergement.proprietaire_id != prop[0].id && loaded == true"
+    >
       <card>
         <p>Vous n'avez pas le droit de consulter cet hébergement</p>
       </card>
@@ -378,7 +393,7 @@ export default {
   },
   data() {
     return {
-      loaded :false,
+      loaded: false,
 
       url: "https://etnafes.com/images/foret-etnafes-voyage.jpg",
 

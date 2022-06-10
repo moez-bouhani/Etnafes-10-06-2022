@@ -485,7 +485,7 @@ export default {
           //this.$noty.success("veuillez vérifier votre compte.");
 
           this.$noty.success("Connexion réussie.");
-          this.$router.push("/ajouter_produit_femme");
+          this.$router.push("/espace_etanfes");
           /*  } */
         })
         .catch((error) => {
@@ -566,7 +566,7 @@ export default {
           //this.$noty.success("veuillez vérifier votre compte.");
 
           this.$noty.success("Connexion réussie.");
-          this.$router.push("/");
+          this.$router.push("/espace_etanfes");
           /*  } */
         })
         .catch((error) => {

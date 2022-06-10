@@ -3,7 +3,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb" style="background-color: #a6bfe6 !important">
         <li class="breadcrumb-item">
-          <router-link to="/nouveauhebergement">Espace Hébergeur</router-link>
+          <router-link to="/allhebergements"
+            >Mes Hébergements</router-link
+          >
         </li>
         <li
           class="breadcrumb-item active"
@@ -14,35 +16,47 @@
         </li>
       </ol>
     </nav>
-    <div v-if="loaded==false">
-    <center>
-    <div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>&nbsp;
-<div class="spinner-grow text-dark" role="status" style="width: 15px; 
-    height: 15px;">
-  <span class="sr-only">Loading...</span>
-  
-</div>
-</center>
-  </div>
+    <div v-if="loaded == false">
+      <center>
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+        &nbsp;
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="width: 15px; height: 15px"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </center>
+    </div>
     <div
       v-if="
         reservation.length + reservation_hebergement.length == 0 &&
-        hebergement.proprietaire_id == prop[0].id && loaded==true"
-      
+        hebergement.proprietaire_id == prop[0].id &&
+        loaded == true
+      "
     >
       <div class="row">
         <div class="col-md-12">
@@ -557,7 +571,8 @@
                       <span v-for="(iii, index) in order" :key="index">
                         <center class="dateres" v-show="iii >= dd">
                           {{ iii }}
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             src="/close-etnafes.png"
                             width="18%"
                             @click="handleRemove2(beforeShowDay, index)"
@@ -619,7 +634,8 @@
             <div class="row" style="padding: 10px">
               <div>
                 <center>
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     alt="heberegement"
                     v-show="!showPreview"
                     :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/${imagehebergement.url_image}`"
@@ -628,7 +644,8 @@
                   />
                   <br />
 
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     v-bind:src="imagePreview"
                     v-show="showPreview"
                     width="55%"
@@ -675,7 +692,8 @@
                 :key="imagehebergement.id"
               >
                 <div>
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     alt="hebergement"
                     :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/${imagehebergement.url_image}`"
                     class="img"
@@ -697,9 +715,14 @@
         </div>
       </div>
     </div>
-    <div class="container" v-if="
+    <div
+      class="container"
+      v-if="
         reservation.length + reservation_hebergement.length == 0 &&
-        hebergement.proprietaire_id != prop[0].id && loaded==true">
+        hebergement.proprietaire_id != prop[0].id &&
+        loaded == true
+      "
+    >
       <card>
         <p>Vous n'avez pas le droit de modifier cet hébergement</p>
       </card>
@@ -726,7 +749,7 @@ export default {
   },
   data() {
     return {
-      loaded :false,
+      loaded: false,
 
       reservation_hebergement: [],
       reservation: [],

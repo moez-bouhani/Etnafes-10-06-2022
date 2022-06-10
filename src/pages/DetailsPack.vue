@@ -696,7 +696,7 @@
       <div class="col-md-8 offset-md-2">
         <b-carousel
           id="carousel-1"
-          v-model="slide"
+          
           :interval="4000"
           controls
           indicators
@@ -1282,7 +1282,7 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                          v-model="slide"
+                         
                           :interval="4000"
                           controls
                           indicators
@@ -2051,7 +2051,7 @@
                     <div>
                       <b-carousel
                         id="carousel-1"
-                        v-model="slide"
+                        
                         :interval="4000"
                         controls
                         indicators

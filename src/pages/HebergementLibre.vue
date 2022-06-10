@@ -326,7 +326,7 @@
        
       <b-carousel
         id="carousel-1"
-        v-model="slide"
+     
         :interval="4000"
         controls
         indicators
@@ -1716,8 +1716,7 @@ export default {
     }
   },
   computed: {
-
-   /*  get_image_url() {
+    /*  get_image_url() {
       var result = [];
       var moyenne = "";
 
@@ -1817,8 +1816,8 @@ export default {
   },
   methods: {
     scrollToTop() {
-    window.scrollTo(0,0);
-  },
+      window.scrollTo(0, 0);
+    },
     onSlideStart(slide) {
       this.sliding = true;
     },
