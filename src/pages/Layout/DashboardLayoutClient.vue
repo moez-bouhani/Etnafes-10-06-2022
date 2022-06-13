@@ -4,70 +4,73 @@
 
     <side-bar :background-color="backgroundColor">
       <!-- <mobile-menu slot="content"></mobile-menu> -->
-      <sidebar-link to="/dashboard_client" class="menuClient">
-        <i class="tim-icons icon-chart-pie-36"></i>
-        <template v-if="!isRTL">
-          <p style="color: #fff">Dashboard</p>
-        </template>
-        <template v-else>
-          <p>لوحة القيادة</p>
-        </template>
-      </sidebar-link>
 
-      <sidebar-link to="/notifications/client" class="menuClient">
-        <i class="tim-icons icon-bell-55"></i>
-        <template v-if="!isRTL">
-          <p style="color: #fff">
-            Notifications&nbsp;
-            <span
-              class="badge badge-danger image-clignote"
-              style="background-color: red"
-              >New</span
-            >
-          </p>
-        </template>
-        <template v-else>
-          <p>طباعة</p>
-        </template>
-      </sidebar-link>
+      <div>
+        <sidebar-link to="/dashboard_client" class="menuClient">
+          <i class="tim-icons icon-chart-pie-36"></i>
+          <template v-if="!isRTL">
+            <p style="color: #fff">Dashboard</p>
+          </template>
+          <template v-else>
+            <p>لوحة القيادة</p>
+          </template>
+        </sidebar-link>
 
-      <sidebar-link to="/client" class="menuClient">
-        <i class="tim-icons icon-single-02"></i>
-        <template v-if="!isRTL">
-          <p style="color: #fff">Mon Profile</p>
-        </template>
-        <template v-else>
-          <p>ملف تعريفي للمستخدم</p>
-        </template>
-      </sidebar-link>
+        <sidebar-link to="/notifications/client" class="menuClient">
+          <i class="tim-icons icon-bell-55"></i>
+          <template v-if="!isRTL">
+            <p style="color: #fff">
+              Notifications&nbsp;
+              <span
+                class="badge badge-danger image-clignote"
+                style="background-color: red"
+                >New</span
+              >
+            </p>
+          </template>
+          <template v-else>
+            <p>طباعة</p>
+          </template>
+        </sidebar-link>
 
-      <sidebar-link to="/reservations-client" class="menuClient">
-        <i class="tim-icons icon-single-copy-04"></i>
-        <template v-if="!isRTL">
-          <p style="color: #fff">
-            Mes réservations
-            <!-- &nbsp;
+        <sidebar-link to="/client" class="menuClient">
+          <i class="tim-icons icon-single-02"></i>
+          <template v-if="!isRTL">
+            <p style="color: #fff">Mon Profile</p>
+          </template>
+          <template v-else>
+            <p>ملف تعريفي للمستخدم</p>
+          </template>
+        </sidebar-link>
+
+        <sidebar-link to="/reservations-client" class="menuClient">
+          <i class="tim-icons icon-single-copy-04"></i>
+          <template v-if="!isRTL">
+            <p style="color: #fff">
+              Mes réservations
+              <!-- &nbsp;
             <span
               v-if="notifRes>0"
               class="badge badge-pill badge-danger"
               style="background-color:red"
             >{{notifRes}}</span>-->
-          </p>
-        </template>
-        <template v-else>
-          <p>ملف تعريفي للمستخدم</p>
-        </template>
-      </sidebar-link>
+            </p>
+          </template>
+          <template v-else>
+            <p>ملف تعريفي للمستخدم</p>
+          </template>
+        </sidebar-link>
 
-      <sidebar-link to="/mesFavs" class="menuClient">
-        <i class="tim-icons icon-shape-star"></i>
-        <template v-if="!isRTL">
-          <p style="color: #fff">Mes Favoris</p>
-        </template>
-        <template v-else>
-          <p>ملف تعريفي للمستخدم</p>
-        </template>
-      </sidebar-link>
+        <sidebar-link to="/mesFavs" class="menuClient">
+          <i class="tim-icons icon-shape-star"></i>
+          <template v-if="!isRTL">
+            <p style="color: #fff">Mes Favoris</p>
+          </template>
+          <template v-else>
+            <p>ملف تعريفي للمستخدم</p>
+          </template>
+        </sidebar-link>
+      </div>
 
       <li class="nav-item menuClient">
         <a
