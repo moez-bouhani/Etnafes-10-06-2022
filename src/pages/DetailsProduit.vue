@@ -402,6 +402,14 @@
                 >
                   + Commander ce produit
                 </button>
+
+                <button
+                  v-if="loggedIn"
+                  style="background: #ff931f !important; border-radius: 20px"
+                  class="btn style_commander"
+                >
+                  + Commander ce produit
+                </button>
               </div>
             </div>
             <div class="row" style="margin-left: 20px; margin-bottom: 30px">

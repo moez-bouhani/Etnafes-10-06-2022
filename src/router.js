@@ -990,7 +990,7 @@ const routes = [
 
   {
     path: "/",
-    component: DashboardLayoutGuide,
+    component: DashboardLayoutClient,
     beforeEnter: (to, from, next) => {
       /* if (store.state.loggedIn == true) {
         if (store.state.user.role == 4)
@@ -1053,7 +1053,7 @@ const routes = [
 /* agence moez */
   {
     path: "/",
-    component: DashboardLayoutAgence,
+    component: DashboardLayoutClient,
     beforeEnter: (to, from, next) => {
       if (store.state.loggedIn == true) {
     
@@ -1488,7 +1488,7 @@ const routes = [
 /* resto moez */
   {
     path: "/",
-    component: DashboardLayoutPropRestau,
+    component: DashboardLayoutClient,
     redirect: "dashboard_restau",
     beforeEnter: (to, from, next) => {
       if (store.state.loggedIn == true) {
@@ -1582,7 +1582,7 @@ const routes = [
 
   {
     path: "/",
-    component: DashboardLayoutProp,
+    component: DashboardLayoutClient,
     redirect: "dashboard",
     beforeEnter: (to, from, next) => {
       if (store.state.loggedIn == true) {
@@ -2050,7 +2050,7 @@ const routes = [
    //admin
    {
     path: "/",
-    component: DashboardLayoutFemme,
+    component: DashboardLayoutClient,
     redirect: "dashboard",
     beforeEnter: (to, from, next) => {
       if (store.state.loggedIn == true) {
