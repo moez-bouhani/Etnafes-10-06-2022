@@ -2,7 +2,10 @@
   <div class="wrapper">
     <!-- <div class="wrapper" :class="{'nav-open': $sidebar.showSidebar}"> -->
 
-    <side-bar :background-color="backgroundColor">
+    
+
+      <div v-if="espace == 'Espace Voyageur'">
+<side-bar :background-color="backgroundColor">
       <!-- <mobile-menu slot="content"></mobile-menu> -->
       <sidebar-link to="/dashboard_client" class="menuClient">
         <i class="tim-icons icon-chart-pie-36"></i>
@@ -13,9 +16,6 @@
           <p>لوحة القيادة</p>
         </template>
       </sidebar-link>
-
-      <div v-if="espace == 'Espace Voyageur'">
-
       <sidebar-link to="/notifications/client" class="menuClient">
         <i class="tim-icons icon-bell-55"></i>
         <template v-if="!isRTL">
@@ -70,9 +70,23 @@
           <p>ملف تعريفي للمستخدم</p>
         </template>
       </sidebar-link>
+      <li class="nav-item menuClient">
+        <a
+          href
+          style="color: #fff"
+          @click.prevent="
+            performLogout();
+            scrollToTop();
+          "
+        >
+          <i class="tim-icons icon-button-power"></i> Se déconnecter
+        </a>
+      </li>
+    </side-bar>
       </div>
 
       <div v-if="espace == 'Espace Artisan'">
+        <side-bar :background-color="backgroundColor">
                  <sidebar-link class="menuAdmin" to="/dashboard_femme">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
@@ -112,8 +126,22 @@
           <p>طباعة</p>
         </template>
       </sidebar-link>
+      <li class="nav-item menuClient">
+        <a
+          href
+          style="color: #fff"
+          @click.prevent="
+            performLogout();
+            scrollToTop();
+          "
+        >
+          <i class="tim-icons icon-button-power"></i> Se déconnecter
+        </a>
+      </li>
+    </side-bar>
                 </div>
         <div v-if="espace == 'Espace Guide'">
+          <side-bar :background-color="backgroundColor">
            <sidebar-link to="/dashboard_guide">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
@@ -143,6 +171,19 @@
           <p>ملف تعريفي للمستخدم</p>
         </template>
       </sidebar-link>
+      <li class="nav-item menuClient">
+        <a
+          href
+          style="color: #fff"
+          @click.prevent="
+            performLogout();
+            scrollToTop();
+          "
+        >
+          <i class="tim-icons icon-button-power"></i> Se déconnecter
+        </a>
+      </li>
+    </side-bar>
         </div>
 <div v-if="espace == 'Espace Préstataire de service'">
   <side-bar :background-color="backgroundColor">
@@ -222,9 +263,23 @@
           </p>
         </template>
       </sidebar-link>
+      <li class="nav-item menuClient">
+        <a
+          href
+          style="color: #fff"
+          @click.prevent="
+            performLogout();
+            scrollToTop();
+          "
+        >
+          <i class="tim-icons icon-button-power"></i> Se déconnecter
+        </a>
+      </li>
+    </side-bar>
 </div>
 
 <div v-if="espace == 'Espace Hébergeur'">
+  <side-bar :background-color="backgroundColor">
   <sidebar-link to="/dashboard_proprietaire">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
@@ -282,9 +337,23 @@
           </p>
         </template>
       </sidebar-link>
+      <li class="nav-item menuClient">
+        <a
+          href
+          style="color: #fff"
+          @click.prevent="
+            performLogout();
+            scrollToTop();
+          "
+        >
+          <i class="tim-icons icon-button-power"></i> Se déconnecter
+        </a>
+      </li>
+    </side-bar>
 </div>
 
 <div v-if="espace == 'Espace Restaurant'">
+  <side-bar :background-color="backgroundColor">
   <sidebar-link to="/dashboard_proprietaire_restau">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
@@ -314,8 +383,6 @@
           <p>طباعة</p>
         </template>
       </sidebar-link>
-</div>
-
       <li class="nav-item menuClient">
         <a
           href
@@ -329,6 +396,9 @@
         </a>
       </li>
     </side-bar>
+</div>
+
+      
     <sidebar-share :background-color.sync="backgroundColor"></sidebar-share>
 
     <div class="main-panel" :data="backgroundColor">
