@@ -2778,7 +2778,7 @@
             </div>
           </b-card>
         </div>
-        <b-modal
+        <!--    <b-modal
           style="margin-top: 74px !important"
           id="modal-invitation"
           :user="'user'"
@@ -2814,7 +2814,7 @@
               </div>
             </div>
           </form>
-        </b-modal>
+        </b-modal> -->
         <div class="col-md-4" id="map" ref="map">
           <br />
           <div class="d-none d-lg-block">

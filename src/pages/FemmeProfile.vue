@@ -153,7 +153,39 @@
               </b-card>
             </div>
           </div>
+          <div
+            class="row"
+            v-if="client.adresse == null || client.zone_id == null"
+          >
+            <div class="col-md-12">
+              <b-card style="border-color: #f5a623" tag="article" class="mb-2">
+                <b-card-text
+                  style="border: 1px solid rgb(237 145 32); padding: 19px"
+                >
+                  <form>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div
+                          style="
+                            border-color: #f5a623;
+                            background: #f5e7cd;
+                            color: #ee6739;
+                          "
+                          class="alert mr-1"
+                        >
+                          Bonjour {{ user.nom }} {{ user.prenom }} , Veuillez
+                          saisir votre ville et votre adresse dans la carte maps
+                          pour ajouter vos produits.<br />
 
+                          مرحبًا ، الرجاء إختيار والمدينة العنوان الخاص بك
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </b-card-text>
+              </b-card>
+            </div>
+          </div>
           <template slot="header">
             <h5 class="title" style="padding-top: 15px">
               Modifier votre profile
@@ -236,69 +268,16 @@
                 </p>
               </div>
             </div>
-            <div class="row" v-if="client.ville != null">
-              <div class="col-lg-12 d-flex align-items-center">
-                <base-input
-                  class="w-100 m-0"
-                  type="text"
-                  :placeholder="ville.nom"
-                  disabled
-                ></base-input>
-                <img
-                  class="h-100"
-                  loading="lazy"
-                  alt="edit ville"
-                  v-if="paysshow == false"
-                  src="/edit-property-etnafes.png"
-                  @click="paysshow = true"
-                />
 
-                <img
-                  loading="lazy"
-                  v-if="paysshow == true"
-                  src="/edit-property-etnafes.png"
-                  @click="paysshow = false"
-                />
-              </div>
-              <div class="col-sm-2 col-md-1"></div>
-            </div>
-
-            <div class="row" v-else>
-              <div class="col-sm-9 col-md-11">
-                <base-input
-                  type="text"
-                  placeholder="ville est vide"
-                  disabled
-                ></base-input>
-              </div>
-              <div class="col-sm-2 col-md-1">
-                <img
-                  loading="lazy"
-                  alt="edit ville"
-                  v-if="paysshow == false"
-                  src="/edit-property-etnafes.png"
-                  @click="paysshow = true"
-                />
-
-                <img
-                  loading="lazy"
-                  v-if="paysshow == true"
-                  src="/edit-property-etnafes.png"
-                  @click="paysshow = false"
-                />
-              </div>
-            </div>
-
-            <br />
-            <div class="row" v-if="paysshow == true">
-              <div class="col-md-6 pr-md-1 text-left">
+            <div class="row">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label>Pays *</label>
                   <select
                     class="form-control"
                     required
-                    v-model="pays_id"
-                    @change="fetchVillesPays(pays_id)"
+                    v-model="client.paye_id"
+                    @change="fetchVillesPays(client.paye_id)"
                   >
                     <option value disabled selected>
                       choisissez votre pays
@@ -314,13 +293,14 @@
                 </div>
               </div>
 
-              <div class="col-md-6 pl-md-1 text-left">
+              <div class="col-md-4">
                 <div class="form-group">
-                  <label>Ville *</label>
+                  <label>Gouvernorat *</label>
                   <select
                     class="form-control"
                     required
                     v-model="client.ville_id"
+                    @change="fetchSousVille(client.ville_id)"
                   >
                     <option value disabled selected>
                       choisissez votre destination
@@ -333,6 +313,34 @@
                       {{ ville.nom }}
                     </option>
                   </select>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group" style="margin-bottom: -6px">
+                  <label>Ville *</label>
+                  <select
+                    class="form-control"
+                    required
+                    v-model="client.zone_id"
+                  >
+                    <option disabled selected></option>
+                    <option
+                      v-for="ville in sousvilles"
+                      v-bind:key="ville.id"
+                      v-bind:value="ville.id"
+                    >
+                      {{ ville.nom }}
+                    </option>
+                  </select>
+                  <p
+                    v-if="validationErrors.ville_id"
+                    style="padding-bottom: 5px; color: red; margin-top: -10px"
+                  >
+                    <span class="alert-link"
+                      >** {{ validationErrors.ville_id[0] }}</span
+                    >
+                  </p>
                 </div>
               </div>
             </div>
@@ -357,7 +365,10 @@
             <div class="row">
               <div class="col-md-12">
                 <gmap-autocomplete
+                  v-if="client.adresse != null"
+                  label="Adresse"
                   name="adresse"
+                  class="form-group"
                   @place_changed="setPlace"
                   :placeholder="client.adresse"
                   style="
@@ -367,6 +378,26 @@
                       box-shadow 0.15s ease-in-out;
                     padding: 0.375rem 0.75rem;
                     width: 100%;
+                    height: 90%;
+                  "
+                ></gmap-autocomplete>
+
+                <gmap-autocomplete
+                  v-if="client.adresse == null"
+                  label="Adresse"
+                  name="adresse"
+                  required
+                  class="form-group"
+                  @place_changed="setPlace"
+                  :placeholder="client.adresse"
+                  style="
+                    border: 1px solid #ced4da;
+                    border-radius: 0.25rem;
+                    transition: border-color 0.15s ease-in-out,
+                      box-shadow 0.15s ease-in-out;
+                    padding: 0.375rem 0.75rem;
+                    width: 100%;
+                    height: 90%;
                   "
                 ></gmap-autocomplete>
                 <p
@@ -973,7 +1004,7 @@ export default {
       validationErrors: "",
       paysshow: false,
       ville: {},
-      pays_id: "",
+      pays_id: "1",
       adresse: "",
       villespays: [],
       markersh: [],
@@ -995,6 +1026,7 @@ export default {
       isCorrect: false,
       modalContacterClient: false,
       agences: {},
+      sousvilles: {},
       paiements: {},
       client: {
         nom: "",
@@ -1010,6 +1042,8 @@ export default {
     };
   },
   created() {
+    this.fetchVillesPays(this.$store.state.user.paye_id);
+    this.fetchSousVille(this.$store.state.user.ville_id);
     this.fetchPays();
     this.fetchclient(this.$store.state.user.id);
     this.fetchuserSingl(this.$store.state.user.id);
@@ -1023,11 +1057,14 @@ export default {
   },
 
   methods: {
+    fetchSousVille(id) {
+      axios
+        .get(`${apiDomain}/api/sous/villes/${id}`)
+        .then(({ data }) => (this.sousvilles = data.sousvilles));
+    },
     fetchLocations(id) {
       axios
-        .post(`${apiDomain}/api/findPos/${this.$store.state.user.id}`, {
-          center: this.center,
-        })
+        .post(`${apiDomain}/api/findPos/${this.$store.state.user.id}`)
         .then((response) => {
           let data = response.data;
           Bus.$emit("markers_fetched", data);
@@ -1173,6 +1210,7 @@ export default {
         .get(`${apiDomain}/api/pays/villes/${id}`)
         .then(({ data }) => (this.villespays = data.villes));
     },
+
     checkPassword() {
       this.password_length = this.password.length;
       const format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
@@ -1305,9 +1343,10 @@ export default {
         formData.append("longitude", this.center.lng);
       }
 
+      formData.append("zone_id", this.client.zone_id);
       axios
         .post(
-          `${apiDomain}/api/client/update/${this.$store.state.user.id}?token=${this.$store.state.token}`,
+          `${apiDomain}/api/artisan/update/${this.$store.state.user.id}?token=${this.$store.state.token}`,
           formData,
           {
             headers: {
@@ -1317,6 +1356,8 @@ export default {
         )
 
         .then((res) => {
+          this.$store.dispatch("updateVerifFemmeAction");
+
           if (res.status == 200) {
             this.loading_enregistrer = false;
 
@@ -1370,12 +1411,11 @@ export default {
 
     fetchclient(id) {
       fetch(
-        `${apiDomain}/api/client/${this.$store.state.user.id}?token=${this.$store.state.token}`
+        `${apiDomain}/api/info/client/${this.$store.state.user.id}?token=${this.$store.state.token}`
       )
         .then((res) => res.json())
         .then((res) => {
-          this.client = res;
-          this.ville = res.ville;
+          this.client = res[0];
         })
         .catch((err) => console.log(err));
     },

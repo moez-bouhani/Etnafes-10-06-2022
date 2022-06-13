@@ -2078,6 +2078,15 @@ const routes = [
         path: 'ajouter_produit_femme',
         name: 'ajouter_produit_femme',
         component: resolve => require(['@/pages/ajouter_produit_femme'], resolve),
+        beforeEnter: (to, from, next) => {
+          if (store.state.femme[0].femme == 1) {
+    
+          next()
+         
+          } else {
+          next('/Artisan')
+          }
+          }, 
       },
 
       {

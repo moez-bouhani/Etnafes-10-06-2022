@@ -1631,7 +1631,7 @@ margin-left:20px;
                             font-weight: 400;
                           "
                         >
-                          {{ pack.nbr_voyageurs }} voyageurs
+                          {{ pack.nbr_voyageurs }} places disponibles
                           <span>.</span>
                           {{ pack.nbr_chambre_dispo }} chambre(s)
                         </small>
@@ -2139,7 +2139,7 @@ export default {
 
       hebergement: {
         id: "",
-        date_deb: this.$route.query.date_deb,
+        date_deb: this.$route.query.du,
         au: this.$route.query.au,
         ville_id: this.$route.query.ville_id,
       },
