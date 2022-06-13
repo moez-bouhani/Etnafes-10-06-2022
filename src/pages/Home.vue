@@ -147,7 +147,6 @@
 
                         <div style="margin-top: -18px !important">
                           <date-picker
-                           onmouseover="this.style.cursor='pointer'"
                             v-model="pack.date_deb"
                             required
                             valueType="format"
@@ -323,7 +322,8 @@
                             },
                           }"
                         >
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             src="serach-etanfes-b.png"
                             class="style_button_search"
                           />
@@ -693,7 +693,8 @@
                             },
                           }"
                         >
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             class="style_button_hebergement"
                             src="serach-etanfes-b.png"
                           />
@@ -729,7 +730,6 @@
           séjour.
         </h1> -->
       </div>
-
     </div>
     <!-- MOBILE -->
 
@@ -1485,7 +1485,6 @@
                   </div>
                 </div>
               </form>
-              
             </div>
           </div>
         </div>
@@ -1501,7 +1500,8 @@
       </center>
       <div class="row">
         <div class="col-md-3">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             class="img_pour_qoit_atnafes"
             alt="destination"
             src="images/home/icons8-touriste-homme-80.png"
@@ -1512,7 +1512,8 @@
           </p>
         </div>
         <div class="col-md-3">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="images/home/icons8-tour-de-potier-80.png"
             alt="artisan"
             class="img_pour_qoit_atnafes"
@@ -1523,7 +1524,8 @@
           </p>
         </div>
         <div class="col-md-3">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="images/home/icons8-fermier-femme-80.png"
             alt="femme"
             class="img_pour_qoit_atnafes"
@@ -1534,7 +1536,8 @@
           </p>
         </div>
         <div class="col-md-3">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="images/home/icons8-argent-80.png"
             alt="prix"
             class="img_pour_qoit_atnafes"
@@ -1554,7 +1557,8 @@
     >
       <div class="row">
         <div class="col-md-3" style="padding-bottom: 13px">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             class="img_pour_qoit_atnafes"
             alt="destination"
             src="images/home/icons8-touriste-homme-80.png"
@@ -1569,7 +1573,8 @@
         </div>
         <br />
         <div class="col-md-3" style="padding-bottom: 13px">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="images/home/icons8-tour-de-potier-80.png"
             alt="artisan"
             class="img_pour_qoit_atnafes"
@@ -1583,7 +1588,8 @@
           </p>
         </div>
         <div class="col-md-3" style="padding-bottom: 13px">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="images/home/icons8-fermier-femme-80.png"
             alt="femme"
             class="img_pour_qoit_atnafes"
@@ -1597,7 +1603,8 @@
           </p>
         </div>
         <div class="col-md-3">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="images/home/icons8-argent-80.png"
             alt="prix"
             class="img_pour_qoit_atnafes"
@@ -1639,10 +1646,11 @@
             :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
           >
             <vueper-slide
-              v-for="(pack, i) in newpacks"
+              v-for="(pack, i) in orderedpacks"
               v-bind:key="i"
               class="image_slider_home"
             >
+              <!--  v-show="pack.date_deb >= new Date().toISOString().split('T')[0]" -->
               <template #content>
                 <div class="card calendrier_packs">
                   <router-link
@@ -1652,7 +1660,8 @@
                     }"
                   >
                     <div>
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         class="style-moez-img-card"
                         :src="`${apiDomain}/myapp/public/uploads/files_packs/${pack.image_couverture}`"
                         alt="etnafes-tn-travel-circuits"
@@ -1722,7 +1731,8 @@
                       </div>
                       <!-- fin j aime -->
                       <span class="top-left">
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           src="/home/hebergement/etnafes-tn-travel-avis.png"
                           style="width: 19px"
                         />
@@ -1783,7 +1793,8 @@
                     <div class="col style-row-dateArrivee">
                       <!--   <center> -->
 
- <img loading="lazy"
+                      <img
+                        loading="lazy"
                         v-b-tooltip.hover
                         title="Date d'arrivée"
                         src="home/pack/etnafes-tn-travel-circuit-pack-tourisme.png"
@@ -1791,7 +1802,9 @@
                       />
                       <!--  Arrivée: -->
                       {{ pack.date_deb }}
- <img loading="lazy"
+                      &nbsp; &nbsp;
+                      <img
+                        loading="lazy"
                         v-b-tooltip.hover
                         title="Durée de circuit"
                         src="/date-deb-etnafes.png"
@@ -1799,21 +1812,14 @@
                         width="5%"
                       />
                       <!-- Durée: -->
-                      {{ pack.time }} 
-<img loading="lazy" v-b-tooltip.hover title="Niveau
-                      d’activité physique"
-                      src=https://img.icons8.com/ios-filled/20/000000/activity.png/>
-
-                      {{ pack.adrenaline }}
-
-
-                      
-                  <br>
-                      
-                      
-                     
+                      {{ pack.time }}
+                      <!-- <small class="tite_vue_slider_home">
+                          Durée: {{ pack.time }}</small
+                        > -->
+                      <br />
                       <span style="margin-left: -2px">
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           v-b-tooltip.hover
                           title="Nombres de places"
                           src="home/hebergement/etnafes-tn-travel-hote.png"
@@ -1821,11 +1827,12 @@
                         />
                         <!--  Place: -->{{ pack.nb_place_max }} Personnes</span
                       >
-                      &nbsp; &nbsp; <img loading="lazy" v-if="pack.nomagence.nom_agence!='Admin'" v-b-tooltip.hover title="Niveau
-                      d’activité physique"
-                      src="https://img.icons8.com/ios/20/undefined/travel-agency.png">
+                      &nbsp; &nbsp; <img loading="lazy" v-b-tooltip.hover
+                      title="Niveau d’activité physique"
+                      src=https://img.icons8.com/ios-filled/20/000000/activity.png/>
+                      <!--   <img loading="lazy" src=home/pack/icons8-activity.gif/> -->
 
-                      <span v-if="pack.nomagence.nom_agence!='Admin'">&nbsp;{{ pack.nomagence.nom_agence }}</span><br />
+                      {{ pack.adrenaline }}<br />
                       <!-- </center> -->
                     </div>
                   </div>
@@ -1896,7 +1903,8 @@
                       }"
                     >
                       <div>
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           class="style-moez-img-card"
                           :src="`${apiDomain}/myapp/public/uploads/files_produits_zones/${pack.image_couverture}`"
                           alt="etnafes-tn-travel-circuits"
@@ -1965,7 +1973,8 @@
                         </div> -->
                         <!-- fin j aime -->
                         <span class="top-left">
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             src="/home/hebergement/etnafes-tn-travel-avis.png"
                             style="width: 19px"
                           />
@@ -2013,7 +2022,8 @@
 
                     <div class="row">
                       <div class="col">
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           v-b-tooltip.hover
                           title="nom de femme rurale / artisan"
                           src="/images/home/etnafes-tn-artisan.png"
@@ -2023,7 +2033,8 @@
 
                         &nbsp; &nbsp; &nbsp;
 
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           class="style_img_qts_produit"
                           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABkklEQVRIie3VP2tTURzG8e9zcjXiVFeHqmkQmjj45w0kcSgigg6+A0cVFN+Ce5cKKgjiKC6dJdk6ikMTWkhTiCCIoI4mNudxiLcmCi49ZrrP9Ht+XM6HA/dyoUiRIomifGg0Gtnws+5hXUcsJRPMR8Or/V779ew6y4cPn8ITxJqsDRS/JYOlZcyLlXrz1F6382wOPnuxseQxdwLhisPk5LFJ2IlxosnxcH5vu711VHul3hzaegQcwgEgG4UKoH7v7XvHsD6Sb/0ohZuOrB8VBbD8DqjO7jIA20ICMMEKOEyLQgpYB7LD7/cJft34f0eB7wCVWsuVWmtzYXC/1+kGfEHiMeL0wuAcBw/zvjD4zywMrtaaddBy3rN/PZwSjWgbg2BzYbAjJwgw6LUPP6kMQJI97SLKEeK0yEngzCLOn5UBHJTjIIyDq6utSzHoQWk03gWI5fJOCljWZUN/bpcP52pXn4p4DWlD+GsKEABzxui+xcP9bvv5XzDcLlVWv9xFvpH6t4j8ctDtvEl2ZpEiRWbzE2XXiySPB0bsAAAAAElFTkSuQmCC"
                         />
@@ -2089,10 +2100,7 @@
                 class="image_slider_home"
               >
                 <template #content>
-                  <div
-                    class="card card_mobile_circui"
-                    
-                  >
+                  <div class="card card_mobile_circui">
                     <router-link
                       :to="{
                         name: 'Pack',
@@ -2100,7 +2108,8 @@
                       }"
                     >
                       <div>
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           style="
                             margin-top: -8px;
                             margin-left: -6px;
@@ -2175,7 +2184,8 @@
                         </div>
                         <!-- fin j aime -->
                         <span class="top-left">
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             src="/home/hebergement/etnafes-tn-travel-avis.png"
                             style="width: 19px"
                           />
@@ -2254,7 +2264,8 @@
                       >
                         <!--   <center> -->
 
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           v-b-tooltip.hover
                           title="Date d'arrivée"
                           src="home/pack/etnafes-tn-travel-circuit-pack-tourisme.png"
@@ -2262,7 +2273,8 @@
                         />
                         Arrivée: {{ pack.date_deb }}
                         &nbsp; &nbsp;
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           v-b-tooltip.hover
                           title="Durée de circuit"
                           src="/date-deb-etnafes.png"
@@ -2276,7 +2288,8 @@
                         > -->
                         <br />
                         <span style="margin-left: -2px">
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             v-b-tooltip.hover
                             title="Nombres de places"
                             src="home/hebergement/etnafes-tn-travel-hote.png"
@@ -2284,8 +2297,8 @@
                           />
                           Place:{{ pack.nb_place_max }} Personnes</span
                         >
-                        &nbsp; &nbsp; <img loading="lazy" v-b-tooltip.hover title="Niveau
-                        d’activité physique"
+                        &nbsp; &nbsp; <img loading="lazy" v-b-tooltip.hover
+                        title="Niveau d’activité physique"
                         src=https://img.icons8.com/ios-filled/20/000000/activity.png/>
                         <!--   <img loading="lazy" src=home/pack/icons8-activity.gif/> -->
 
@@ -2336,10 +2349,7 @@
                 class="image_slider_home"
               >
                 <template #content>
-                  <div
-                    class="card card_mobile_circui"
-                 
-                  >
+                  <div class="card card_mobile_circui">
                     <router-link
                       :to="{
                         name: 'DetailsProduit',
@@ -2347,7 +2357,8 @@
                       }"
                     >
                       <div>
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           style="
                             margin-top: -8px;
                             margin-left: -6px;
@@ -2376,7 +2387,8 @@
                         </button>
 
                         <span class="top-left">
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             src="/home/hebergement/etnafes-tn-travel-avis.png"
                             style="width: 19px"
                           />
@@ -2413,7 +2425,8 @@
                           font-size: 13px;
                         "
                       >
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           v-b-tooltip.hover
                           title="nom de femme rurale / artisan"
                           src="/images/home/etnafes-tn-artisan.png"
@@ -2423,7 +2436,8 @@
 
                         &nbsp; &nbsp; &nbsp;
 
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABkklEQVRIie3VP2tTURzG8e9zcjXiVFeHqmkQmjj45w0kcSgigg6+A0cVFN+Ce5cKKgjiKC6dJdk6ikMTWkhTiCCIoI4mNudxiLcmCi49ZrrP9Ht+XM6HA/dyoUiRIomifGg0Gtnws+5hXUcsJRPMR8Or/V779ew6y4cPn8ITxJqsDRS/JYOlZcyLlXrz1F6382wOPnuxseQxdwLhisPk5LFJ2IlxosnxcH5vu711VHul3hzaegQcwgEgG4UKoH7v7XvHsD6Sb/0ohZuOrB8VBbD8DqjO7jIA20ICMMEKOEyLQgpYB7LD7/cJft34f0eB7wCVWsuVWmtzYXC/1+kGfEHiMeL0wuAcBw/zvjD4zywMrtaaddBy3rN/PZwSjWgbg2BzYbAjJwgw6LUPP6kMQJI97SLKEeK0yEngzCLOn5UBHJTjIIyDq6utSzHoQWk03gWI5fJOCljWZUN/bpcP52pXn4p4DWlD+GsKEABzxui+xcP9bvv5XzDcLlVWv9xFvpH6t4j8ctDtvEl2ZpEiRWbzE2XXiySPB0bsAAAAAElFTkSuQmCC"
                         />
 
@@ -2500,14 +2514,16 @@
                 <!--  border: solid 1px #b6b6b6; -->
                 <template #content>
                   <div class="card card_hebergement">
-                    <router-link class="d-none d-lg-block"
+                    <router-link
+                      class="d-none d-lg-block"
                       :to="{
                         name: 'DetailsHebergementRes',
                         params: { id: pack.id },
                       }"
                     >
                       <div>
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           class="style-moez-img-card"
                           :src="`${apiDomain}/myapp/public/uploads/files_hebergement/${pack.image_couverture}`"
                           alt="Card image cap"
@@ -2515,16 +2531,18 @@
                       </div>
                     </router-link>
 
-                   <!-- mobile -->
+                    <!-- mobile -->
 
-                    <router-link class="d-lg-none"
+                    <router-link
+                      class="d-lg-none"
                       :to="{
                         name: 'DetailsHebergementResMobile',
                         params: { id: pack.id },
                       }"
                     >
                       <div>
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           class="style-moez-img-card"
                           :src="`${apiDomain}/myapp/public/uploads/files_hebergement/${pack.image_couverture}`"
                           alt="Card image cap"
@@ -2595,7 +2613,8 @@
                         </div>
                         <!-- avis -->
                         <span class="top-left">
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             src="/home/hebergement/etnafes-tn-travel-avis.png"
                             style="width: 19px"
                           />
@@ -2636,12 +2655,14 @@
                     <div class="row sty_rowHEb">
                       <div class="col" style="font-size: 13px">
                         <!--   <center> -->
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           src="home/hebergement/etnafes-tn-travel-hote.png"
                           style="width: 24px"
                         />
                         {{ pack.nbr_voyageurs }} personnes &nbsp; &nbsp;
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           src="home/hebergement/etnafes-tn-maison-hote-travel.png"
                           style="width: 19px"
                         />
@@ -2650,7 +2671,11 @@
 
                         <br />
                         <span style="margin-left: 4px">
-                          <img loading="lazy" src="/Etnafes-icon3.png" style="width: 16px" />
+                          <img
+                            loading="lazy"
+                            src="/Etnafes-icon3.png"
+                            style="width: 16px"
+                          />
                           {{ pack.ville.nom }}</span
                         >
                         &nbsp; &nbsp;
@@ -2664,7 +2689,6 @@
                         <!-- </center> -->
                       </div>
                     </div>
-                   
                   </div>
                 </template>
               </vueper-slide>
@@ -2729,18 +2753,16 @@
               >
                 <!--  border: solid 1px #b6b6b6; -->
                 <template #content>
-                  <div
-                    class="card card_mobile_circui"
-                  
-                  >
+                  <div class="card card_mobile_circui">
                     <router-link
                       :to="{
-                        name: 'DetailsHebergementResMobile',
+                        name: 'DetailsHebergementRes',
                         params: { id: pack.id },
                       }"
                     >
                       <div>
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           style="
                             margin-top: -8px;
                             margin-left: -6px;
@@ -2816,7 +2838,8 @@
                         </div>
                         <!-- avis -->
                         <span class="top-left">
-                          <img loading="lazy"
+                          <img
+                            loading="lazy"
                             src="/home/hebergement/etnafes-tn-travel-avis.png"
                             style="width: 19px"
                           />
@@ -2864,12 +2887,14 @@
                         "
                       >
                         <!--   <center> -->
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           src="home/hebergement/etnafes-tn-travel-hote.png"
                           style="width: 24px"
                         />
                         {{ pack.nbr_voyageurs }} personnes &nbsp; &nbsp;
-                        <img loading="lazy"
+                        <img
+                          loading="lazy"
                           src="home/hebergement/etnafes-tn-maison-hote-travel.png"
                           style="width: 19px"
                         />
@@ -2877,7 +2902,11 @@
 
                         <br />
                         <span style="margin-left: 4px">
-                          <img loading="lazy" src="/Etnafes-icon3.png" style="width: 16px" />
+                          <img
+                            loading="lazy"
+                            src="/Etnafes-icon3.png"
+                            style="width: 16px"
+                          />
                           {{ pack.ville.nom }}</span
                         >
                         &nbsp; &nbsp;
@@ -2891,7 +2920,6 @@
                         <!-- </center> -->
                       </div>
                     </div>
-                    
                   </div>
                 </template>
               </vueper-slide>
@@ -2900,8 +2928,6 @@
         </div>
       </div>
     </div>
-
-    
 
     <!-- fin  pack en vedtte -->
     <!-- moteur de recherche -->
@@ -2925,7 +2951,8 @@
             <router-link :to="{ name: 'PackVille', params: { id: ville.id } }">
               <div class="card" style="margin-bottom: 30px; margin-top: 10px">
                 <div class="card-img-wrap">
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     class="card-img imaa"
                     :src="`${apiDomain}/myapp/public/uploads/files_ville/${ville.image}`"
                     alt="Card image cap"
@@ -2994,7 +3021,8 @@
             >
               <div class="card" style="margin-bottom: 30px; margin-top: 10px">
                 <div class="card-img-wrap">
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     class="card-img"
                     src="/images/hebergeur-maison-hote-etnafes.jpg.webp"
                     alt="Card image cap"
@@ -3029,7 +3057,8 @@
             >
               <div class="card" style="margin-bottom: 30px; margin-top: 10px">
                 <div class="card-img-wrap">
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     class="card-img"
                     src="/images/agence-de-voyage-etnafes.jpg.webp"
                     alt="Card image cap"
@@ -3064,9 +3093,10 @@
             >
               <div class="card" style="margin-bottom: 30px; margin-top: 10px">
                 <div class="card-img-wrap">
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     class="card-img"
-                    src="/images/guides-touristique3-etnafes-voyage.jpg" 
+                    src="/images/guides-touristique3-etnafes-voyage.jpg"
                     alt="Card image cap"
                   />
 
@@ -3267,6 +3297,14 @@ export default {
   },
 
   computed: {
+    orderedpacks: function () {
+      const pack = this.newpacks;
+      var res = [];
+      for (var i = 0; i < pack.length; i++) {
+        res = pack[i].date_deb >= new Date().toISOString().split("T")[0];
+        return _.orderBy(this.newpacks, "date_deb");
+      }
+    },
     loggedIn() {
       return this.$store.getters.get_loggedIn;
     },
@@ -3287,20 +3325,6 @@ export default {
       }
       return result;
     },
-
-/*     tableauAgencePack() {
-      const tabPack = this.newpacks;
-      var result = [];
-      var moyenne = 0;
-      for (var i = 0; i < tabPack.length; i++) {
-          for (var j = 0; j < tabPack[i].Agence.length; j++) {
-            moyenne += tabPack[i].Agence[j].nom_agence;
-          }
-
-        result.push(moyenne);
-      }
-      return result;
-    }, */
     calculMoyenne() {
       const avisp = this.hebergements_home;
       var result = [];
@@ -3384,8 +3408,7 @@ export default {
         .then((res) => {
           this.show = false;
           //this.$noty.success("ajouter avec Succès ! ");
-        /*   this.fetchPacks(); */
-           this.fetchPacks_connected();
+          this.fetchPacks();
         })
 
         .catch((error) => {

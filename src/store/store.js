@@ -259,6 +259,27 @@ performRegisterFemmeAction({ commit }, payload) {
     });
   },
 
+
+  updateVerifFemmeAction({ commit, state }, payload) {
+    return new Promise((resolve, reject) => {
+      axios
+        
+            .patch(`${apiDomain}/api/updateVerifFemme`, {
+         /*  active: payload.active, */
+         
+          token: state.token
+        })
+        .then(res => {
+            commit("SET_femme", res.data.Femme);
+
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  },
+
         performLoginPropRestauAction({
             commit
         }, payload) {

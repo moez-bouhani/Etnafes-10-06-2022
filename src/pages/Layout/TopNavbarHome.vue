@@ -47,7 +47,7 @@
                 >
               </b-nav-item>
 
-              <b-nav-item v-if="!loggedIn" class="d-none d-lg-block">
+              <!--    <b-nav-item v-if="!loggedIn" class="d-none d-lg-block">
                 <router-link class="nav-link" to="/inscritfemme"
                   >Espace Femme R/A</router-link
                 >
@@ -57,7 +57,7 @@
                 <router-link class="nav-link" to="/login/femme"
                   >Espace Femme R/A</router-link
                 >
-              </b-nav-item>
+              </b-nav-item> -->
               <!-- <li class="nav-item">
                 <router-link class="nav-link" to="/"> Accueil </router-link>
               </li>-->
@@ -98,9 +98,9 @@
                 <b-dropdown-item href="#">FA</b-dropdown-item>
               </b-nav-item-dropdown>
               <b-nav-item v-if="loggedIn">
-                <router-link class="nav-link" to="/espace_etanfes">{{
-                  espace
-                }}</router-link>
+                <router-link class="nav-link" to="/espace_etanfes"
+                  >Quitter &nbsp;{{ espace }}</router-link
+                >
               </b-nav-item>
               <b-nav-item-dropdown right v-if="loggedIn">
                 <template v-slot:button-content>
@@ -180,7 +180,7 @@
                 </div>
 
                 <!-- guide -->
-                <div v-if="espace == 'Espace Guid'">
+                <div v-if="espace == 'Espace Guide'">
                   <b-dropdown-item to="/dashboard_guide">
                     <router-link to="/dashboard_guide">Dashboard</router-link>
                   </b-dropdown-item>
@@ -216,7 +216,7 @@
                 </div>
 
                 <!-- hebergeur -->
-                <div v-if="espace == 'Espace Hébergeu'">
+                <div v-if="espace == 'Espace Hébergeur'">
                   <b-dropdown-item to="/dashboard_proprietaire">
                     <router-link to="/dashboard_proprietaire"
                       >Dashboard</router-link

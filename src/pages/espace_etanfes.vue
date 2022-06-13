@@ -69,7 +69,7 @@ export default {
         {
           id: 2,
           url: "http://via.placeholder.com/500x500",
-          bigUrl: "http://localhost:8080/espace/espace-artisan-etnafes.jpg",
+          bigUrl: "http://localhost:8080/espace/espace-artisan-etnafes2.webp",
           name: "Espace Artisan",
           description: "Espace dédié pour les artisans et les femmes rurales",
           category: "Espace Artisa",

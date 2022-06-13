@@ -236,7 +236,7 @@
                 </p>
               </div>
             </div>
-            <div class="row" v-if="client.ville != null">
+            <div hclass="row" v-if="client.ville != null">
               <div class="col-lg-12 d-flex align-items-center">
                 <base-input
                   class="w-100 m-0"
@@ -263,7 +263,7 @@
               <div class="col-sm-2 col-md-1"></div>
             </div>
 
-            <div class="row" v-else>
+            <div hidden class="row" v-else>
               <div class="col-sm-9 col-md-11">
                 <base-input
                   type="text"
@@ -290,7 +290,7 @@
             </div>
 
             <br />
-            <div class="row" v-if="paysshow == true">
+            <div hidden class="row" v-if="paysshow == true">
               <div class="col-md-6 pr-md-1 text-left">
                 <div class="form-group">
                   <label>Pays *</label>
@@ -337,6 +337,53 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Pays *</label>
+                  <select
+                    class="form-control"
+                    required
+                    v-model="client.paye_id"
+                    @change="fetchVillesPays(client.paye_id)"
+                  >
+                    <option value disabled selected>
+                      choisissez votre pays
+                    </option>
+                    <option
+                      v-for="pays in pays"
+                      v-bind:key="pays.id"
+                      v-bind:value="pays.id"
+                    >
+                      {{ pays.nom_fr_fr }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Gouvernorat *</label>
+                  <select
+                    class="form-control"
+                    required
+                    v-model="client.ville_id"
+                    @change="fetchSousVille(client.ville_id)"
+                  >
+                    <option value disabled selected>
+                      choisissez votre destination
+                    </option>
+                    <option
+                      v-for="ville in villespays"
+                      v-bind:key="ville.id"
+                      v-bind:value="ville.id"
+                    >
+                      {{ ville.nom }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-12">
                 <base-input
@@ -1010,6 +1057,8 @@ export default {
     };
   },
   created() {
+    this.fetchVillesPays(this.$store.state.user.paye_id);
+
     this.fetchPays();
     this.fetchclient(this.$store.state.user.id);
     this.fetchuserSingl(this.$store.state.user.id);
