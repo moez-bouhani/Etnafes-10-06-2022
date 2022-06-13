@@ -25,67 +25,78 @@
         <div class="container container_home1 d-none d-lg-block">
           <!--Grid row-->
           <div class="row" v-if="!toggle">
-            <div class="col-md-8 offset-md-2">   
+            <div class="col-md-8 offset-md-2">
               <div class="card style_card_rechereche">
-                <div class="card-body" style="padding:6px !important">
+                <div class="card-body" style="padding: 6px !important">
                   <form name>
-                    <div class="row">          
-                          <div class="col-md-3 mr-2 ml-4">
-                            <label 
-                              style="margin-left: 23px;
-                                color: #000;font-size: 12px !important;
+                    <div class="row">
+                      <div class="col-md-3 mr-2 ml-4">
+                        <label
+                          style="
+                            margin-left: 23px;
+                            color: #000;
+                            font-size: 12px !important;
 
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-                              "
-                              >Destination</label
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Destination</label
+                        >
+                        <div class="form-group">
+                          <select
+                            @change="toggle = !toggle"
+                            class="v-select vs--single vs--searchable"
+                            v-model="pack.ville_id"
+                            name="ville_id"
+                            style="
+                              background-color: #fff !important;
+                              padding: 3px;
+                              font-size: 12px !important;
+                              margin-left: 23px;
+                            "
+                          >
+                            <option value disabled selected>
+                              choisissez votre destination
+                            </option>
+                            <option
+                              style="margin-left: 5px"
+                              v-for="ville in villes"
+                              v-bind:key="'v' + ville.id"
+                              v-bind:value="ville.id"
                             >
-                            <div class="form-group">
-                              <select
-                                @change="toggle = !toggle"
-                                class="v-select vs--single vs--searchable"
-                                
-                                v-model="pack.ville_id"
-                                name="ville_id"
-                                style="background-color: #fff !important;    padding: 3px;font-size: 12px !important;
-                                margin-left: 23px;"
-                              >
-                                <option value disabled selected>
-                                  choisissez votre destination
-                                </option>
-                                <option style="margin-left:5px"
-                                  v-for="ville in villes"
-                                  v-bind:key="'v' + ville.id"
-                                  v-bind:value="ville.id"
-                                >
-                                  {{ ville.nom }}
-                                </option>
-                              </select>
-                            </div> 
-                          </div>
+                              {{ ville.nom }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
 
-                          <div class="col-md-3 mr-2">
-                            <label
-                              style="
-                                color: #000;
-                                font-size: 12px !important;
-    
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-                              "
-                              >Date d'arrivée</label
-                            >
-                            <div style="margin-top: -11px !important;margin-left: -11px;">
-                            <date-picker
-                              v-model="pack.date_deb"
-                              required
-                              valueType="format"
-                              @input="toggle = !toggle"
-                              placeholder=" Votre date ?"
-                              :disabled-date="disabledBeforeToday"
-                            ></date-picker>
-                            </div>
-                           <!--  <div class="form-group">
+                      <div class="col-md-3 mr-2">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Date d'arrivée</label
+                        >
+                        <div
+                          style="
+                            margin-top: -11px !important;
+                            margin-left: -11px;
+                          "
+                        >
+                          <date-picker
+                            v-model="pack.date_deb"
+                            required
+                            valueType="format"
+                            @input="toggle = !toggle"
+                            placeholder=" Votre date ?"
+                            :disabled-date="disabledBeforeToday"
+                          ></date-picker>
+                        </div>
+                        <!--  <div class="form-group">
                               <VueDatePicker
                                 class="form-control personalisedate"
                                 @input="toggle = !toggle"
@@ -93,37 +104,38 @@
                                 v-model="pack.date_deb"
                               />
                             </div> -->
-                          </div>
+                      </div>
 
-                          &nbsp; &nbsp; &nbsp;
-                          <div class="col-mx-1 mr-1">
-                            <label
-                              style="
-                                color: #000;
-                                font-size: 12px !important;
-    
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;"
-                              >Personnes</label
-                            >
-                             <vue-numeric-input
-                                  style="
-                                    position: relative !important;
-                                    -webkit-box-sizing: border-box !important;
-                                    box-sizing: border-box !important;
-                                   
-                                    width: 81px !important;
-                                    margin-top: 1px !important;
-                                  "
-                                  v-model="nb_adulte"
-                                  v-on:input="updateNbAdulte"
-                                  :min="1"
-                                  :step="1"
-                                  name="nb_adulte"
-                                  required
-                                  size="small"
-                                ></vue-numeric-input>
-                            <!-- <div class="form-group">
+                      &nbsp; &nbsp; &nbsp;
+                      <div class="col-mx-1 mr-1">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Personnes</label
+                        >
+                        <vue-numeric-input
+                          style="
+                            position: relative !important;
+                            -webkit-box-sizing: border-box !important;
+                            box-sizing: border-box !important;
+
+                            width: 81px !important;
+                            margin-top: 1px !important;
+                          "
+                          v-model="nb_adulte"
+                          v-on:input="updateNbAdulte"
+                          :min="1"
+                          :step="1"
+                          name="nb_adulte"
+                          required
+                          size="small"
+                        ></vue-numeric-input>
+                        <!-- <div class="form-group">
                               <input
                                 aria-label="label"
                                 class="personalise1"
@@ -135,8 +147,8 @@
                                 v-model="nb_adulte"
                               />
                             </div> -->
-                          </div>
-                          <!-- &nbsp; &nbsp; &nbsp;
+                      </div>
+                      <!-- &nbsp; &nbsp; &nbsp;
                           <div class="col-mx-1">
                             <label
                               style="
@@ -207,23 +219,21 @@
                             </div>
                           </div>
                           &nbsp; &nbsp; &nbsp; -->
-                          <div class="col-md-1 offset-md-1">
-                            <label></label>
-                            <button
-                              @click="toggle = !toggle"
-                              type="button"
-                              class="btn"
-                              style="
-                                background-color: #222a42;
-                                color: #fff;
-                                margin-top: -10px;
-                              "
-                            >
-                              Modifier
-                            </button>
-                          </div>
-                        
-                      
+                      <div class="col-md-1 offset-md-1">
+                        <label></label>
+                        <button
+                          @click="toggle = !toggle"
+                          type="button"
+                          class="btn"
+                          style="
+                            background-color: #222a42;
+                            color: #fff;
+                            margin-top: -10px;
+                          "
+                        >
+                          Modifier
+                        </button>
+                      </div>
                     </div>
                   </form>
                   <!-- Form -->
@@ -234,96 +244,108 @@
           <div class="row" v-if="toggle">
             <div class="col-md-8 offset-md-2">
               <div class="card style_card_rechereche">
-                <div class="card-body" style="padding:6px !important">
+                <div class="card-body" style="padding: 6px !important">
                   <!-- Form -->
                   <form name>
-                    <div class="row">              
-                          <div class="col-md-3 mr-2 ml-4">
-                             <label 
-                              style="margin-left: 23px;
-                                color: #000;font-size: 12px !important;
-  
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-                              "
-                              >Destination</label
-                            >
-                            <div class="form-group">
-                              <select
-                                @change="toggle = !toggle"
-                                class="v-select vs--single vs--searchable"
-                                
-                                v-model="pack.ville_id"
-                                name="ville_id"
-                                style="background-color: #fff !important;    padding: 3px;font-size: 12px !important;
-                                margin-left: 23px;"
-                              >
-                                <option value disabled selected>
-                                  choisissez votre destination
-                                </option>
-                                <option style="margin-left:5px"
-                                  v-for="ville in villes"
-                                  v-bind:key="'v' + ville.id"
-                                  v-bind:value="ville.id"
-                                >
-                                  {{ ville.nom }}
-                                </option>
-                              </select>
-                            </div> 
-                          </div>
+                    <div class="row">
+                      <div class="col-md-3 mr-2 ml-4">
+                        <label
+                          style="
+                            margin-left: 23px;
+                            color: #000;
+                            font-size: 12px !important;
 
-                          <div class="col-md-3 mr-2">
-                            <label
-                              style="
-                                color: #000;
-                                font-size: 12px !important;
-    
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-                              "
-                              >Date d'arrivée</label
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Destination</label
+                        >
+                        <div class="form-group">
+                          <select
+                            @change="toggle = !toggle"
+                            class="v-select vs--single vs--searchable"
+                            v-model="pack.ville_id"
+                            name="ville_id"
+                            style="
+                              background-color: #fff !important;
+                              padding: 3px;
+                              font-size: 12px !important;
+                              margin-left: 23px;
+                            "
+                          >
+                            <option value disabled selected>
+                              choisissez votre destination
+                            </option>
+                            <option
+                              style="margin-left: 5px"
+                              v-for="ville in villes"
+                              v-bind:key="'v' + ville.id"
+                              v-bind:value="ville.id"
                             >
-                            <div style="margin-top: -11px !important;margin-left: -11px;">
-                            <date-picker
-                              v-model="pack.date_deb"
-                              required
-                              valueType="format"
-                              @input="toggle = !toggle"
-                              placeholder=" Quelle est votre date ?"
-                              :disabled-date="disabledBeforeToday"
-                            ></date-picker>
-                            </div>
-                          </div>
+                              {{ ville.nom }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
 
-                          &nbsp; &nbsp; &nbsp;
-                          <div class="col-mx-1 mr-1">
-                            <label
-                              style="
-                                color: #000;
-                                font-size: 12px !important;
-   
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;"
-                              >Personnes</label
-                            >
-                             <vue-numeric-input
-                                  style="
-                                    position: relative !important;
-                                    -webkit-box-sizing: border-box !important;
-                                    box-sizing: border-box !important;
-                                   
-                                    width: 81px !important;
-                                    margin-top: 1px !important;
-                                  "
-                                  v-model="nb_adulte"
-                                      @change="updateNbAdulte"
-                                  :min="1"
-                                  :step="1"
-                                  name="nb_adulte"
-                                  required
-                                  size="small"
-                                ></vue-numeric-input>
-                           <!--  <label
+                      <div class="col-md-3 mr-2">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Date d'arrivée</label
+                        >
+                        <div
+                          style="
+                            margin-top: -11px !important;
+                            margin-left: -11px;
+                          "
+                        >
+                          <date-picker
+                            v-model="pack.date_deb"
+                            required
+                            valueType="format"
+                            @input="toggle = !toggle"
+                            placeholder="Votre date ?"
+                            :disabled-date="disabledBeforeToday"
+                          ></date-picker>
+                        </div>
+                      </div>
+
+                      &nbsp; &nbsp; &nbsp;
+                      <div class="col-mx-1 mr-1">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Personnes</label
+                        >
+                        <vue-numeric-input
+                          style="
+                            position: relative !important;
+                            -webkit-box-sizing: border-box !important;
+                            box-sizing: border-box !important;
+
+                            width: 81px !important;
+                            margin-top: 1px !important;
+                          "
+                          v-model="nb_adulte"
+                          @change="updateNbAdulte"
+                          :min="1"
+                          :step="1"
+                          name="nb_adulte"
+                          required
+                          size="small"
+                        ></vue-numeric-input>
+                        <!--  <label
                               style="
                                 color: #000;font-size: 12px !important;
     line-height: 27px !important;
@@ -344,8 +366,8 @@
                                 required
                               />
                             </div> -->
-                          </div>
-                          <!-- &nbsp; &nbsp; &nbsp;
+                      </div>
+                      <!-- &nbsp; &nbsp; &nbsp;
                           <div class="col-mx-1">
                             <label
                               style="
@@ -412,35 +434,33 @@
                             </div>
                           </div>
                           &nbsp; &nbsp; &nbsp; -->
-                          <div class="col-md-1 offset-md-1">
-                            <label></label>
-                            <router-link
-                              :to="{
-                                name: 'ResultatsRecherche',
-                                query: {
-                                  ville_id: pack.ville_id,
-                                  date_deb: pack.date_deb,
-                                  nb_adulte: nb_adulte,
-                                  nb_enfant: nb_enfant,
-                                  ages: agestab,
-                                },
-                              }"
-                            >
-                              <button
-                                type="submit"
-                                class="btn btn-info"
-                                style="
-                                  background-color: #17a2b8;
-                                  color: #fff;
-                                  margin-top: -10px;
-                                "
-                              >
-                                Rechercher
-                              </button>
-                            </router-link>
-                          </div>
-                        
-                      
+                      <div class="col-md-1 offset-md-1">
+                        <label></label>
+                        <router-link
+                          :to="{
+                            name: 'ResultatsRecherche',
+                            query: {
+                              ville_id: pack.ville_id,
+                              date_deb: pack.date_deb,
+                              nb_adulte: nb_adulte,
+                              nb_enfant: nb_enfant,
+                              ages: agestab,
+                            },
+                          }"
+                        >
+                          <button
+                            type="submit"
+                            class="btn btn-info"
+                            style="
+                              background-color: #17a2b8;
+                              color: #fff;
+                              margin-top: -10px;
+                            "
+                          >
+                            Rechercher
+                          </button>
+                        </router-link>
+                      </div>
                     </div>
                   </form>
                   <!-- Form -->
@@ -454,123 +474,124 @@
         <div class="container container_home1 d-lg-none">
           <!-- mobile responsive -->
           <div class="row" v-show="!toggle">
-            <div class="col-md-12">   
-              <div class="card" style="margin-bottom: 12px;">
-                <div class="card-body" style="padding:11px !important">
+            <div class="col-md-12">
+              <div class="card" style="margin-bottom: 12px">
+                <div class="card-body" style="padding: 11px !important">
                   <form name>
-                    <div class="row">   
-                      
-                       <div class="col">
-                            <label
-                              style="
-                                color: #000;
-                                font-size: 12px !important;
-        margin-left: 6px;
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-                              "
-                              >Date d'arrivée</label
-                            >
-                            <div style="margin-top: -11px !important;margin-left: -5px;">
-                            <date-picker  style="width: 345px !important;"
-                              v-model="pack.date_deb"
-                              required
-                              valueType="format"
-                              @input="toggle = !toggle"
-                              placeholder="Choisissez votre date d'arrivée ?"
-                              :disabled-date="disabledBeforeToday"
-                            ></date-picker>
-                            </div>
-                          </div>  
-
-                              
-                          
-
-                                             
-                      
+                    <div class="row">
+                      <div class="col">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+                            margin-left: 6px;
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Date d'arrivée</label
+                        >
+                        <div
+                          style="
+                            margin-top: -11px !important;
+                            margin-left: -5px;
+                          "
+                        >
+                          <date-picker
+                            style="width: 345px !important"
+                            v-model="pack.date_deb"
+                            required
+                            valueType="format"
+                            @input="toggle = !toggle"
+                            placeholder="Choisissez votre date d'arrivée ?"
+                            :disabled-date="disabledBeforeToday"
+                          ></date-picker>
+                        </div>
+                      </div>
                     </div>
-<div class="row">
-  <div class="col">
-                            <label 
-                              style="
-                                color: #000;font-size: 12px !important;
-margin-left: 6px;
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-                              "
-                              >Destination</label
+                    <div class="row">
+                      <div class="col">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+                            margin-left: 6px;
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Destination</label
+                        >
+                        <div class="form-group">
+                          <select
+                            @change="toggle = !toggle"
+                            class="v-select vs--single vs--searchable"
+                            v-model="pack.ville_id"
+                            name="ville_id"
+                            style="
+                              background-color: #fff !important;
+                              padding: 3px;
+                              font-size: 12px !important;
+                              margin-left: 6px;
+                            "
+                          >
+                            <option :value="najeh" disabled selected>
+                              choisissez votre destination
+                            </option>
+                            <option
+                              style="margin-left: 5px"
+                              v-for="ville in villes"
+                              v-bind:key="'v' + ville.id"
+                              v-bind:value="ville.id"
                             >
-                            <div class="form-group">
-                              <select
-                                @change="toggle = !toggle"
-                                class="v-select vs--single vs--searchable"
-                                
-                                v-model="pack.ville_id"
-                                name="ville_id"
-                                style="background-color: #fff !important;    padding: 3px;font-size: 12px !important;
-                                margin-left: 6px;"
-                              >
-                                <option :value="najeh" disabled selected>
-                                  choisissez votre destination
-                                </option>
-                                <option style="margin-left:5px"
-                                  v-for="ville in villes"
-                                  v-bind:key="'v' + ville.id"
-                                  v-bind:value="ville.id"
-                                >
-                                  {{ ville.nom }}
-                                </option>
-                              </select>
-                            </div> 
-                          </div>
-                          <div class="col">
-                            <label
-                              style="
-                                color: #000;
-                                font-size: 12px !important;
-    margin-left: 34px;
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;"
-                              >Personnes</label
-                            >
-                             <vue-numeric-input
-                                  style="
-                                    position: relative !important;
-                                    -webkit-box-sizing: border-box !important;
-                                    box-sizing: border-box !important;
-                                
-                                    width: 80px !important;
-                                    margin-left: 34px;
-    margin-top: 6px !important;
-                                    
-                                  "
-                                  v-model="nb_adulte"
-                                  v-on:input="updateNbAdulte"
-                                  :min="1"
-                                  :step="1"
-                                  name="nb_adulte"
-                                  required
-                                  size="small"
-                                ></vue-numeric-input>
-                          </div>
-</div>
+                              {{ ville.nom }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+                            margin-left: 34px;
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Personnes</label
+                        >
+                        <vue-numeric-input
+                          style="
+                            position: relative !important;
+                            -webkit-box-sizing: border-box !important;
+                            box-sizing: border-box !important;
 
+                            width: 80px !important;
+                            margin-left: 34px;
+                            margin-top: 6px !important;
+                          "
+                          v-model="nb_adulte"
+                          v-on:input="updateNbAdulte"
+                          :min="1"
+                          :step="1"
+                          name="nb_adulte"
+                          required
+                          size="small"
+                        ></vue-numeric-input>
+                      </div>
+                    </div>
 
-
-                  
                     <div class="row">
                       <button
-                              @click="toggle = !toggle"
-                              type="button"
-                              class="btn btn-block"
-                              style="
-                                background-color: #222a42;
-                                color: #fff;
-    margin: 10px 10px 0px 10px;
-                              "
-                            >
-                              Modifier
-                            </button>
+                        @click="toggle = !toggle"
+                        type="button"
+                        class="btn btn-block"
+                        style="
+                          background-color: #222a42;
+                          color: #fff;
+                          margin: 10px 10px 0px 10px;
+                        "
+                      >
+                        Modifier
+                      </button>
                     </div>
                   </form>
                   <!-- Form -->
@@ -580,134 +601,138 @@ margin-left: 6px;
           </div>
           <div class="row" v-show="toggle">
             <div class="col-md-8 offset-md-2">
-              <div class="card" style="margin-bottom: 12px;">
-                <div class="card-body" style="padding:11px !important">
+              <div class="card" style="margin-bottom: 12px">
+                <div class="card-body" style="padding: 11px !important">
                   <!-- Form -->
                   <form name>
-                    <div class="row">    
- 
+                    <div class="row">
                       <div class="col">
-                            <label
-                              style="
-                                color: #000;
-                                font-size: 12px !important;
-        margin-left: 6px;
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-                              "
-                              >Date d'arrivée</label
-                            >
-                            <div style="margin-top: -11px !important;margin-left: -5px;">
-                            <date-picker  style="width: 345px !important;"
-                              v-model="pack.date_deb"
-                              required
-                              valueType="format"
-                              @input="toggle = !toggle"
-                              placeholder="Choisissez votre date d'arrivée ?"
-                              :disabled-date="disabledBeforeToday"
-                            ></date-picker>
-                            </div>
-                          </div>  
-
-                                                             
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+                            margin-left: 6px;
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Date d'arrivée</label
+                        >
+                        <div
+                          style="
+                            margin-top: -11px !important;
+                            margin-left: -5px;
+                          "
+                        >
+                          <date-picker
+                            style="width: 345px !important"
+                            v-model="pack.date_deb"
+                            required
+                            valueType="format"
+                            @input="toggle = !toggle"
+                            placeholder="Choisissez votre date d'arrivée ?"
+                            :disabled-date="disabledBeforeToday"
+                          ></date-picker>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="row">
-  <div class="col">
-                            <label 
-                              style="
-                                color: #000;font-size: 12px !important;
-margin-left: 6px;
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;
-                              "
-                              >Destination</label
+                      <div class="col">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+                            margin-left: 6px;
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Destination</label
+                        >
+                        <div class="form-group">
+                          <select
+                            @change="toggle = !toggle"
+                            class="v-select vs--single vs--searchable"
+                            v-model="pack.ville_id"
+                            name="ville_id"
+                            style="
+                              background-color: #fff !important;
+                              padding: 3px;
+                              font-size: 12px !important;
+                              margin-left: 6px;
+                            "
+                          >
+                            <option :value="najeh" disabled selected>
+                              choisissez votre destination
+                            </option>
+                            <option
+                              style="margin-left: 5px"
+                              v-for="ville in villes"
+                              v-bind:key="'v' + ville.id"
+                              v-bind:value="ville.id"
                             >
-                            <div class="form-group">
-                              <select
-                                @change="toggle = !toggle"
-                                class="v-select vs--single vs--searchable"
-                                
-                                v-model="pack.ville_id"
-                                name="ville_id"
-                                style="background-color: #fff !important;    padding: 3px;font-size: 12px !important;
-                                margin-left: 6px;"
-                              >
-                                <option :value="najeh" disabled selected>
-                                  choisissez votre destination
-                                </option>
-                                <option style="margin-left:5px"
-                                  v-for="ville in villes"
-                                  v-bind:key="'v' + ville.id"
-                                  v-bind:value="ville.id"
-                                >
-                                  {{ ville.nom }}
-                                </option>
-                              </select>
-                            </div> 
-                          </div>
-                          <div class="col">
-                            <label
-                              style="
-                                color: #000;
-                                font-size: 12px !important;
-    margin-left: 34px;
-    font-weight: 800 !important;
-    letter-spacing: 0.04em !important;"
-                              >Personnes</label
-                            >
-                             <vue-numeric-input
-                                  style="
-                                    position: relative !important;
-                                    -webkit-box-sizing: border-box !important;
-                                    box-sizing: border-box !important;
-                                
-                                    width: 80px !important;
-                                    margin-left: 34px;
-    margin-top: 6px !important;
-                                    
-                                  "
-                                  v-model="nb_adulte"
-                                  v-on:input="updateNbAdulte"
-                                  :min="1"
-                                  :step="1"
-                                  name="nb_adulte"
-                                  required
-                                  size="small"
-                                ></vue-numeric-input>
-                          </div>
-</div>
+                              {{ ville.nom }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 12px !important;
+                            margin-left: 34px;
+                            font-weight: 800 !important;
+                            letter-spacing: 0.04em !important;
+                          "
+                          >Personnes</label
+                        >
+                        <vue-numeric-input
+                          style="
+                            position: relative !important;
+                            -webkit-box-sizing: border-box !important;
+                            box-sizing: border-box !important;
 
-                    <div class="row">
-                      
-                            <router-link
-                              :to="{
-                                name: 'ResultatsRecherche',
-                                query: {
-                                  ville_id: pack.ville_id,
-                                  date_deb: pack.date_deb,
-                                  nb_adulte: nb_adulte,
-                                  nb_enfant: nb_enfant,
-                                  ages: agestab,
-                                },
-                              }"
-                            >
-                              <button
-                                type="button"
-                                class="btn btn-block btn-info"
-                                style="
-                                  background-color: #17a2b8;
-                                  color: #fff;
-                                   margin: 10px 10px 0px 10px;
-                                "
-                              >
-                                Rechercher
-                              </button>
-                            </router-link>
-                          
+                            width: 80px !important;
+                            margin-left: 34px;
+                            margin-top: 6px !important;
+                          "
+                          v-model="nb_adulte"
+                          v-on:input="updateNbAdulte"
+                          :min="1"
+                          :step="1"
+                          name="nb_adulte"
+                          required
+                          size="small"
+                        ></vue-numeric-input>
+                      </div>
                     </div>
 
-                   
+                    <div class="row">
+                      <router-link
+                        :to="{
+                          name: 'ResultatsRecherche',
+                          query: {
+                            ville_id: pack.ville_id,
+                            date_deb: pack.date_deb,
+                            nb_adulte: nb_adulte,
+                            nb_enfant: nb_enfant,
+                            ages: agestab,
+                          },
+                        }"
+                      >
+                        <button
+                          type="button"
+                          class="btn btn-block btn-info"
+                          style="
+                            background-color: #17a2b8;
+                            color: #fff;
+                            margin: 10px 10px 0px 10px;
+                          "
+                        >
+                          Rechercher
+                        </button>
+                      </router-link>
+                    </div>
                   </form>
                   <!-- Form -->
                 </div>
@@ -864,7 +889,7 @@ margin-left: 6px;
           </table>
         </div>
 
-<div class="col-md-3 d-lg-none">
+        <div class="col-md-3 d-lg-none">
           <table class="table table-bordered" style="border-radius: 22px">
             <thead>
               <label
@@ -891,7 +916,11 @@ margin-left: 6px;
                       </div> -->
                       <div class="col">
                         <label
-                          style="color: #1a2b48;font-size: 13px; margin-left:6px;"
+                          style="
+                            color: #1a2b48;
+                            font-size: 13px;
+                            margin-left: 6px;
+                          "
                           >Prix Totale</label
                         >
                       </div>
@@ -937,7 +966,9 @@ margin-left: 6px;
               >
                 <div class="row">
                   <div class="col">
-                    <label style="color: #1a2b48;font-size: 13px;">Type de l'activité</label>
+                    <label style="color: #1a2b48; font-size: 13px"
+                      >Type de l'activité</label
+                    >
                   </div>
 
                   <div class="col">
@@ -1000,7 +1031,9 @@ margin-left: 6px;
               >
                 <div class="row">
                   <div class="col">
-                    <label style="color: #1a2b48;font-size: 13px;">Taux d'adrénaline</label>
+                    <label style="color: #1a2b48; font-size: 13px"
+                      >Taux d'adrénaline</label
+                    >
                   </div>
 
                   <div class="col">
@@ -1072,7 +1105,7 @@ margin-left: 6px;
                   votre recherche.
                 </b>
 
-                <b class="resFil d-lg-none" style="font-size: 12px !important;">
+                <b class="resFil d-lg-none" style="font-size: 12px !important">
                   Vous avez {{ filteredData.length }} activités trouvées pour
                   votre recherche.
                 </b>
@@ -1106,7 +1139,8 @@ margin-left: 6px;
                     }"
                   >
                     <div class="card-img-wrap">
-                      <img loading="lazy"
+                      <img
+                        loading="lazy"
                         class="card-img imaa1"
                         :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_packs/${pack.image_couverture}`"
                         alt="Card image cap"
@@ -1230,7 +1264,11 @@ margin-left: 6px;
                   <div class="card-block">
                     <div style="padding-top: 12px; padding-bottom: 12px">
                       <center>
-                        <img loading="lazy" src="/date-deb-etnafes.png" width="6%" />&nbsp;
+                        <img
+                          loading="lazy"
+                          src="/date-deb-etnafes.png"
+                          width="6%"
+                        />&nbsp;
                         <span style="color: #5e6d77"
                           >{{ pack.date_deb }} - {{ pack.time }}</span
                         >
@@ -1249,7 +1287,8 @@ margin-left: 6px;
                                 v-if="agestab != undefined"
                                 style="font-size: 12px"
                               >
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   src="/etnaffes-tn-dinar.png"
                                   class="image_resulatat_rech"
                                 />
@@ -1276,7 +1315,8 @@ margin-left: 6px;
                                 title="Nombres des personnes"
                                 style="font-size: 12px"
                               >
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   src="/etnaffes-tn-personne.png"
                                   class="image_resulatat_rech"
                                 />
@@ -1296,7 +1336,8 @@ margin-left: 6px;
                                 title="Niveau d'activités physique"
                                 style="font-size: 12px"
                               >
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   class="image_resulatat_rech"
                                   src="/etnafess-tn-type-activite.png"
                                 />&nbsp;
@@ -1318,7 +1359,11 @@ margin-left: 6px;
       </div>
 
       <!-- aucun pack web -->
-      <div style="padding-top: 70px; padding-bottom: 40px" class="d-none d-lg-block" v-if="packs.length==0">
+      <div
+        style="padding-top: 70px; padding-bottom: 40px"
+        class="d-none d-lg-block"
+        v-if="packs.length == 0"
+      >
         <center>
           <h3 style="color: #333">
             Aucun pack ne correspond pour le moment à cette recherche, veuillez
@@ -1404,9 +1449,13 @@ margin-left: 6px;
       </div>
 
       <!-- aucun pack responsive -->
-       <div style="padding-top: 0px; padding-bottom: 40px" v-if="packs.length==0" class="d-lg-none">
+      <div
+        style="padding-top: 0px; padding-bottom: 40px"
+        v-if="packs.length == 0"
+        class="d-lg-none"
+      >
         <center>
-          <h3 style="color: #333;font-size: 16px;">
+          <h3 style="color: #333; font-size: 16px">
             Aucun pack ne correspond pour le moment à cette recherche, veuillez
             consultez les packs disponibles sur le lien ci-dessous
           </h3>
@@ -1488,8 +1537,6 @@ margin-left: 6px;
           </h3>
         </center>
       </div>
-
-
     </div>
 
     <!-- moez -->
@@ -1818,7 +1865,6 @@ export default {
   },
 
   methods: {
-
     disabledBeforeToday(date) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
