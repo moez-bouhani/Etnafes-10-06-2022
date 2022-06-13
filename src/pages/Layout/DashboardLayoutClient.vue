@@ -14,6 +14,8 @@
         </template>
       </sidebar-link>
 
+      <div v-if="espace == 'Espace Voyageur'">
+
       <sidebar-link to="/notifications/client" class="menuClient">
         <i class="tim-icons icon-bell-55"></i>
         <template v-if="!isRTL">
@@ -68,6 +70,251 @@
           <p>ملف تعريفي للمستخدم</p>
         </template>
       </sidebar-link>
+      </div>
+
+      <div v-if="espace == 'Espace Artisan'">
+                 <sidebar-link class="menuAdmin" to="/dashboard_femme">
+        <i class="tim-icons icon-chart-pie-36"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Dashboard</p>
+        </template>
+        <template v-else>
+          <p>لوحة القيادة</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link class="menuAdmin" to="/Artisan">
+        <i class="tim-icons icon-single-02"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Profile</p>
+        </template>
+        <template v-else>
+          <p>ملف تعريفي للمستخدم</p>
+        </template>
+      </sidebar-link>
+      <sidebar-link class="menuAdmin" to="/ajouter_produit_femme">
+        <i class="tim-icons icon-chart-pie-36"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Ajouter produit</p>
+        </template>
+        <template v-else>
+          <p>لوحة القيادة</p>
+        </template>
+      </sidebar-link>
+      <sidebar-link class="menuAdmin" :to="{ name: 'listes_mes_produit' }">
+        <i class="tim-icons icon-single-copy-04"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">
+            Mes produits
+          </p>
+        </template>
+        <template v-else>
+          <p>طباعة</p>
+        </template>
+      </sidebar-link>
+                </div>
+        <div v-if="espace == 'Espace Guide'">
+           <sidebar-link to="/dashboard_guide">
+        <i class="tim-icons icon-chart-pie-36"></i>
+        <template v-if="!isRTL">
+          <p style="color:#fff">Dashboard</p>
+        </template>
+        <template v-else>
+          <p>لوحة القيادة</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/guide">
+        <i class="tim-icons icon-single-02"></i>
+        <template v-if="!isRTL">
+          <p style="color:#fff">Mon Profile</p>
+        </template>
+        <template v-else>
+          <p>ملف تعريفي للمستخدم</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/guide/cv">
+        <i class="tim-icons icon-single-02"></i>
+        <template v-if="!isRTL">
+          <p style="color:#fff">Mon Cv</p>
+        </template>
+        <template v-else>
+          <p>ملف تعريفي للمستخدم</p>
+        </template>
+      </sidebar-link>
+        </div>
+<div v-if="espace == 'Espace Préstataire de service'">
+  <side-bar :background-color="backgroundColor">
+      <!-- <mobile-menu slot="content"></mobile-menu> -->
+      <sidebar-link to="/dashboard_agence" class="menuClient">
+        <i class="tim-icons icon-chart-pie-36"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Dashboard</p>
+        </template>
+        <template v-else>
+          <p>لوحة القيادة</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/dashboard_agence" class="menuClient">
+        <i class="tim-icons icon-bell-55"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">
+            Notifications&nbsp;
+            <span
+              class="badge badge-danger image-clignote"
+              style="background-color: red"
+              >New</span
+            >
+          </p>
+        </template>
+        <template v-else>
+          <p>طباعة</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/profil" class="menuClient">
+        <i class="tim-icons icon-single-02"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Mon Profile</p>
+        </template>
+        <template v-else>
+          <p>ملف تعريفي للمستخدم</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/MesFilialesAgence" class="menuClient">
+        <i class="tim-icons icon-bulb-63"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">
+            Mes Filiales
+          </p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/MesPacksAgence" class="menuClient">
+        <i class="tim-icons icon-notes"></i>
+
+        <template v-if="!isRTL">
+          <p style="color: #fff">
+            Mes Packs
+          </p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/MesSatistiqueAgence" class="menuClient">
+        <i class="tim-icons icon-world"></i>
+
+        <template v-if="!isRTL">
+          <p style="color: #fff">
+            Statistiques
+          </p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/nouveaupack/agence" class="menuClient">
+        <i class="tim-icons icon-world"></i>
+
+        <template v-if="!isRTL">
+          <p style="color: #fff">
+            Prestataire de Services
+          </p>
+        </template>
+      </sidebar-link>
+</div>
+
+<div v-if="espace == 'Espace Hébergeur'">
+  <sidebar-link to="/dashboard_proprietaire">
+        <i class="tim-icons icon-chart-pie-36"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Dashboard</p>
+        </template>
+        <template v-else>
+          <p>لوحة القيادة</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/hebergeur">
+        <i class="tim-icons icon-single-02"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Mon Profile</p>
+        </template>
+        <template v-else>
+          <p>ملف تعريفي للمستخدم</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/NouveauHebergement">
+        <i class="tim-icons icon-bank"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Ajouter hébergement</p>
+        </template>
+        <template v-else>
+          <p>طباعة</p>
+        </template>
+      </sidebar-link>
+      <sidebar-link to="/allhebergements">
+        <i class="tim-icons icon-bank"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Mes hébergements</p>
+        </template>
+        <template v-else>
+          <p>طباعة</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/reservations-hebergement">
+        <i class="tim-icons icon-bullet-list-67"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">Mes réservations</p>
+        </template>
+        <template v-else>
+          <p>طباعة</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/nouveauhebergement" class="menuClient">
+        <i class="tim-icons icon-bank"></i>
+        <template v-if="!isRTL">
+          <p style="color: #fff">
+            Hébergeur
+          </p>
+        </template>
+      </sidebar-link>
+</div>
+
+<div v-if="espace == 'Espace Restaurant'">
+  <sidebar-link to="/dashboard_proprietaire_restau">
+        <i class="tim-icons icon-chart-pie-36"></i>
+        <template v-if="!isRTL">
+          <p style="color:#fff">Dashboard</p>
+        </template>
+        <template v-else>
+          <p>لوحة القيادة</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/proprietaire/restaurant">
+        <i class="tim-icons icon-single-02"></i>
+        <template v-if="!isRTL">
+          <p style="color:#fff">Mon Profile</p>
+        </template>
+        <template v-else>
+          <p>ملف تعريفي للمستخدم</p>
+        </template>
+      </sidebar-link>
+
+      <sidebar-link to="/allrestaurants">
+        <i class="tim-icons icon-notes"></i>
+        <template v-if="!isRTL">
+          <p style="color:#fff">Mes restaurants</p>
+        </template>
+        <template v-else>
+          <p>طباعة</p>
+        </template>
+      </sidebar-link>
+</div>
 
       <li class="nav-item menuClient">
         <a
@@ -116,6 +363,7 @@ export default {
   },
   data() {
     return {
+      espace: localStorage.getItem("espace", this.espace),
       packsln: "",
       reservationsP: "",
       reservationsH: "",
