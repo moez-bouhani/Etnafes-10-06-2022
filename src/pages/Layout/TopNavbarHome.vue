@@ -180,7 +180,7 @@
                 </div>
 
                 <!-- guide -->
-                <div v-if="espace == 'Espace Guid'">
+                <div v-if="espace == 'Espace Guide'">
                   <b-dropdown-item to="/dashboard_guide">
                     <router-link to="/dashboard_guide">Dashboard</router-link>
                   </b-dropdown-item>
@@ -216,7 +216,7 @@
                 </div>
 
                 <!-- hebergeur -->
-                <div v-if="espace == 'Espace Hébergeu'">
+                <div v-if="espace == 'Espace Hébergeur'">
                   <b-dropdown-item to="/dashboard_proprietaire">
                     <router-link to="/dashboard_proprietaire"
                       >Dashboard</router-link

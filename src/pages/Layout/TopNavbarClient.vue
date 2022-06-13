@@ -156,7 +156,7 @@
               </div>
               <b class="caret d-none d-lg-block d-xl-block"></b>
             </a>
-            <ul class="dropdown-menu dropdown-navbar">
+            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Voyageur'">
               <li class="nav-link">
                 <a href="/dashboard_client" class="nav-item dropdown-item"
                   >Dashboard</a
@@ -189,6 +189,155 @@
                 >
               </li>
             </ul>
+<!-- Espace Artisan -->
+            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Artisan'">
+              <li class="nav-link">
+                <a href="/Artisan" class="nav-item dropdown-item">Profil</a>
+              </li>
+              <li class="nav-link">
+                <a href="/listes_mes_produit" class="nav-item dropdown-item">
+                  Mes produits</a
+                >
+              </li>
+
+              <li class="dropdown-divider"></li>
+              <li class="nav-link">
+                <a
+                  href="javascript:void(0)"
+                  class="nav-item dropdown-item"
+                  @click.prevent="performLogout"
+                  >Se déconnecter</a
+                >
+              </li>
+            </ul>
+
+            <!-- Espace Guide -->
+            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Guide'">
+              <li class="nav-link">
+                <a href="/guide" class="nav-item dropdown-item">Dashboard</a>
+              </li>
+              <li class="nav-link">
+                <a href="/dashboard_guide" class="nav-item dropdown-item"
+                  >Profile</a
+                >
+              </li>
+
+              <li class="dropdown-divider"></li>
+              <li class="nav-link">
+                <a
+                  href="javascript:void(0)"
+                  class="nav-item dropdown-item"
+                  @click.prevent="performLogout"
+                  >Se déconnecter</a
+                >
+              </li>
+            </ul>
+
+            <!-- Espace Préstataire de service -->
+            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Préstataire de service'">
+              <li class="nav-link">
+                <a href="/dashboard_agence" class="nav-item dropdown-item"
+                  >Dashboard</a
+                >
+              </li>
+              <li class="nav-link">
+                <a href="/agence" class="nav-item dropdown-item">Profile</a>
+              </li>
+              <li class="nav-link">
+                <a href="/packs/agence" class="nav-item dropdown-item">Packs</a>
+              </li>
+
+              <li class="nav-link">
+                <a href="/agence-réservations" class="nav-item dropdown-item"
+                  >Réservations</a
+                >
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-link">
+                <a
+                  href="javascript:void(0)"
+                  class="nav-item dropdown-item"
+                  @click.prevent="performLogout"
+                  >Se déconnecter</a
+                >
+              </li>
+            </ul>
+
+             <!-- Espace Hébergeur -->
+            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Hébergeur'">
+              <li class="nav-link">
+                <a href="/dashboard_proprietaire" class="nav-item dropdown-item"
+                  >Dashboard</a
+                >
+              </li>
+
+              <li class="nav-link">
+                <a href="/proprietaire" class="nav-item dropdown-item"
+                  >Profile</a
+                >
+              </li>
+              <li class="nav-link">
+                <a href="/allhebergements" class="nav-item dropdown-item"
+                  >Mes Hebergements</a
+                >
+              </li>
+
+              <li class="nav-link">
+                <a
+                  href="/reservations-hebergement"
+                  class="nav-item dropdown-item"
+                  >Réservations</a
+                >
+              </li>
+              <!-- <li class="nav-link">
+                <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
+              </li>-->
+              <li class="dropdown-divider"></li>
+              <li class="nav-link">
+                <a
+                  href="javascript:void(0)"
+                  class="nav-item dropdown-item"
+                  @click.prevent="performLogout"
+                  >Se déconnecter</a
+                >
+              </li>
+            </ul>
+
+            <!-- Espace Restaurant -->
+            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Restaurant'">
+               <li class="nav-link">
+                <a
+                  href="/dashboard_proprietaire_restau"
+                  class="nav-item dropdown-item"
+                  >Dashboard</a
+                >
+              </li>
+              <li class="nav-link">
+                <a
+                  href="/proprietaire/restaurant"
+                  class="nav-item dropdown-item"
+                  >Profile</a
+                >
+              </li>
+              <li class="nav-link">
+                <a href="/allrestaurants" class="nav-item dropdown-item"
+                  >Mes Restaurants</a
+                >
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-link">
+                <a
+                  href="javascript:void(0)"
+                  class="nav-item dropdown-item"
+                  @click.prevent="performLogout"
+                  >Se déconnecter</a
+                >
+              </li>
+            </ul>
+
+
+
+            
           </drop-down>
         </ul>
       </div>
@@ -208,6 +357,7 @@ export default {
   },
   data() {
     return {
+      espace: localStorage.getItem("espace", this.espace),
       client: {},
       notifications: [],
       reservationsp: [],
