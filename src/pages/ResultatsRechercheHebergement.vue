@@ -89,7 +89,7 @@
                               required
                               valueType="format"
                               @input="toggle = !toggle"
-                              placeholder=" Quelle est votre date ?"
+                              placeholder="Votre date ?"
                               :disabled-date="disabledBeforeToday"
                             ></date-picker>
                             </div>
@@ -121,7 +121,7 @@
                               required
                               valueType="format"
                               @input="toggle = !toggle"
-                              placeholder=" Quelle est votre date ?"
+                              placeholder="Votre date ?"
                               :disabled-date="disabledBeforeToday"
                             ></date-picker>
                             </div>
@@ -344,7 +344,7 @@
                               required
                               valueType="format"
                               @input="toggle = !toggle"
-                              placeholder=" Quelle est votre date ?"
+                              placeholder="Votre date ?"
                               :disabled-date="disabledBeforeToday"
                             ></date-picker>
                             </div>
@@ -368,7 +368,7 @@
                               required
                               valueType="format"
                               @input="toggle = !toggle"
-                              placeholder=" Quelle est votre date ?"
+                              placeholder="Votre date ?"
                               :disabled-date="disabledBeforeToday"
                             ></date-picker>
                             </div>
