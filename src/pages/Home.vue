@@ -1646,7 +1646,7 @@
             :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
           >
             <vueper-slide
-              v-for="(pack, i) in orderedpacks"
+              v-for="(pack, i) in newpacks"
               v-bind:key="i"
               class="image_slider_home"
             >
@@ -3297,14 +3297,14 @@ export default {
   },
 
   computed: {
-    orderedpacks: function () {
+    /* orderedpacks: function () {
       const pack = this.newpacks;
       var res = [];
       for (var i = 0; i < pack.length; i++) {
         res = pack[i].date_deb >= new Date().toISOString().split("T")[0];
         return _.orderBy(this.newpacks, "date_deb");
       }
-    },
+    }, */
     loggedIn() {
       return this.$store.getters.get_loggedIn;
     },

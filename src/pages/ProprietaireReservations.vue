@@ -5,7 +5,8 @@
         <b-tabs card style="margin-top: -38px !important">
           <b-tab title="Réservations pack" active>
             <template #title>
-              {{ filteredReservationsPack.length }} Réservations pack
+              <!-- {{ filteredReservationsPack.length }}  -->
+              Réservations pack
               <span class="badge badge-pill badge-danger">{{
                 reservationspUnread
               }}</span>
@@ -158,7 +159,8 @@
           </b-tab>
           <b-tab title="Réservations aux hébergements">
             <template #title>
-              {{ filteredReservationsLibre.length }} Réservations aux
+              <!-- {{ filteredReservationsLibre.length }} -->
+               Réservations aux
               hébergements
               <span class="badge badge-pill badge-danger">{{
                 reservationsUnread
