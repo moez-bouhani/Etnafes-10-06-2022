@@ -5,6 +5,7 @@
       position: fixed;
       background-color: #fff !important;
       box-shadow: 0 0 10px #ccc;
+      height: 54px;
     "
     :class="{ 'bg-white': showMenu, 'navbar-transparent': !showMenu }"
   >
@@ -21,13 +22,15 @@
           </button>
         </div>
         <!-- <a class="navbar-brand" href="javascript:void(0)">{{ $route.name }}</a> -->
-        <router-link :to="{ name: 'Home' }">
+        <router-link to="/">
           <img
             loading="lazy"
             class="style_img_top_nav_cli"
             src="/images/logo-etnafes-couleur.png"
           />
         </router-link>
+
+        <!-- <router-link to="/packs"> Nos Circuits </router-link> -->
       </div>
       <button
         class="navbar-toggler"
@@ -43,6 +46,66 @@
         <span class="navbar-toggler-bar navbar-kebab"></span>
       </button>
 
+      <b-nav-item
+        style="list-style: none; width: 50%"
+        class="d-none d-lg-block"
+      >
+        <router-link
+          style="color: black !important"
+          class="nav-link"
+          to="/packs"
+          >Nos Circuits</router-link
+        >
+      </b-nav-item>
+
+      <b-nav-item style="list-style: none; width: 50%" class="d-lg-none">
+        <router-link
+          style="color: black !important"
+          class="nav-link"
+          to="/mpacks"
+          >Nos Circuits</router-link
+        >
+      </b-nav-item>
+
+      <b-nav-item style="list-style: none; width: 50%">
+        <router-link
+          style="color: black !important"
+          class="nav-link"
+          to="/hebergementlibre"
+          >Maison d'hôte</router-link
+        >
+      </b-nav-item>
+      <b-nav-item style="list-style: none; width: 50%">
+        <router-link
+          style="color: black !important"
+          class="nav-link"
+          to="/artisans"
+          >Artisans</router-link
+        >
+      </b-nav-item>
+
+      <b-nav-item-dropdown
+        style="list-style: none; color: black !important"
+        :text="'Quitter' + ' ' + espace"
+        right
+      >
+        <b-dropdown-item href="/dashboard_client"
+          >Espace Voyageur</b-dropdown-item
+        >
+        <b-dropdown-item href="/dashboard_femme"
+          >Espace Artisan</b-dropdown-item
+        >
+        <b-dropdown-item href="/dashboard_guide">Espace Guide</b-dropdown-item>
+        <b-dropdown-item href="/dashboard_agence"
+          >Préstataire de service</b-dropdown-item
+        >
+        <b-dropdown-item href="/dashboard_proprietaire"
+          >Espace Hébergeur</b-dropdown-item
+        >
+        <b-dropdown-item href="/dashboard_proprietaire_restau"
+          >Préstataire de service</b-dropdown-item
+        >
+      </b-nav-item-dropdown>
       <div class="collapse navbar-collapse show text-left" v-show="showMenu">
         <ul class="navbar-nav" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
           <li class="search-bar input-group" @click="searchModalVisible = true">
@@ -75,68 +138,6 @@
           </modal>
 
           <drop-down>
-            <a
-              href="javascript:void(0)"
-              data-toggle="dropdown"
-              class="dropdown-toggle nav-link"
-            >
-              <i class="tim-icons icon-sound-wave"></i>
-              <p class="d-lg-none text-left">Notifications</p>
-              <!--  <span class="badge badge-danger" @click="resetNotification">
-                {{ reservationsp.length }}
-              </span> -->
-            </a>
-            <div>
-              <ul class="not dropdown-menu dropdown-menu-right dropdown-navbar">
-                <div>
-                  <li
-                    class="nav-link"
-                    v-for="notification in reservationsp"
-                    :key="notification.id"
-                    style="
-                      margin: 8px;
-                      border: 1px solid #d1d1d1;
-                      border-radius: 2px;
-                      text-align: left;
-                    "
-                  >
-                    <router-link
-                      class="a"
-                      :to="{
-                        name: 'show_reservation_client_validate',
-                        params: { id: notification.id },
-                      }"
-                    >
-                      <div class="row" v-if="notification.paye == 0">
-                        <a href="#" class="nav-item dropdown-item">
-                          &ensp; Votre réservation <br />
-                          &ensp; {{ notification.titre }} <br />&ensp; a été
-                          validée le
-                          {{ notification.updated_at }}
-                        </a>
-                      </div>
-
-                      <div class="row" v-if="notification.paye == 1">
-                        <a href="#" class="nav-item dropdown-item">
-                          &ensp; Votre réservation <br />
-                          &ensp; {{ notification.titre }} <br />&ensp; le
-                          {{ notification.created_at }} est en attente de
-                          paiement
-                        </a>
-                      </div>
-                    </router-link>
-                  </li>
-                  <div v-if="reservationsp.length == 0">
-                    <p style="padding: 20px">
-                      Pas de notification pour le moment
-                      <img loading="lazy" src="not-disturb-etnafes.png" />
-                    </p>
-                  </div>
-                </div>
-              </ul>
-            </div>
-          </drop-down>
-          <drop-down>
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
               <div class="photo">
                 <!-- <img loading="lazy" src="@/assets/img/anime3.png" alt="Profile Photo" /> -->
@@ -150,13 +151,16 @@
                 <img
                   loading="lazy"
                   v-if="user.provider == null"
-                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
+                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${user.photo}`"
                   alt="Profile Photo"
                 />
               </div>
               <b class="caret d-none d-lg-block d-xl-block"></b>
             </a>
-            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Voyageur'">
+            <ul
+              class="dropdown-menu dropdown-navbar"
+              v-if="espace == 'Espace Voyageur'"
+            >
               <li class="nav-link">
                 <a href="/dashboard_client" class="nav-item dropdown-item"
                   >Dashboard</a
@@ -189,8 +193,11 @@
                 >
               </li>
             </ul>
-<!-- Espace Artisan -->
-            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Artisan'">
+            <!-- Espace Artisan -->
+            <ul
+              class="dropdown-menu dropdown-navbar"
+              v-if="espace == 'Espace Artisan'"
+            >
               <li class="nav-link">
                 <a href="/Artisan" class="nav-item dropdown-item">Profil</a>
               </li>
@@ -212,7 +219,10 @@
             </ul>
 
             <!-- Espace Guide -->
-            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Guide'">
+            <ul
+              class="dropdown-menu dropdown-navbar"
+              v-if="espace == 'Espace Guide'"
+            >
               <li class="nav-link">
                 <a href="/guide" class="nav-item dropdown-item">Dashboard</a>
               </li>
@@ -234,7 +244,10 @@
             </ul>
 
             <!-- Espace Préstataire de service -->
-            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Préstataire de service'">
+            <ul
+              class="dropdown-menu dropdown-navbar"
+              v-if="espace == 'Espace Préstataire de service'"
+            >
               <li class="nav-link">
                 <a href="/dashboard_agence" class="nav-item dropdown-item"
                   >Dashboard</a
@@ -263,8 +276,11 @@
               </li>
             </ul>
 
-             <!-- Espace Hébergeur -->
-            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Hébergeur'">
+            <!-- Espace Hébergeur -->
+            <ul
+              class="dropdown-menu dropdown-navbar"
+              v-if="espace == 'Espace Hébergeur'"
+            >
               <li class="nav-link">
                 <a href="/dashboard_proprietaire" class="nav-item dropdown-item"
                   >Dashboard</a
@@ -304,8 +320,11 @@
             </ul>
 
             <!-- Espace Restaurant -->
-            <ul class="dropdown-menu dropdown-navbar" v-if="espace == 'Espace Restaurant'">
-               <li class="nav-link">
+            <ul
+              class="dropdown-menu dropdown-navbar"
+              v-if="espace == 'Espace Restaurant'"
+            >
+              <li class="nav-link">
                 <a
                   href="/dashboard_proprietaire_restau"
                   class="nav-item dropdown-item"
@@ -334,10 +353,6 @@
                 >
               </li>
             </ul>
-
-
-
-            
           </drop-down>
         </ul>
       </div>
@@ -380,7 +395,7 @@ export default {
   created() {
     // this.fetchNotifications();
     this.fetchclient(this.$store.state.user.id);
-    this.fetchReservations(this.$store.state.user.id);
+    /*  this.fetchReservations(this.$store.state.user.id); */
   },
 
   sockets: {
