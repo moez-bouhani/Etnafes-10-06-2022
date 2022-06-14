@@ -10,8 +10,10 @@ module.exports = {
         maxConcurrentRoutes: 20,
         timeout: 0,
         staticDir: path.resolve("dist"),
-        //routes: ["/", "/packs", "/hebergementlibre", "/artisans", "/allvilles"]
+
        routes: ["/"]
+      //  routes: ["/"]
+
       //  routes: ["/", "/packs", "/hebergementlibre", "/artisans", "/allvilles", "/contact", "/resultatsHome", "/resultats"]
       })
     ]
