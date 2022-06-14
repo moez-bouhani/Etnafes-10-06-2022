@@ -8,7 +8,7 @@
           <form
             accept-charset="UTF-8"
             role="form"
-            @submit.prevent="performLogin"
+            @submit.prevent="performLogin;saveEspace"
           >
             <fieldset>
               <div class="form-group">
@@ -128,7 +128,7 @@
       v-if="showinscri"
     >
       <b-tabs content-class="mt-3" style="margin-top: 19px !important">
-        <b-tab title="Inscription" active v-if="!loggedIn">
+        <b-tab title="Inscription 1" active v-if="!loggedIn">
           <ValidationObserver>
             <form class="mb-3">
               <div class="row">
@@ -350,7 +350,7 @@
                   v-b-modal.modal-validerEmail
                   style="margin-left: 10px"
                   class="btn btn-outline-success mt-3"
-                  @click.prevent="addClient"
+                  @click.prevent="addClient;saveEspace"
                   fill
                 >
                   {{ loadingInscription ? "En cours..." : "S'inscrire" }}
@@ -359,11 +359,11 @@
             </form>
           </ValidationObserver>
         </b-tab>
-        <b-tab title="Login" v-if="!loggedIn">
+        <b-tab title="Login 1" v-if="!loggedIn">
           <form
             accept-charset="UTF-8"
             role="form"
-            @submit.prevent="performLoginEnLigne"
+            @submit.prevent="performLoginEnLigne;saveEspace"
           >
             <fieldset>
               <div class="form-group">
@@ -621,7 +621,7 @@
                   v-b-modal.modal-validerEmail
                   style="margin-left: 10px"
                   class="btn btn-outline-success mt-3"
-                  @click.prevent="addClient"
+                  @click.prevent="addClient;saveEspace"
                   fill
                 >
                   {{ loadingInscription ? "En cours..." : "Sinscrire" }}
@@ -634,7 +634,7 @@
           <form
             accept-charset="UTF-8"
             role="form"
-            @submit.prevent="performLogin"
+            @submit.prevent="performLogin;saveEspace"
           >
             <fieldset>
               <div class="form-group">
@@ -696,7 +696,6 @@
       <div class="col-md-8 offset-md-2">
         <b-carousel
           id="carousel-1"
-          
           :interval="4000"
           controls
           indicators
@@ -775,7 +774,8 @@
           <div class="col-md-6">
             <h2 style="margin-top: 30px">&nbsp;</h2>
             <div v-if="hebergement.climatisation == 1">
-              <img loading="lazy" src="/air-conditioner-etnafes.png" /> Climatisation
+              <img loading="lazy" src="/air-conditioner-etnafes.png" />
+              Climatisation
               <br />
             </div>
 
@@ -894,7 +894,8 @@
           >
             <div class="row">
               <div class="col-md-4">
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/1602251763-11598521261.png`"
                   alt="Profile Photo"
                   width="60%"
@@ -929,7 +930,8 @@
           >
             <div class="row">
               <div class="col-mx-4">
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/1602251763-11598521261.png`"
                   alt="Profile Photo"
                   width="40%"
@@ -1219,7 +1221,8 @@
 
                 <div v-for="(zone, i) in pack.zone_pack" v-bind:key="'zz2' + i">
                   <h4 style="color: #333">
-                    <img loading="lazy"
+                    <img
+                      loading="lazy"
                       style="max-width: 2.5%"
                       draggable="false"
                       role="img"
@@ -1282,7 +1285,6 @@
                       <div>
                         <b-carousel
                           id="carousel-1"
-                         
                           :interval="4000"
                           controls
                           indicators
@@ -1327,7 +1329,8 @@
                             <small>
                               <span v-if="heb.hebergement.salle_de_bain == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Salle de bain"
                                   src="/bath-etnafes-21.png"
@@ -1337,7 +1340,8 @@
 
                               <span v-if="heb.hebergement.lave_linge == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Lave linge"
                                   src="/tumble-dry-etnafes-21.png"
@@ -1346,7 +1350,8 @@
 
                               <span v-if="heb.hebergement.chauffage == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Chauffage"
                                   src="/heating-etnafes-21.png"
@@ -1354,7 +1359,8 @@
                               </span>
                               <span v-if="heb.hebergement.television == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Television"
                                   src="/tv-etnafes-21.png"
@@ -1363,7 +1369,8 @@
 
                               <span v-if="heb.hebergement.climatisation == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Climatisation"
                                   src="/air-conditioner-etnafes-21.png"
@@ -1372,7 +1379,8 @@
 
                               <span v-if="heb.hebergement.eau_chaude == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Eau chaude"
                                   src="/water-heater-etnafes-21.png"
@@ -1385,7 +1393,8 @@
                                 "
                               >
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Espace de travail"
                                   src="/computer-etnafes-21.png"
@@ -1394,7 +1403,8 @@
 
                               <span v-if="heb.hebergement.espace_enfant == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Espace enfant"
                                   src="/espace-enfant-etnafes-21.png"
@@ -1403,7 +1413,8 @@
 
                               <span v-if="heb.hebergement.wifi == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="WiFi"
                                   src="/wifi-etnafes-21.png"
@@ -1412,7 +1423,8 @@
 
                               <span v-if="heb.hebergement.cuisine == 1">
                                 &nbsp;
-                                <img loading="lazy"
+                                <img
+                                  loading="lazy"
                                   v-b-tooltip.hover
                                   title="Cuisine"
                                   src="/kitchen-etnafes-21.png"
@@ -1576,7 +1588,8 @@
                           }"
                         >
                           <div>
-                            <img loading="lazy"
+                            <img
+                              loading="lazy"
                               style="
                                 margin-top: -8px;
                                 margin-left: -6px;
@@ -1606,7 +1619,8 @@
                             </button>
 
                             <span class="top-left">
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 src="/home/hebergement/etnafes-tn-travel-avis.png"
                                 style="width: 19px"
                               />
@@ -1664,7 +1678,8 @@
                             <!-- {{ pack.description }} -->
 
                             <span style="margin-left: -2px">
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABkklEQVRIie3VP2tTURzG8e9zcjXiVFeHqmkQmjj45w0kcSgigg6+A0cVFN+Ce5cKKgjiKC6dJdk6ikMTWkhTiCCIoI4mNudxiLcmCi49ZrrP9Ht+XM6HA/dyoUiRIomifGg0Gtnws+5hXUcsJRPMR8Or/V779ew6y4cPn8ITxJqsDRS/JYOlZcyLlXrz1F6382wOPnuxseQxdwLhisPk5LFJ2IlxosnxcH5vu711VHul3hzaegQcwgEgG4UKoH7v7XvHsD6Sb/0ohZuOrB8VBbD8DqjO7jIA20ICMMEKOEyLQgpYB7LD7/cJft34f0eB7wCVWsuVWmtzYXC/1+kGfEHiMeL0wuAcBw/zvjD4zywMrtaaddBy3rN/PZwSjWgbg2BzYbAjJwgw6LUPP6kMQJI97SLKEeK0yEngzCLOn5UBHJTjIIyDq6utSzHoQWk03gWI5fJOCljWZUN/bpcP52pXn4p4DWlD+GsKEABzxui+xcP9bvv5XzDcLlVWv9xFvpH6t4j8ctDtvEl2ZpEiRWbzE2XXiySPB0bsAAAAAElFTkSuQmCC"
                               />
                               Quantité:{{ pack.qts }}
@@ -1703,7 +1718,8 @@
                   </div>
 
                   <div class="col">
-                    <i v-if="visible == false"
+                    <i
+                      v-if="visible == false"
                       style="
                         margin-left: 97px;
                         color: #fff;
@@ -1764,7 +1780,8 @@
                 </div>
 
                 <div class="col">
-                   <i  v-if="visible1 == false"
+                  <i
+                    v-if="visible1 == false"
                     style="
                       margin-left: 97px;
                       color: #fff;
@@ -1779,7 +1796,7 @@
                   >
                   </i>
 
-                   <i
+                  <i
                     v-if="visible1 == true"
                     style="
                       margin-left: 97px;
@@ -1857,7 +1874,7 @@
                 </div>
 
                 <div class="col">
-                <i
+                  <i
                     v-if="visible2 == false"
                     style="
                       margin-left: 97px;
@@ -1897,7 +1914,8 @@
 
                 <div v-for="(zone, i) in pack.zone_pack" v-bind:key="'zz2' + i">
                   <h4 style="color: #333">
-                    <img loading="lazy"
+                    <img
+                      loading="lazy"
                       style="max-width: 2.5%"
                       draggable="false"
                       role="img"
@@ -1931,7 +1949,7 @@
                 </div>
 
                 <div class="col">
-                 <i
+                  <i
                     v-if="visible3 == false"
                     style="
                       margin-left: 97px;
@@ -2007,7 +2025,7 @@
                 </div>
 
                 <div class="col">
-                 <i
+                  <i
                     v-if="visible4 == false"
                     style="
                       margin-left: 97px;
@@ -2051,7 +2069,6 @@
                     <div>
                       <b-carousel
                         id="carousel-1"
-                        
                         :interval="4000"
                         controls
                         indicators
@@ -2096,7 +2113,8 @@
                           <small>
                             <span v-if="heb.hebergement.salle_de_bain == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Salle de bain"
                                 src="/bath-etnafes-21.png"
@@ -2106,7 +2124,8 @@
 
                             <span v-if="heb.hebergement.lave_linge == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Lave linge"
                                 src="/tumble-dry-etnafes-21.png"
@@ -2115,7 +2134,8 @@
 
                             <span v-if="heb.hebergement.chauffage == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Chauffage"
                                 src="/heating-etnafes-21.png"
@@ -2123,7 +2143,8 @@
                             </span>
                             <span v-if="heb.hebergement.television == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Television"
                                 src="/tv-etnafes-21.png"
@@ -2132,7 +2153,8 @@
 
                             <span v-if="heb.hebergement.climatisation == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Climatisation"
                                 src="/air-conditioner-etnafes-21.png"
@@ -2141,7 +2163,8 @@
 
                             <span v-if="heb.hebergement.eau_chaude == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Eau chaude"
                                 src="/water-heater-etnafes-21.png"
@@ -2154,7 +2177,8 @@
                               "
                             >
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Espace de travail"
                                 src="/computer-etnafes-21.png"
@@ -2163,7 +2187,8 @@
 
                             <span v-if="heb.hebergement.espace_enfant == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Espace enfant"
                                 src="/espace-enfant-etnafes-21.png"
@@ -2172,7 +2197,8 @@
 
                             <span v-if="heb.hebergement.wifi == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="WiFi"
                                 src="/wifi-etnafes-21.png"
@@ -2181,7 +2207,8 @@
 
                             <span v-if="heb.hebergement.cuisine == 1">
                               &nbsp;
-                              <img loading="lazy"
+                              <img
+                                loading="lazy"
                                 v-b-tooltip.hover
                                 title="Cuisine"
                                 src="/kitchen-etnafes-21.png"
@@ -2230,7 +2257,7 @@
                 </div>
 
                 <div class="col">
-                   <i
+                  <i
                     v-if="visible5 == false"
                     style="
                       margin-left: 97px;
@@ -2349,7 +2376,7 @@
                 </div>
 
                 <div class="col">
-                   <i
+                  <i
                     v-if="visible6 == false"
                     style="
                       margin-left: 97px;
@@ -2466,7 +2493,7 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
                     name: 'PaiementPack',
                     params: { id: pack.id },
                     query: {
-                       agence_id: pack.agence_id,
+                      agence_id: pack.agence_id,
                       ville_id: pack.ville_id,
                       date_deb: pack.date_deb,
                       vip: pack.vip,
@@ -2506,7 +2533,11 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
                   pack.nb_place_dispo != 0
                 "
                 class="btn btn-outline-success mt-3"
-                style="margin-left: 20px;margin-top:-9px !important;margin-bottom:12px"
+                style="
+                  margin-left: 20px;
+                  margin-top: -9px !important;
+                  margin-bottom: 12px;
+                "
                 v-b-modal.modal-inscription-paiement-ligne
                 type="submit"
                 fill
@@ -2520,7 +2551,12 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
                   pack.nb_place_dispo == 0
                 "
                 class="btn btn-outline-success mt-3"
-                style="color: #fff; margin-left: 20px;margin-top:-9px !important;margin-bottom:12px"
+                style="
+                  color: #fff;
+                  margin-left: 20px;
+                  margin-top: -9px !important;
+                  margin-bottom: 12px;
+                "
                 disabled
                 type="submit"
                 fill
@@ -2534,7 +2570,7 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
                   name: 'PaiementPack',
                   params: { id: pack.id },
                   query: {
-                     agence_id: pack.agence_id,
+                    agence_id: pack.agence_id,
                     ville_id: pack.ville_id,
                     date_deb: pack.date_deb,
                     vip: pack.vip,
@@ -2550,7 +2586,11 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
                     pack.date_deb >= new Date().toISOString().split('T')[0] &&
                     pack.nb_place_dispo != 0
                   "
-                  style="margin-left: 20px;margin-top:-9px !important;margin-bottom:12px"
+                  style="
+                    margin-left: 20px;
+                    margin-top: -9px !important;
+                    margin-bottom: 12px;
+                  "
                 >
                   <span style="font-size: 12px; color: #fff">
                     Je passe au Paiement >
@@ -2650,7 +2690,11 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
         <span style="color: #000">{{
           (calculMoyenne / nbcom).toFixed(2)
         }}</span>
-        <img loading="lazy" src="/star-etnafes.png" style="margin-top: -3px" />&nbsp;
+        <img
+          loading="lazy"
+          src="/star-etnafes.png"
+          style="margin-top: -3px"
+        />&nbsp;
         <span style="color: #000" class="d-none d-lg-block"
           >({{ nbcom }} commentaires)</span
         >
@@ -2683,11 +2727,15 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
         >
           <div class="row">
             <div class="col-md-4">
-              <img loading="lazy" style="max-width: 70% !important;
-    border-radius: 5.2857rem !important;"
-                    :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${avispack.client.photo}`"
-                    alt="Profile Photo"
-                  />
+              <img
+                loading="lazy"
+                style="
+                  max-width: 70% !important;
+                  border-radius: 5.2857rem !important;
+                "
+                :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${avispack.client.photo}`"
+                alt="Profile Photo"
+              />
             </div>
 
             <div class="col-md-8">
@@ -2710,52 +2758,51 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
           <br />-->
         </div>
         <div class="row" style="margin-top: -11px">
-              <div
-                class="col-md-12 d-lg-none"
-                v-for="avispack in filteredavispack"
-                :key="'avispack' + avispack.id"
-               
-              >
-                <center>
-                  <div class="row">
-                    <div class="col-2 offset-1">
-                      <img loading="lazy"
-                        width="100% !important" style="border-radius: 5.2857rem !important;"
-                                            :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${avispack.client.photo}`"
+          <div
+            class="col-md-12 d-lg-none"
+            v-for="avispack in filteredavispack"
+            :key="'avispack' + avispack.id"
+          >
+            <center>
+              <div class="row">
+                <div class="col-2 offset-1">
+                  <img
+                    loading="lazy"
+                    width="100% !important"
+                    style="border-radius: 5.2857rem !important"
+                    :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${avispack.client.photo}`"
+                  />
+                </div>
 
-                      />
-                    </div>
-
-                    <div class="col-6">
-                      <span style="margin-left: 5px">
-                        {{ avispack.client.nom }}
-                        {{ avispack.client.prenom }}</span
-                      >
-                      <span style="margin-left: 5px">
-                        <rate :length="5" v-model="avispack.nbr_etoile"></rate>
-                      </span>
-                      <span style="margin-left: 25px">{{
-                        avispack.created_at
-                      }}</span>
-                    </div>
-                  </div>
-                  <div class="output" style="margin-top: 20px">
-                    <HighlightWords
-                      class="wrapper"
-                      highlightClassName="highlight"
-                      highlightTag="i"
-                      :searchWords="keywords"
-                      :autoEscape="true"
-                      :textToHighlight="avispack.commentaire"
-                    ></HighlightWords>
-                  </div>
-                </center>
-                <hr>
-                <!-- <br />
-          <br />-->
+                <div class="col-6">
+                  <span style="margin-left: 5px">
+                    {{ avispack.client.nom }}
+                    {{ avispack.client.prenom }}</span
+                  >
+                  <span style="margin-left: 5px">
+                    <rate :length="5" v-model="avispack.nbr_etoile"></rate>
+                  </span>
+                  <span style="margin-left: 25px">{{
+                    avispack.created_at
+                  }}</span>
+                </div>
               </div>
-              
-            </div>
+              <div class="output" style="margin-top: 20px">
+                <HighlightWords
+                  class="wrapper"
+                  highlightClassName="highlight"
+                  highlightTag="i"
+                  :searchWords="keywords"
+                  :autoEscape="true"
+                  :textToHighlight="avispack.commentaire"
+                ></HighlightWords>
+              </div>
+            </center>
+            <hr />
+            <!-- <br />
+          <br />-->
+          </div>
+        </div>
       </div>
 
       <br class="d-none d-lg-block" />
@@ -2975,7 +3022,7 @@ query: { ville_id:pack.ville_id,date_deb:pack.date_deb,vip:pack.vip,nb_adulte:nb
             name: 'PaiementPack',
             params: { id: pack.id },
             query: {
-               agence_id: pack.agence_id,
+              agence_id: pack.agence_id,
               ville_id: pack.ville_id,
               date_deb: pack.date_deb,
               vip: pack.vip,
@@ -3425,6 +3472,9 @@ export default {
     });
   },
   methods: {
+    saveEspace() {
+      return localStorage.setItem("espace", "Espace Voyageur");
+    },
     hello($event) {
       console.log(`hello index: ${$event}`);
     },

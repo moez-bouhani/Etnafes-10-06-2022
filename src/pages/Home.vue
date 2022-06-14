@@ -1812,7 +1812,7 @@
                         width="5%"
                       />
                       <!-- Durée: -->
-                      {{ pack.time }}
+                      {{ pack.time }} H
                       <!-- <small class="tite_vue_slider_home">
                           Durée: {{ pack.time }}</small
                         > -->
@@ -2282,7 +2282,7 @@
                           width="5%"
                         />
                         Durée:
-                        {{ pack.time }}
+                        {{ pack.time }} H
                         <!-- <small class="tite_vue_slider_home">
                           Durée: {{ pack.time }}</small
                         > -->

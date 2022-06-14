@@ -255,7 +255,10 @@
                   v-b-modal.modal-validerEmail
                   style="margin-left: 10px"
                   class="btn btn-outline-success mt-3"
-                  @click.prevent="addClient"
+                  @click.prevent="
+                    addClient;
+                    saveEspace;
+                  "
                   fill
                 >
                   {{ loadingInscription ? "En cours..." : "Sinscrire" }}
@@ -268,7 +271,10 @@
           <form
             accept-charset="UTF-8"
             role="form"
-            @submit.prevent="performLoginEnLigne"
+            @submit.prevent="
+              performLoginEnLigne;
+              saveEspace;
+            "
           >
             <fieldset>
               <div class="form-group">
@@ -613,7 +619,10 @@
           <form
             accept-charset="UTF-8"
             role="form"
-            @submit.prevent="performLogin"
+            @submit.prevent="
+              performLogin;
+              saveEspace;
+            "
           >
             <fieldset>
               <div class="form-group">
@@ -1122,7 +1131,10 @@
                       v-b-modal.modal-validerEmail
                       style="margin-left: 10px"
                       class="btn btn-outline-success mt-3"
-                      @click.prevent="addClient"
+                      @click.prevent="
+                        addClient;
+                        saveEspace;
+                      "
                       fill
                     >
                       {{ loadingInscription ? "En cours..." : "Sinscrire" }}
@@ -1136,7 +1148,10 @@
             <form
               accept-charset="UTF-8"
               role="form"
-              @submit.prevent="performLogin"
+              @submit.prevent="
+                performLogin;
+                saveEspace;
+              "
             >
               <fieldset>
                 <div class="form-group">
@@ -3648,6 +3663,9 @@ export default {
     },
   },
   methods: {
+    saveEspace() {
+      return localStorage.setItem("espace", "Espace Voyageur");
+    },
     ajouter_invitation_copied() {
       axios
         .post(`${apiDomain}/api/ajouter_invitation_copied`, {

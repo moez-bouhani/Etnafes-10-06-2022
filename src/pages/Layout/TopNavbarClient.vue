@@ -54,20 +54,24 @@
           style="color: black !important"
           class="nav-link"
           to="/packs"
-          > Circuits</router-link
+        >
+          Circuits</router-link
         >
       </b-nav-item>
 
-      <b-nav-item style="list-style: none; width: 50%" class="d-lg-none">
+      <!--  <b-nav-item style="list-style: none; width: 50%" class="d-lg-none">
         <router-link
           style="color: black !important"
           class="nav-link"
           to="/mpacks"
           > Circuits</router-link
         >
-      </b-nav-item>
+      </b-nav-item> -->
 
-      <b-nav-item style="list-style: none; width: 50%">
+      <b-nav-item
+        class="d-none d-lg-block"
+        style="list-style: none; width: 50%"
+      >
         <router-link
           style="color: black !important"
           class="nav-link"
@@ -75,7 +79,10 @@
           >Maison d'hôte</router-link
         >
       </b-nav-item>
-      <b-nav-item style="list-style: none; width: 50%">
+      <b-nav-item
+        class="d-none d-lg-block"
+        style="list-style: none; width: 50%"
+      >
         <router-link
           style="color: black !important"
           class="nav-link"
@@ -88,6 +95,7 @@
         style="list-style: none; color: black !important"
         :text="'Quitter' + ' ' + espace"
         right
+        class="d-none d-lg-block"
       >
         <b-dropdown-item
           @click="
@@ -139,7 +147,11 @@
           >Espace Restaurant</b-dropdown-item
         >
       </b-nav-item-dropdown>
-      <div class="collapse navbar-collapse show text-left" v-show="showMenu">
+
+      <div
+        class="collapse navbar-collapse show text-left d-none d-lg-block"
+        v-show="showMenu"
+      >
         <ul class="navbar-nav" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
           <li class="search-bar input-group" @click="searchModalVisible = true">
             <button
