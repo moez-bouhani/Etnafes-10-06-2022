@@ -405,6 +405,7 @@ performRegisterFemmeAction({ commit }, payload) {
                     commit("SET_proprestau", res.data.proprestau);
                     commit("SET_propagence", res.data.propagence);
                     commit("SET_guide", res.data.guide);
+                    commit("SET_femme", res.data.Femme);
                     commit("SET_loggedIn", true)
                     resolve(res);
                 })
@@ -430,6 +431,7 @@ performRegisterFemmeAction({ commit }, payload) {
                         commit("SET_proprestau", res.data.proprestau);
                         commit("SET_propagence", res.data.propagence);
                         commit("SET_guide", res.data.guide);
+                        commit("SET_femme", res.data.Femme);
                         commit("SET_loggedIn", true)
                         resolve(res);
                     })
