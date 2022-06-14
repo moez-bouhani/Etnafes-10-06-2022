@@ -2,10 +2,11 @@
   <div class="wrapper">
     <!-- <div class="wrapper" :class="{'nav-open': $sidebar.showSidebar}"> -->
 
-    
+    <!-- sidebar -->
+<side-bar :background-color="backgroundColor">
 
       <div v-if="espace == 'Espace Voyageur'">
-<side-bar :background-color="backgroundColor">
+
       <!-- <mobile-menu slot="content"></mobile-menu> -->
 
       <sidebar-link to="/dashboard_client" class="menuClient">
@@ -85,11 +86,9 @@
           <i class="tim-icons icon-button-power"></i> Se déconnecter
         </a>
       </li>
-    </side-bar>
       </div>
 
       <div v-if="espace == 'Espace Artisan'">
-        <side-bar :background-color="backgroundColor">
                  <sidebar-link class="menuAdmin" to="/dashboard_femme">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
@@ -141,10 +140,8 @@
           <i class="tim-icons icon-button-power"></i> Se déconnecter
         </a>
       </li>
-    </side-bar>
                 </div>
         <div v-if="espace == 'Espace Guide'">
-          <side-bar :background-color="backgroundColor">
            <sidebar-link to="/dashboard_guide">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
@@ -186,10 +183,8 @@
           <i class="tim-icons icon-button-power"></i> Se déconnecter
         </a>
       </li>
-    </side-bar>
         </div>
 <div v-if="espace == 'Espace Préstataire de service'">
-  <side-bar :background-color="backgroundColor">
       <!-- <mobile-menu slot="content"></mobile-menu> -->
       <sidebar-link to="/dashboard_agence" class="menuClient">
         <i class="tim-icons icon-chart-pie-36"></i>
@@ -200,7 +195,7 @@
           <p>لوحة القيادة</p>
         </template>
       </sidebar-link>
-
+<!-- 
       <sidebar-link to="/dashboard_agence" class="menuClient">
         <i class="tim-icons icon-bell-55"></i>
         <template v-if="!isRTL">
@@ -216,7 +211,7 @@
         <template v-else>
           <p>طباعة</p>
         </template>
-      </sidebar-link>
+      </sidebar-link> -->
 
       <sidebar-link to="/profil" class="menuClient">
         <i class="tim-icons icon-single-02"></i>
@@ -257,7 +252,7 @@
         </template>
       </sidebar-link>
 
-      <sidebar-link to="/nouveaupack/agence" class="menuClient">
+     <!--  <sidebar-link to="/nouveaupack/agence" class="menuClient">
         <i class="tim-icons icon-world"></i>
 
         <template v-if="!isRTL">
@@ -265,7 +260,7 @@
             Prestataire de Services
           </p>
         </template>
-      </sidebar-link>
+      </sidebar-link> -->
       <li class="nav-item menuClient">
         <a
           href
@@ -278,11 +273,9 @@
           <i class="tim-icons icon-button-power"></i> Se déconnecter
         </a>
       </li>
-    </side-bar>
 </div>
 
 <div v-if="espace == 'Espace Hébergeur'">
-  <side-bar :background-color="backgroundColor">
   <sidebar-link to="/dashboard_proprietaire">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
@@ -352,11 +345,9 @@
           <i class="tim-icons icon-button-power"></i> Se déconnecter
         </a>
       </li>
-    </side-bar>
 </div>
 
 <div v-if="espace == 'Espace Restaurant'">
-  <side-bar :background-color="backgroundColor">
   <sidebar-link to="/dashboard_proprietaire_restau">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
@@ -398,9 +389,9 @@
           <i class="tim-icons icon-button-power"></i> Se déconnecter
         </a>
       </li>
-    </side-bar>
+   
 </div>
-
+ </side-bar>
       
     <sidebar-share :background-color.sync="backgroundColor"></sidebar-share>
 

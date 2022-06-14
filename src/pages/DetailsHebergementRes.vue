@@ -1633,7 +1633,7 @@
                     </div>
                     <br />
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <label
                           style="
                             color: #000;
@@ -1644,18 +1644,18 @@
                         >
                       </div>
 
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <label
                           style="
                             color: #000;
                             font-size: 13px;
                             font-weight: bold;
                           "
-                          >Enfants >4 ans</label
+                          >Enfants</label
                         >
                       </div>
 
-                      <div class="col-md-4">
+                      <!-- <div class="col-md-4">
                         <label
                           style="
                             color: #000;
@@ -1664,19 +1664,18 @@
                           "
                           >Enfants < 4 ans</label
                         >
-                      </div>
+                      </div> -->
                     </div>
 
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <vue-numeric-input
                           v-model="nb_adulte"
                           :min="1"
                           :step="1"
                           :max="
                             hebergement.nbr_place_dispo -
-                            nb_enfant15 -
-                            nb_enfant4
+                            nb_enfant15 
                           "
                           name="nb_adulte"
                           required
@@ -1685,8 +1684,19 @@
 
                       <!-- nb enfant =>4 -->
 
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <vue-numeric-input
+                          :min="0"
+                          :step="1"
+                          :max="
+                            hebergement.nbr_place_dispo - nb_adulte
+                          "
+                          name="nb_enfant15"
+                          required
+                          v-model="nb_enfant15"
+                        ></vue-numeric-input>
+
+                       <!--  <vue-numeric-input
                           :min="0"
                           :step="1"
                           :max="
@@ -1695,11 +1705,11 @@
                           name="nb_enfant15"
                           required
                           v-model="nb_enfant15"
-                        ></vue-numeric-input>
+                        ></vue-numeric-input> -->
                       </div>
                       <!-- nb enfant <4 -->
 
-                      <div class="col-md-4">
+                      <!-- <div class="col-md-4">
                         <vue-numeric-input
                           :min="0"
                           :step="1"
@@ -1712,7 +1722,7 @@
                           required
                           v-model="nb_enfant4"
                         ></vue-numeric-input>
-                      </div>
+                      </div> -->
                     </div>
 
                     <!-- din 5edma jdida -->
@@ -1729,7 +1739,7 @@
                         au: convert_date_au,
                         nb_adulte: nb_adulte,
                         nb_enfant15: nb_enfant15,
-                        nb_enfant4: nb_enfant4,
+                        
 
                         arr: this.calculIntervalDateRes_calender,
                       },
@@ -1790,8 +1800,7 @@
                       {{
                         calculIntervalDateRes_calender.length *
                         (Number(nb_adulte) * hebergement.prix_adulte +
-                          Number(nb_enfant15) * hebergement.prix_enfant15 +
-                          Number(nb_enfant4) * hebergement.prix_enfant)
+                          Number(nb_enfant15) * hebergement.prix_enfant15)
                       }}dt
                     </h3>
 
@@ -1801,7 +1810,7 @@
                         nb_adulte
                       }}
                       adultes,
-                      {{ Number(nb_enfant15) + Number(nb_enfant4) }}
+                      {{ nb_enfant15 }}
                       enfants
                     </p>
                   </div>
@@ -2236,17 +2245,12 @@
                     >
                   </div>
 
-                  <div class="col">
-                    <label
-                      style="color: #000; font-size: 13px; font-weight: bold"
-                      >Enfants >4 ans</label
-                    >
-                  </div>
+                  
 
                   <div class="col">
                     <label
                       style="color: #000; font-size: 13px; font-weight: bold"
-                      >Enfants < 4 ans</label
+                      >Enfants</label
                     >
                   </div>
                 </div>
@@ -2258,7 +2262,7 @@
                       :min="1"
                       :step="1"
                       :max="
-                        hebergement.nbr_place_dispo - nb_enfant15 - nb_enfant4
+                        hebergement.nbr_place_dispo - nb_enfant15
                       "
                       name="nb_adulte"
                       required
@@ -2272,7 +2276,7 @@
                       :min="0"
                       :step="1"
                       :max="
-                        hebergement.nbr_place_dispo - nb_adulte - nb_enfant4
+                        hebergement.nbr_place_dispo - nb_adulte
                       "
                       name="nb_enfant15"
                       required
@@ -2281,7 +2285,7 @@
                   </div>
                   <!-- nb enfant <4 -->
 
-                  <div class="col">
+                  <!-- <div class="col">
                     <vue-numeric-input
                       :min="0"
                       :step="1"
@@ -2292,7 +2296,7 @@
                       required
                       v-model="nb_enfant4"
                     ></vue-numeric-input>
-                  </div>
+                  </div> -->
                 </div>
 
                 <!-- din 5edma jdida -->
@@ -2309,8 +2313,6 @@
                     au: convert_date_au,
                     nb_adulte: nb_adulte,
                     nb_enfant15: nb_enfant15,
-                    nb_enfant4: nb_enfant4,
-
                     arr: this.calculIntervalDateRes_calender,
                   },
                 }"
@@ -2370,8 +2372,7 @@
                   {{
                     calculIntervalDateRes_calender.length *
                     (Number(nb_adulte) * hebergement.prix_adulte +
-                      Number(nb_enfant15) * hebergement.prix_enfant15 +
-                      Number(nb_enfant4) * hebergement.prix_enfant)
+                      Number(nb_enfant15) * hebergement.prix_enfant15)
                   }}dt
                 </h3>
 
@@ -2380,9 +2381,7 @@
                   <br />
                   <span>{{ nb_adulte }} adultes</span><br />
                   <span
-                    >&nbsp;{{
-                      Number(nb_enfant15) + Number(nb_enfant4)
-                    }}
+                    >&nbsp;{{nb_enfant15}}
                     enfants</span
                   >
                 </p>
@@ -2720,8 +2719,10 @@ export default {
 
       login: false,
       entercode: false,
-      nb_adulte: 1,
-      nb_enfant15: 0,
+      // nb_adulte: this.$route.query.nb_adulte ? this.$route.query.nb_adulte : 1,
+      nb_adulte:this.$route.query.nb_adulte ,
+      
+      nb_enfant15: this.$route.query.nb_enfant,
       nb_enfant4: 0,
       nb_enfant: 0,
 
@@ -3404,8 +3405,7 @@ export default {
                 nb_adulte: this.nb_adulte,
                 nb_enfant: this.nb_enfant,
                 nb_enfant15: this.nb_enfant15,
-                nb_enfant4: this.nb_enfant4,
-
+                nb_enfant4: 0,
                 ages: this.ages,
                 arr: this.calculIntervalDateRes_calender,
               },
@@ -3476,7 +3476,7 @@ export default {
                 nb_adulte: this.nb_adulte,
                 nb_enfant: this.nb_enfant,
                 nb_enfant15: this.nb_enfant15,
-                nb_enfant4: this.nb_enfant4,
+                nb_enfant4: 0,
 
                 ages: this.ages,
                 arr: this.calculIntervalDateRes_calender,

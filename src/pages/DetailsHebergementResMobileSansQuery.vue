@@ -2672,9 +2672,9 @@ export default {
 
       login: false,
       entercode: false,
-      nb_adulte:this.$route.query.nb_adulte ,
+      nb_adulte:1 ,
       
-      nb_enfant15: this.$route.query.nb_enfant,
+      nb_enfant15: 0,
       nb_enfant4: 0,
       nb_enfant: 0,
 

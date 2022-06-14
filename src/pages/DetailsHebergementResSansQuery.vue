@@ -1166,7 +1166,7 @@
                     <div class="col-md-4">
                       <img
                         loading="lazy"
-                        :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/1602251763-11598521261.png`"
+                        :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${avisheb.client.photo}`"
                         alt="Profile Photo"
                         width="60%"
                       />
@@ -1204,7 +1204,7 @@
                       <div class="col-mx-4">
                         <img
                           loading="lazy"
-                          :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_guide/1602251763-11598521261.png`"
+                          :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${avisheb.client.photo}`"
                           alt="Profile Photo"
                           width="40%"
                         />
@@ -1655,7 +1655,16 @@
                         >
                       </div>
 
-                      
+                      <!-- <div class="col-md-4">
+                        <label
+                          style="
+                            color: #000;
+                            font-size: 13px;
+                            font-weight: bold;
+                          "
+                          >Enfants < 4 ans</label
+                        >
+                      </div> -->
                     </div>
 
                     <div class="row">
@@ -1666,7 +1675,8 @@
                           :step="1"
                           :max="
                             hebergement.nbr_place_dispo -
-                            nb_enfant15
+                            nb_enfant15 -
+                            nb_enfant4
                           "
                           name="nb_adulte"
                           required
@@ -1686,7 +1696,34 @@
                           required
                           v-model="nb_enfant15"
                         ></vue-numeric-input>
+
+                       <!--  <vue-numeric-input
+                          :min="0"
+                          :step="1"
+                          :max="
+                            hebergement.nbr_place_dispo - nb_adulte - nb_enfant4
+                          "
+                          name="nb_enfant15"
+                          required
+                          v-model="nb_enfant15"
+                        ></vue-numeric-input> -->
                       </div>
+                      <!-- nb enfant <4 -->
+
+                      <!-- <div class="col-md-4">
+                        <vue-numeric-input
+                          :min="0"
+                          :step="1"
+                          :max="
+                            hebergement.nbr_place_dispo -
+                            nb_adulte -
+                            nb_enfant15
+                          "
+                          name="nb_enfant4"
+                          required
+                          v-model="nb_enfant4"
+                        ></vue-numeric-input>
+                      </div> -->
                     </div>
 
                     <!-- din 5edma jdida -->
@@ -1703,7 +1740,7 @@
                         au: convert_date_au,
                         nb_adulte: nb_adulte,
                         nb_enfant15: nb_enfant15,
-                        nb_enfant4: 0,
+                        
 
                         arr: this.calculIntervalDateRes_calender,
                       },
@@ -1774,7 +1811,7 @@
                         nb_adulte
                       }}
                       adultes,
-                      {{ nb_enfant15}}
+                      {{ nb_enfant15 }}
                       enfants
                     </p>
                   </div>
@@ -2212,11 +2249,16 @@
                   <div class="col">
                     <label
                       style="color: #000; font-size: 13px; font-weight: bold"
-                      >Enfants </label
+                      >Enfants >4 ans</label
                     >
                   </div>
 
-                  
+                  <div class="col">
+                    <label
+                      style="color: #000; font-size: 13px; font-weight: bold"
+                      >Enfants < 4 ans</label
+                    >
+                  </div>
                 </div>
 
                 <div class="row">
@@ -2247,7 +2289,20 @@
                       v-model="nb_enfant15"
                     ></vue-numeric-input>
                   </div>
-                
+                  <!-- nb enfant <4 -->
+
+                  <!-- <div class="col">
+                    <vue-numeric-input
+                      :min="0"
+                      :step="1"
+                      :max="
+                        hebergement.nbr_place_dispo - nb_adulte - nb_enfant15
+                      "
+                      name="nb_enfant4"
+                      required
+                      v-model="nb_enfant4"
+                    ></vue-numeric-input>
+                  </div> -->
                 </div>
 
                 <!-- din 5edma jdida -->
@@ -2264,8 +2319,6 @@
                     au: convert_date_au,
                     nb_adulte: nb_adulte,
                     nb_enfant15: nb_enfant15,
-                    nb_enfant4: 0,
-
                     arr: this.calculIntervalDateRes_calender,
                   },
                 }"
@@ -2482,7 +2535,7 @@ export default {
       },
     ],
   },
-  /*  metaInfo() {
+  metaInfo() {
     return {
       title: this.hebergement.nom,
       meta: [
@@ -2502,7 +2555,7 @@ export default {
         { property: "og:image:width", content: "1000" },
       ],
     };
-  }, */
+  },
   components: {
     Lingallery,
 
@@ -2672,9 +2725,10 @@ export default {
 
       login: false,
       entercode: false,
-      nb_adulte:this.$route.query.nb_adulte ,
+      // nb_adulte: this.$route.query.nb_adulte ? this.$route.query.nb_adulte : 1,
+      nb_adulte:1,
       
-      nb_enfant15: this.$route.query.nb_enfant,
+      nb_enfant15: 0,
       nb_enfant4: 0,
       nb_enfant: 0,
 
@@ -3357,8 +3411,7 @@ export default {
                 nb_adulte: this.nb_adulte,
                 nb_enfant: this.nb_enfant,
                 nb_enfant15: this.nb_enfant15,
-                nb_enfant4: 0,
-
+                nb_enfant4: this.nb_enfant4,
                 ages: this.ages,
                 arr: this.calculIntervalDateRes_calender,
               },
@@ -3429,7 +3482,7 @@ export default {
                 nb_adulte: this.nb_adulte,
                 nb_enfant: this.nb_enfant,
                 nb_enfant15: this.nb_enfant15,
-                nb_enfant4: 0,
+                nb_enfant4: this.nb_enfant4,
 
                 ages: this.ages,
                 arr: this.calculIntervalDateRes_calender,
@@ -3870,3 +3923,6 @@ div.sticky {
   left: 0 !important;
 }
 </style>
+
+
+

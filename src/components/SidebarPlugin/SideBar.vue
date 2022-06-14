@@ -13,7 +13,7 @@
     <div class="sidebar-wrapper text-left">
       <p style="color: #fff; margin-top: 15px">
         <center>
-          <img
+          <!-- <img
             loading="lazy"
             style="
               max-width: 100% !important;
@@ -27,7 +27,7 @@
             :src="`${client.photo}`"
             alt="Profile Photo"
             class="photo"
-          />
+          /> -->
           <img
             loading="lazy"
             style="
@@ -38,8 +38,8 @@
               height: 100px;
               object-fit: cover;
             "
-            v-if="loggedIn && user.provider == null && user.role != 1"
-            :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
+            v-if="loggedIn"
+            :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${user.photo}`"
             alt="Profile Photo"
             class="photo"
           />
@@ -48,9 +48,9 @@
           <span style="line-height: 30px" v-if="loggedIn"
             >{{ user.nom }} {{ user.prenom }}</span
           >
-          <span style="line-height: 30px" v-if="loggedIn && user.role == 1">{{
+       <!--    <span style="line-height: 30px" v-if="loggedIn && user.role == 1">{{
             user.name
-          }}</span>
+          }}</span> -->
 
           <br />
           <!-- <span v-if="user.role==2" style="line-height:35px;letter-spacing:1px">* Voyageur *</span>

@@ -236,7 +236,7 @@
                 </p>
               </div>
             </div>
-            <div hclass="row" v-if="client.ville != null">
+            <!-- <div hclass="row" v-if="client.ville != null">
               <div class="col-lg-12 d-flex align-items-center">
                 <base-input
                   class="w-100 m-0"
@@ -287,9 +287,9 @@
                   @click="paysshow = false"
                 />
               </div>
-            </div>
+            </div> -->
 
-            <br />
+            
             <div hidden class="row" v-if="paysshow == true">
               <div class="col-md-6 pr-md-1 text-left">
                 <div class="form-group">

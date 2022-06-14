@@ -64,6 +64,10 @@ import DetailsZone from '@/pages/DetailsZone.vue';
 
 import DetailsHebergementRes from '@/pages/DetailsHebergementRes.vue'
 import DetailsHebergementResMobile from '@/pages/DetailsHebergementResMobile.vue'
+import DetailsHebergementResMobileSansQuery from '@/pages/DetailsHebergementResMobileSansQuery.vue'
+
+import DetailsHebergementResSansQuery from '@/pages/DetailsHebergementResSansQuery.vue'
+
 
 
 
@@ -381,9 +385,21 @@ const routes = [
     component: DetailsZone
   },
 {
-  path: '/mreservationhebergement/:id',
+  path: '/mreservation/:id',
     name: 'DetailsHebergementResMobile',
     component: DetailsHebergementResMobile
+},
+
+{
+  path: '/mqreservation/:id',
+    name: 'DetailsHebergementResMobileSansQuery',
+    component: DetailsHebergementResMobileSansQuery
+},
+
+{
+  path: '/qreservationhebergement/:id',
+    name: 'DetailsHebergementResSansQuery',
+    component: DetailsHebergementResSansQuery
 },
 
   {

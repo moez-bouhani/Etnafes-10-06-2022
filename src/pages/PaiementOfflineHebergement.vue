@@ -452,7 +452,7 @@ export default {
           nbr_place: this.nbr_places,
           nb_adulte: this.nb_adultes,
           prix_total: this.$route.query.p_etnafes,
-          nb_enfant4: this.nb_enfant4,
+          nb_enfant4: 0,
           nb_enfant15: this.nb_enfant15,
           headers: {
             "content-type": "application/json",

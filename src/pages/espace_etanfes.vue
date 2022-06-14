@@ -25,7 +25,10 @@
                 >
                   {{ image.name }}
                 </h3>
-                <p class="image-description">
+                <p @click="
+                    typeEspace = image.name;
+                    saveEspace();
+                  " class="image-description">
                   <span></span>{{ image.description | truncateText
                   }}<span></span>
                 </p>

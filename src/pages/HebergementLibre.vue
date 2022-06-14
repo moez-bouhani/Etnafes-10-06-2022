@@ -787,7 +787,7 @@
 
                     <router-link
                       class="d-none d-lg-block"
-                      :to="`/reservationhebergement/${hebergement.id}`"
+                      :to="`/qreservationhebergement/${hebergement.id}`"
                       style="float: right; margin-top: -13px"
                     >
                       <button type="button" class="btn btn-warning btn1">
@@ -936,7 +936,7 @@
                 </div>
               </div>
               <div class="col-md-12 d-lg-none">
-                <router-link :to="`/mreservation/${hebergement.id}`">
+                <router-link :to="`/mqreservation/${hebergement.id}`">
                   <button type="button" class="btn btn-warning btn1">
                     + De détails
                   </button>
@@ -1028,7 +1028,7 @@
                     &nbsp;<span style="font-weight: bold; letter-spacing: 1px">{{ hebergement.nom }}</span>&nbsp;
                     <router-link
                       class="d-none d-lg-block"
-                      :to="`/reservationhebergement/${hebergement.id}`"
+                      :to="`/qreservationhebergement/${hebergement.id}`"
                       style="float: right; margin-top: -13px"
                     >
                       <button type="button" class="btn btn-warning btn1">
@@ -1185,7 +1185,7 @@
                 </div>
               </div>
               <div class="col-md-12 d-lg-none">
-                <router-link :to="`/mreservation/${hebergement.id}`">
+                <router-link :to="`/mqreservation/${hebergement.id}`">
                   <button type="button" class="btn btn-warning btn1">
                     + De détails
                   </button>

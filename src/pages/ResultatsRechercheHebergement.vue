@@ -1291,9 +1291,75 @@ margin-left:20px;
                     box-shadow: 0 0 0 1px #222a42;
                   "
                 >
-                  <router-link
+                 <!--  <router-link
                     target="_blank"
                     :to="`/reservationhebergement/${pack.id}`"
+                  > -->
+                  <router-link class="d-none d-lg-block"
+                    :to="{
+                      name: 'DetailsHebergementRes',
+                      params: { id: pack.id },
+                      query: {
+                        ville_id: hebergement.ville_id,
+                        du: hebergement.date_deb,
+                        au: hebergement.date_deb,
+
+                        nb_adulte: nb_adulte,
+                        nb_enfant: nb_enfant,
+                      },
+                    }"
+                  >
+                    <div class="card-img-wrap">
+                      <img loading="lazy"
+                        class="card-img imaa1"
+                        :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_hebergement/${pack.image_couverture}`"
+                        alt="Card image cap"
+                      />
+
+                      <div
+                        class="top-left badge"
+                        style="background-color: #ff4012"
+                        v-if="groupDate[index].disponible.includes(false)"
+                      >
+                        Dates réservées
+                      </div>
+
+                      <div
+                        class="top-left badge"
+                        style="background-color: rgb(40, 179, 81)"
+                        v-else
+                      >
+                        Disponible
+                      </div>
+
+                      <h4
+                        class="centered"
+                        style="
+                          font-size: 11px;
+                          margin-bottom: 0px !important;
+                          border-top-right-radius: 15px;
+                          color: #fff;
+                          background-color: rgba(34, 42, 66, 0.8);
+                        "
+                      >
+                        {{ pack.categorie }}
+                      </h4>
+                    </div>
+                  </router-link>
+
+                  <router-link  class="d-lg-none"
+                    :to="{
+                      name: 'DetailsHebergementResMobile',
+                      params: { id: pack.id },
+                      query: {
+                        ville_id: hebergement.ville_id,
+                        du: hebergement.date_deb,
+                        au: hebergement.date_deb,
+
+                        nb_adulte: nb_adulte,
+                        nb_enfant: nb_enfant,
+                      },
+                    }"
                   >
                     <div class="card-img-wrap">
                       <img loading="lazy"

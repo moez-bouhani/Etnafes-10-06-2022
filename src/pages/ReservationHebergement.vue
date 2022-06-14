@@ -118,7 +118,7 @@
 
                           nb_adulte: nb_adulte,
                           nb_enfant15: nb_enfant15,
-                          nb_enfant4: nb_enfant4,
+                          nb_enfant4: 0,
                           arr: this.calculIntervalDateRes_calender,
                         },
                       }"
@@ -146,7 +146,7 @@
                         :min="1"
                         :step="1"
                         :max="
-                          hebergement.nbr_place_dispo - nb_enfant15 - nb_enfant4
+                          hebergement.nbr_place_dispo - nb_enfant15
                         "
                         name="nb_adulte"
                         required
@@ -158,13 +158,13 @@
                     <div class="col">
                       <label
                         style="color: #000; font-size: 13px; font-weight: bold"
-                        >>4 ans</label
+                        >Enfants</label
                       >
                       <vue-numeric-input
                         :min="0"
                         :step="1"
                         :max="
-                          hebergement.nbr_place_dispo - nb_adulte - nb_enfant4
+                          hebergement.nbr_place_dispo - nb_adulte
                         "
                         name="nb_enfant15"
                         required
@@ -173,7 +173,7 @@
                     </div>
                     <!-- nb enfant <4 -->
 
-                    <div class="col">
+                    <!-- <div class="col">
                       <label
                         style="color: #000; font-size: 13px; font-weight: bold"
                         >< 4 ans</label
@@ -188,7 +188,7 @@
                         required
                         v-model="nb_enfant4"
                       ></vue-numeric-input>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -218,8 +218,7 @@
                     {{
                       calculIntervalDateRes_calender.length *
                       (Number(nb_adulte) * hebergement.prix_adulte +
-                        Number(nb_enfant15) * hebergement.prix_enfant15 +
-                        Number(nb_enfant4) * hebergement.prix_enfant)
+                        Number(nb_enfant15) * hebergement.prix_enfant15)
                     }}dt
                   </h3>
 
@@ -227,9 +226,7 @@
                     Détails: {{ calculIntervalDateRes_calender.length }} nuits,
                     <span>{{ nb_adulte }} adultes,</span>
                     <span
-                      >&nbsp;{{
-                        Number(nb_enfant15) + Number(nb_enfant4)
-                      }}
+                      >&nbsp;{{nb_enfant15}}
                       enfants</span
                     >
                     <!-- <br />
@@ -347,15 +344,14 @@
             du: this.du,
             au: this.au,
             nb_enfant15: nb_enfant15,
-            nb_enfant4: nb_enfant4,
+            nb_enfant4: 0,
             arr: this.calculIntervalDateRes_calender,
             nb_adulte: this.nb_adulte,
             nb_enfant: this.nb_enfant_Moez,
             p_etnafes:
               calculIntervalDateRes_calender.length *
               (Number(nb_adulte) * hebergement.prix_adulte +
-                Number(nb_enfant15) * hebergement.prix_enfant15 +
-                Number(nb_enfant4) * hebergement.prix_enfant),
+                Number(nb_enfant15) * hebergement.prix_enfant15),
             nbr_places_reserves: this.nbr_places_total_Moez,
             places_disponibles: this.nbr_places_dispo_Moez,
           },
@@ -722,15 +718,14 @@
               du: this.du,
               au: this.au,
               nb_enfant15: nb_enfant15,
-              nb_enfant4: nb_enfant4,
+              nb_enfant4: 0,
               arr: this.calculIntervalDateRes_calender,
               nb_adulte: this.nb_adulte,
               nb_enfant: this.nb_enfant_Moez,
               p_etnafes:
                 calculIntervalDateRes_calender.length *
                 (Number(nb_adulte) * hebergement.prix_adulte +
-                  Number(nb_enfant15) * hebergement.prix_enfant15 +
-                  Number(nb_enfant4) * hebergement.prix_enfant),
+                  Number(nb_enfant15) * hebergement.prix_enfant15),
               nbr_places_reserves: this.nbr_places_total_Moez,
               places_disponibles: this.nbr_places_dispo_Moez,
             },
@@ -1200,12 +1195,11 @@ return result; */
     },
 
     nb_enfant_Moez() {
-      return Number(this.nb_enfant15) + Number(this.nb_enfant4);
+      return Number(this.nb_enfant15);
     },
     nbr_places_total_Moez() {
       return (
         Number(this.nb_adulte_Moez) +
-        Number(this.nb_enfant4) +
         Number(this.nb_enfant15)
       );
     },
@@ -1231,8 +1225,7 @@ return result; */
       return (
         this.calculIntervalDateRes_calender.length *
         (this.nb_adulte * this.hebergement.prix_adulte +
-          this.nb_enfant15 * this.hebergement.prix_enfant15 +
-          this.nb_enfant4 * this.hebergement.prix_enfant)
+          this.nb_enfant15 * this.hebergement.prix_enfant15)
       );
     },
 
@@ -1338,7 +1331,7 @@ return result; */
           localStorage.setItem("nom_hebergement", this.hebergement.nom);
           localStorage.setItem("arr", this.calculIntervalDateRes_calender);
 
-          localStorage.setItem("nb_enfant4", this.nb_enfant4);
+          localStorage.setItem("nb_enfant4", 0);
           localStorage.setItem("nb_enfant15", this.nb_enfant15);
 
           localStorage.setItem("nb_enfants", this.nb_enfant_Moez);
@@ -1469,11 +1462,10 @@ return result; */
           prix_remise: this.prix_remise,
           nbr_place:
             Number(this.nb_adulte) +
-            Number(this.nb_enfant15) +
-            Number(this.nb_enfant4),
+            Number(this.nb_enfant15) ,
           prix_total: this.prix_total,
           nb_adulte: this.nb_adulte,
-          nb_enfant4: this.nb_enfant4,
+          nb_enfant4: 0,
           nb_enfant15: this.nb_enfant15,
 
           headers: {
