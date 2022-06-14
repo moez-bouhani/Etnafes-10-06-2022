@@ -297,7 +297,9 @@
                   <br />
                   <div>
                     Vous avez déja un compte?
-                    <a href="/login/client">Se connecter</a>
+                    <router-link to="/login/client">
+                    Se connecter
+                    </router-link>
                   </div>
                 </form>
               </ValidationObserver>

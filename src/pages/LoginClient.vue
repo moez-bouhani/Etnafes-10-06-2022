@@ -166,7 +166,7 @@ export default {
         })
         .then((res) => {
           this.isLoading = false;
-          this.$router.push("/dashboard_client");
+          this.$router.push("/espace_etanfes");
         })
         .catch((error) => {
           if (error.response && error.response.status == 401) {
