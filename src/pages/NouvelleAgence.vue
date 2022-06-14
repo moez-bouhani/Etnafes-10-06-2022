@@ -7,9 +7,9 @@
       <card style="border: solid 1px #7a7979">
         <div>
           Remarque ( <sapn style="color: red">*</sapn> ) : Champ obligatoire.
-          <div v-if="agences.data.length == 0 && showEtape2 == false">
+          <!-- <div v-if="agences.data.length == 0 && showEtape2 == false">
             ma 3andpuch
-          </div>
+          </div> -->
         </div>
 
         <div class="row m-0 w-100">
@@ -124,7 +124,6 @@
               <br />
               <input
                 aria-label="label"
-                name="logo"
                 required
                 type="file"
                 @change="previewImageRio"

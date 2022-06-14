@@ -242,7 +242,7 @@
         </template>
       </sidebar-link>
 
-      <sidebar-link to="/MesSatistiqueAgence" class="menuClient">
+      <!-- <sidebar-link to="/MesSatistiqueAgence" class="menuClient">
         <i class="tim-icons icon-world"></i>
 
         <template v-if="!isRTL">
@@ -250,7 +250,7 @@
             Statistiques
           </p>
         </template>
-      </sidebar-link>
+      </sidebar-link> -->
 
      <!--  <sidebar-link to="/nouveaupack/agence" class="menuClient">
         <i class="tim-icons icon-world"></i>

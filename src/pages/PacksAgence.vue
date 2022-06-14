@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <b-tabs class="py-5" card>
+    <b-tabs class="py-2" card>
       <b-tab title="Packs" active>
         <div class="row">
           <div class="col-md-12">

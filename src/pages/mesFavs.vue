@@ -80,7 +80,12 @@
                         >Nouveau pack</span
                       >
                     </h4>
-                    <div>{{ pack.description }}</div>
+                    <div v-if="pack.description.length < 180">
+                      {{ pack.description }}
+                    </div>
+                    <div v-else>
+                      {{ pack.description.substr(0, 100) + "..." }}
+                    </div>
                     <!-- <div class="output" style="margin-top: 5px">
                         <p style="padding: 10px">
                           <HighlightWords
@@ -227,13 +232,13 @@ export default {
     };
   },
   created() {
-    this.fetchPays();
-    this.fetchVilles();
+    /* this.fetchPays();
+    this.fetchVilles(); */
     this.fetchMesFavs(this.$store.state.user.id);
-    this.fetchproprietaire(this.$store.state.prop[0].id);
+    /* this.fetchproprietaire(this.$store.state.prop[0].id);
     this.fetchUnreadHeb(this.$store.state.prop[0].id);
     this.fetchReservations(this.$store.state.prop[0].id);
-    this.fetchReservationsPack(this.$store.state.prop[0].id);
+    this.fetchReservationsPack(this.$store.state.prop[0].id); */
   },
   computed: {
     prop() {

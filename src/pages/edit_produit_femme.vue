@@ -419,11 +419,11 @@ export default {
     };
   },
   created() {
-    this.fetchPays();
+    /* this.fetchPays();
 
-    this.fetchVilles();
+    this.fetchVilles(); */
     this.fetchFemme();
-    this.fetchallzones();
+    // this.fetchallzones();
     this.fetchProduit(this.$route.params.id);
   },
   methods: {

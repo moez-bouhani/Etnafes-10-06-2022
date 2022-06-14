@@ -1,38 +1,6 @@
 <template>
   <div class="content">
-    <b-tabs card>
-
-
-      <b-tab v-if="adagence.adagence == 1" title="Mes Packs"
-        ><!-- v-if="adagence.adagence == 1" -->
-        <template #title>
-          Mes Packs
-          <span
-            v-if="packsln > 0"
-            class="badge badge-pill badge-danger"
-            style="background-color: red"
-            >{{ packsln }}</span
-          >
-        </template>
         <PacksAgence></PacksAgence>
-      </b-tab>
-
-      <b-tab disabled v-if="adagence.adagence == 0" title="Mes Packs"
-        ><!-- v-if="adagence.adagence == 1" -->
-        <template #title>
-          Mes Packs
-          <span
-            v-if="packsln > 0"
-            class="badge badge-pill badge-danger"
-            style="background-color: red"
-            >{{ packsln }}</span
-          >
-        </template>
-        <PacksAgence></PacksAgence>
-      </b-tab>
-
-   
-    </b-tabs>
   </div>
 </template>
 <script>

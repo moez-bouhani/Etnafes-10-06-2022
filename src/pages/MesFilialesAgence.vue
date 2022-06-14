@@ -1,19 +1,6 @@
 <template>
   <div class="content">
-    <b-tabs card>
-      <b-tab title="Mes Filiales">
-        <template #title>
-          Mes Filiales
-          <span
-            v-if="agencesln > 0"
-            class="badge badge-pill badge-danger"
-            style="background-color: red"
-            >{{ agencesln }}</span
-          >
-        </template>
         <Agences></Agences>
-      </b-tab>
-    </b-tabs>
   </div>
 </template>
 <script>
@@ -139,13 +126,13 @@ export default {
     },
   },
   created() {
-    this.fetchAllHebergements();
+    /* this.fetchAllHebergements();
     this.fetchVilles();
     this.fetchZones();
     this.fetchSousVilles();
-    this.loadCategories();
-    this.fetchAdagence(this.$store.state.propagence[0].id);
-    this.fetchPacks(this.$store.state.propagence[0].id);
+    this.loadCategories(); */
+   /*  this.fetchAdagence(this.$store.state.propagence[0].id);
+    this.fetchPacks(this.$store.state.propagence[0].id); */
     this.fetchAgences(this.$store.state.propagence[0].id);
     this.fetchReservations(this.$store.state.propagence[0].id);
   },

@@ -1,13 +1,7 @@
 <template>
   <div class="content">
-    <b-tabs card>
-      <b-tab title="Statistiques" v-if="adagence.adagence == 1">
         <DashboardAgence></DashboardAgence>
-      </b-tab>
-      <b-tab title="Statistiques" disabled v-if="adagence.adagence == 0">
-        <DashboardAgence></DashboardAgence>
-      </b-tab>
-    </b-tabs>
+      
   </div>
 </template>
 <script>
