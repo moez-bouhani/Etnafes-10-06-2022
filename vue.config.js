@@ -7,14 +7,11 @@ module.exports = {
     plugins: [
       new PrerenderSPAPlugin({
         headless: true,
-        // maxConcurrentRoutes: 20,
-        maxConcurrentRoutes: 1,
-        renderAfterDocumentEvent: 'render-event' ,
-        captureAfterTime: 5000,
+        maxConcurrentRoutes: 20,
         timeout: 0,
         staticDir: path.resolve("dist"),
-       routes: ["/", "/packs", "/hebergementlibre", "/artisans", "/allvilles", "/contact", "/resultatsHome"]
-      //  routes: ["/"]
+        //routes: ["/", "/packs", "/hebergementlibre", "/artisans", "/allvilles"]
+       routes: ["/"]
       //  routes: ["/", "/packs", "/hebergementlibre", "/artisans", "/allvilles", "/contact", "/resultatsHome", "/resultats"]
       })
     ]
