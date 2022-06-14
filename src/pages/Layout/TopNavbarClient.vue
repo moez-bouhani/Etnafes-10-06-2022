@@ -54,7 +54,7 @@
           style="color: black !important"
           class="nav-link"
           to="/packs"
-          >Nos Circuits</router-link
+          > Circuits</router-link
         >
       </b-nav-item>
 
@@ -63,7 +63,7 @@
           style="color: black !important"
           class="nav-link"
           to="/mpacks"
-          >Nos Circuits</router-link
+          > Circuits</router-link
         >
       </b-nav-item>
 
@@ -89,21 +89,54 @@
         :text="'Quitter' + ' ' + espace"
         right
       >
-        <b-dropdown-item href="/dashboard_client"
+        <b-dropdown-item
+          @click="
+            typeEspace = 'Espace Voyageur';
+            saveEspace();
+          "
+          href="/dashboard_client"
           >Espace Voyageur</b-dropdown-item
         >
-        <b-dropdown-item href="/dashboard_femme"
+        <b-dropdown-item
+          @click="
+            typeEspace = 'Espace Artisan';
+            saveEspace();
+          "
+          href="/dashboard_femme"
           >Espace Artisan</b-dropdown-item
         >
-        <b-dropdown-item href="/dashboard_guide">Espace Guide</b-dropdown-item>
-        <b-dropdown-item href="/dashboard_agence"
+        <b-dropdown-item
+          @click="
+            typeEspace = 'Espace Guide';
+            saveEspace();
+          "
+          href="/dashboard_guide"
+          >Espace Guide</b-dropdown-item
+        >
+
+        <b-dropdown-item
+          @click="
+            typeEspace = 'Espace Préstataire de service';
+            saveEspace();
+          "
+          href="/dashboard_agence"
           >Préstataire de service</b-dropdown-item
         >
-        <b-dropdown-item href="/dashboard_proprietaire"
+        <b-dropdown-item
+          @click="
+            typeEspace = 'Espace Hébergeur';
+            saveEspace();
+          "
+          href="/dashboard_proprietaire"
           >Espace Hébergeur</b-dropdown-item
         >
-        <b-dropdown-item href="/dashboard_proprietaire_restau"
-          >Préstataire de service</b-dropdown-item
+        <b-dropdown-item
+          @click="
+            typeEspace = 'Espace Restaurant';
+            saveEspace();
+          "
+          href="/dashboard_proprietaire_restau"
+          >Espace Restaurant</b-dropdown-item
         >
       </b-nav-item-dropdown>
       <div class="collapse navbar-collapse show text-left" v-show="showMenu">
@@ -376,7 +409,7 @@ export default {
       client: {},
       notifications: [],
       reservationsp: [],
-
+      typeEspace: "",
       searchModalVisible: false,
       searchQuery: "",
       showMenu: false,
@@ -410,6 +443,9 @@ export default {
   },
 
   methods: {
+    saveEspace() {
+      return localStorage.setItem("espace", this.typeEspace);
+    },
     resetNotification: function () {
       if (this.reservationsp.length > 0) {
         this.reservationsp.length = 0;

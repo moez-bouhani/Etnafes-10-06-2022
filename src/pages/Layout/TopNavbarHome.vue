@@ -25,14 +25,14 @@
                 <router-link class="nav-link" to="/">Accueil</router-link>
               </b-nav-item>
               <b-nav-item class="d-none d-lg-block">
-                <router-link class="nav-link" to="/packs"
-                  >Nos Circuits</router-link
+                <router-link class="nav-link" to="/packs">
+                  Circuits</router-link
                 >
               </b-nav-item>
 
               <b-nav-item class="d-lg-none">
-                <router-link class="nav-link" to="/mpacks"
-                  >Nos Circuits</router-link
+                <router-link class="nav-link" to="/mpacks">
+                  Circuits</router-link
                 >
               </b-nav-item>
 
@@ -305,6 +305,7 @@ export default {
       proprestau: [],
       scrollPosition: null,
       token: null,
+
       espace: localStorage.getItem("espace", this.espace),
     };
   },
