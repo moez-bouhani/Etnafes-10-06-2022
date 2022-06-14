@@ -13,7 +13,7 @@ module.exports = {
         captureAfterTime: 5000,
         timeout: 0,
         staticDir: path.resolve("dist"),
-       routes: ["/", "/packs", "/hebergementlibre", "/artisans", "/allvilles", "/contact", "/resultatsHome"]
+       routes: ["/"]
       //  routes: ["/"]
       //  routes: ["/", "/packs", "/hebergementlibre", "/artisans", "/allvilles", "/contact", "/resultatsHome", "/resultats"]
       })
