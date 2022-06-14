@@ -62,7 +62,7 @@ export default {
         {
           id: 1,
           url: "http://via.placeholder.com/500x500",
-          bigUrl: "http://localhost:8080/espace/espace-voyageur-etnafes.jpg",
+          bigUrl: "https://etnafes.com/espace/espace-voyageur-etnafes.jpg",
           name: "Espace Voyageur",
           description:
             "Espace dédié pour les voyageurs,reservations cicruits,hébérgements,produits",
@@ -72,7 +72,7 @@ export default {
         {
           id: 2,
           url: "http://via.placeholder.com/500x500",
-          bigUrl: "http://localhost:8080/espace/espace-artisan-etnafes2.webp",
+          bigUrl: "https://etnafes.com/espace/espace-artisan-etnafes2.webp",
           name: "Espace Artisan",
           description: "Espace dédié pour les artisans et les femmes rurales",
           category: "Espace Artisa",
@@ -81,7 +81,7 @@ export default {
         {
           id: 3,
           url: "http://via.placeholder.com/500x500",
-          bigUrl: "http://localhost:8080/espace/espace-guide-etnafes.jpg",
+          bigUrl: "https://etnafes.com/espace/espace-guide-etnafes.jpg",
           name: "Espace Guide",
           description: "Espace Guide",
           category: "Espace Guide",
@@ -93,7 +93,7 @@ export default {
         {
           id: 4,
           url: "http://via.placeholder.com/500x500",
-          bigUrl: "http://localhost:8080/espace/espace-agence-etnafes.png",
+          bigUrl: "https://etnafes.com/espace/espace-agence-etnafes.png",
           name: "Espace Préstataire de service",
           description: "Espace Préstataire de service",
           category: "Espace Préstataire de service",
@@ -102,7 +102,7 @@ export default {
         {
           id: 5,
           url: "http://via.placeholder.com/500x500",
-          bigUrl: "http://localhost:8080/espace/espace-hebergeur-etnafes.jpg",
+          bigUrl: "https://etnafes.com/espace/espace-hebergeur-etnafes.jpg",
           name: "Espace Hébergeur",
           description: "Espace Hébergeur",
           category: "Espace Hébergeur",
@@ -111,7 +111,7 @@ export default {
         {
           id: 6,
           url: "http://via.placeholder.com/500x500",
-          bigUrl: "http://localhost:8080/espace/espace-resto-etnafes.jpg",
+          bigUrl: "https://etnafes.com/espace/espace-resto-etnafes.jpg",
           name: "Espace Restaurant",
           description: "Restaurants",
           category: "Espace Restaurant",
