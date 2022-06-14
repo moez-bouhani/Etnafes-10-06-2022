@@ -160,9 +160,9 @@ export default {
     },
   },
   created() {
-    this.fetchVilles();
+    // this.fetchVilles();
     this.fetchReservation(this.$route.params.id);
-    this.fetchZones();
+    // this.fetchZones();
   },
   methods: {
     updateReservation(id, reservation) {

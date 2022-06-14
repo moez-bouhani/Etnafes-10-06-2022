@@ -1,7 +1,16 @@
 <template>
   <div class="content">
-    <b-tabs class="py-5" card>
+    <b-tabs class="py-2" card>
       <b-tab title="Filiales" active>
+        <template #title>
+          Mes Filiales
+          <span
+            v-if="agenceslength > 0"
+            class="badge badge-pill badge-danger"
+            style="background-color: red"
+            >{{ agenceslength }}</span
+          >
+        </template>
         <div class="row">
           <div class="col-12">
             <div>

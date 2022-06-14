@@ -6,7 +6,7 @@
           <b-tab title="Clients">
             <template #title>
               <!-- <i class="fas fa-hiking fa-lg" title="Clients" style="color:#5cb85c"></i>&nbsp; -->
-              Nouvelles agences &nbsp;
+              <span style="font-size:12.5px">Nouvelles agences </span>
               <span
                 v-if="agencesprox.length > 0"
                 class="badge badge-warning"
@@ -68,7 +68,7 @@
           <b-tab title="Clients">
             <template #title>
               <!-- <i class="fas fa-hiking fa-lg" title="Clients" style="color:#5cb85c"></i>&nbsp; -->
-              Nouveaux hébergements &nbsp;
+              <span style="font-size:12.5px">Nouveaux hébergements </span>
               <span
                 v-if="hebergementsprox.length > 0"
                 class="badge badge-warning"
@@ -131,7 +131,7 @@
           <b-tab title="Clients">
             <template #title>
               <!-- <i class="fas fa-hiking fa-lg" title="Clients" style="color:#5cb85c"></i>&nbsp; -->
-              Nouveaux packs &nbsp;
+              <span style="font-size:12.5px">Nouveaux packs </span>
               <span
                 v-if="packsnotif"
                 class="badge badge-warning"
@@ -190,7 +190,7 @@
           </b-tab>
           <b-tab title="Clients">
             <template #title>
-              Réservations aux packs&nbsp;
+             <span style="font-size:12.5px"> Réservations packs </span>
               <span class="badge badge-warning" style="background-color: red">{{
                 reservationsp.length
               }}</span>
@@ -281,7 +281,7 @@
           <b-tab title="Clients">
             <template #title>
               <!-- <i class="fas fa-hiking fa-lg" title="Clients" style="color:#5cb85c"></i>&nbsp; -->
-              Réservations aux hébergements &nbsp;
+             <span style="font-size:12.5px"> Réservations hébergements </span>
               <span class="badge badge-warning" style="background-color: red">{{
                 reservationsh.length
               }}</span>

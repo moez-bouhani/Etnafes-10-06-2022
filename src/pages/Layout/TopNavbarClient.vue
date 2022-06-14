@@ -150,7 +150,7 @@
                 <img
                   loading="lazy"
                   v-if="user.provider == null"
-                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${client.photo}`"
+                  :src="`https://etnafesapi20212018.etnafes.com/myapp/public/uploads/files_client/${user.photo}`"
                   alt="Profile Photo"
                 />
               </div>

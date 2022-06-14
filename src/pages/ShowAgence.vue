@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb" style="background-color: #a6bfe6 !important">
         <li class="breadcrumb-item">
-          <router-link :to="{ name: 'mes_agences_active' }"
+          <router-link :to="{ name: 'MesFilialesAgence' }"
             >Prestataire de Services</router-link
           >
         </li>

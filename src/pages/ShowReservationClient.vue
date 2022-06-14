@@ -318,11 +318,11 @@ export default {
     },
   },
   created() {
-    this.fetchVilles();
+    // this.fetchVilles();
     this.fetchReservation(this.$route.params.id);
     // this.fetchPacks(this.$store.state.user.id);
-    this.fetchAgences(this.$store.state.user.id);
-    this.fetchZones();
+    // this.fetchAgences(this.$store.state.user.id);
+    // this.fetchZones();
   },
   methods: {
     generateReport() {

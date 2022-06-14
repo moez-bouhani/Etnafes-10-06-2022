@@ -77,7 +77,7 @@
     <div class="row">
       <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 order-lg-1 order-2">
         <card>
-          <div class="row" v-if="userSingll.active == 0">
+          <div class="row" v-if="client.active == 0">
             <div class="col-md-12">
               <b-card style="border-color: #f5a623" tag="article" class="mb-2">
                 <b-card-text
@@ -1046,7 +1046,7 @@ export default {
     this.fetchSousVille(this.$store.state.user.ville_id);
     this.fetchPays();
     this.fetchclient(this.$store.state.user.id);
-    this.fetchuserSingl(this.$store.state.user.id);
+    // this.fetchuserSingl(this.$store.state.user.id);
     this.fetchLocations(this.$store.state.user.id);
     Bus.$on("markers_fetched", (data) => {
       this.markersh = data.markersh;
