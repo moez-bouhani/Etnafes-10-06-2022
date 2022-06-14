@@ -9,7 +9,11 @@
               <h3 class="panel-title" style="color: #000">ADMIN</h3>
             </div>
             <div class="panel-body">
-              <form accept-charset="UTF-8" role="form" @submit.prevent="performLogin">
+              <form
+                accept-charset="UTF-8"
+                role="form"
+                @submit.prevent="performLogin"
+              >
                 <fieldset>
                   <div class="form-group">
                     <input
@@ -57,7 +61,7 @@ import axios from "axios";
 export default {
   components: {
     TopNavbarHome,
-    Footer
+    Footer,
   },
   data() {
     return {
@@ -65,7 +69,7 @@ export default {
       password: "",
       remember: "",
       isLoading: false,
-      error: ""
+      error: "",
     };
   },
   methods: {
@@ -74,13 +78,13 @@ export default {
       this.$store
         .dispatch("performLoginClientAction", {
           email: this.email,
-          password: this.password
+          password: this.password,
         })
-        .then(res => {
+        .then((res) => {
           this.isLoading = false;
           this.$router.push("/statistiques");
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.response && error.response.status == 401) {
             this.error = "Email ou mot de passe incorrect";
           }
@@ -91,7 +95,7 @@ export default {
             this.$router.push("/client_verification");
           }
         });
-    }
+    },
     /* performLogin() {
       this.isLoading = true;
       this.$store
@@ -108,6 +112,6 @@ export default {
           console.log(err.message);
         });
     } */
-  }
+  },
 };
 </script>

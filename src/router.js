@@ -86,7 +86,7 @@ import DetailsPackHomeAccepterInvi from '@/pages/DetailsPackHomeAccepterInvi.vue
 import PaiementAgence from '@/pages/PaiementAgence.vue'
 
 import monPaiement from '@/pages/monPaiement.vue'
-import Login from '@/pages/Login.vue'
+import LoginAdmin from '@/pages/LoginAdmin.vue'
 import test360 from '@/pages/test360.vue'
 
 
@@ -542,9 +542,9 @@ const routes = [
   },
 
   {
-    path: '/login',
-    name: 'Login',
-    component: Login,
+    path: '/sefante',
+    name: 'sefante',
+    component: LoginAdmin,
     beforeEnter: (to, from, next) => {
       if (store.state.loggedIn == false) {
         next()
