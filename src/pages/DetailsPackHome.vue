@@ -3648,6 +3648,9 @@ export default {
     },
   },
   methods: {
+    saveEspace() {
+      return localStorage.setItem("espace", "Espace Voyageur");
+    },
     ajouter_invitation_copied() {
       axios
         .post(`${apiDomain}/api/ajouter_invitation_copied`, {
@@ -3718,6 +3721,7 @@ export default {
           password: this.password,
         })
         .then((res) => {
+           this.saveEspace();
           this.isLoading = false;
           this.$router.push({
             name: "PaiementPack",
@@ -3846,6 +3850,7 @@ export default {
           password: this.password,
         })
         .then((res) => {
+            this.saveEspace();
           this.isLoading = false;
           this.$router.push({
             name: "PaiementAgence",
@@ -3913,7 +3918,7 @@ export default {
         })
         .then((res) => {
           this.loadingInscription = false;
-
+  this.saveEspace();
           /*  if (response.status == 20) { */
 
           this.$noty.success("veuillez vérifier votre compte.");

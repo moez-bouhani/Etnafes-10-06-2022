@@ -6,7 +6,7 @@
           <ol class="breadcrumb" style="background-color: #a6bfe6 !important">
             <li class="breadcrumb-item">
               <!-- <a @click="$router.go(-1)">back</a> -->
-              <router-link :to="{ name: 'nouveau_restaurantactive' }"
+              <router-link :to="{ name: 'Restaurant' }"
                 >Espace Restaurant</router-link
               >
             </li>

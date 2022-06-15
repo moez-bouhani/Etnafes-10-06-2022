@@ -230,7 +230,7 @@
                   v-b-modal.modal-validerEmail
                   style="margin-left: 10px"
                   class="btn btn-outline-success mt-3"
-                  @click.prevent="addClient;saveEspace"
+                  @click.prevent="addClient"
                   fill
                 >
                   {{ loadingInscription ? "En cours..." : "Sinscrire" }}
@@ -243,7 +243,7 @@
           <form
             accept-charset="UTF-8"
             role="form"
-            @submit.prevent="performLoginEnLigne;saveEspace"
+            @submit.prevent="performLoginEnLigne"
           >
             <fieldset>
               <div class="form-group">
@@ -357,7 +357,7 @@
           <form
             accept-charset="UTF-8"
             role="form"
-            @submit.prevent="performLogin;saveEspace"
+            @submit.prevent="performLogin"
           >
             <fieldset>
               <div class="form-group">
@@ -872,7 +872,7 @@
                     v-b-modal.modal-validerEmail
                     style="margin-left: 10px"
                     class="btn btn-outline-success mt-3"
-                    @click.prevent="addClient;saveEspace"
+                    @click.prevent="addClient"
                     fill
                   >
                     {{ loadingInscription ? "En cours..." : "Sinscrire" }}
@@ -885,7 +885,7 @@
             <form
               accept-charset="UTF-8"
               role="form"
-              @submit.prevent="performLogin;saveEspace"
+              @submit.prevent="performLogin"
             >
               <fieldset>
                 <div class="form-group">
@@ -3538,6 +3538,7 @@ export default {
           password: this.password,
         })
         .then((res) => {
+           this.saveEspace();
           this.isLoading = false;
           this.$router.push({
             name: "PaiementPack",
@@ -3748,6 +3749,7 @@ export default {
           password: this.password,
         })
         .then((res) => {
+            this.saveEspace();
           this.isLoading = false;
           this.$router.push({
             name: "PaiementAgence",
@@ -3832,6 +3834,7 @@ export default {
           password: this.password,
         })
         .then((res) => {
+           this.saveEspace();
           this.loadingInscription = false;
 
           /*  if (response.status == 20) { */

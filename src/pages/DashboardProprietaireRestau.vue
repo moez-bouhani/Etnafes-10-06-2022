@@ -4,12 +4,24 @@
       <div class="col-12">
         <div>
           <b-card-group deck>
-            <b-card
+            <b-card class="d-none d-lg-block"
               header="Soyez le Bienvenue sur votre espace proprietaire"
               header-tag="header"
               footer-tag="footer"
             >
               <b-card-text>Veuillez ajouter tout les détails de votre restaurant (images, description, adresse...)</b-card-text>
+              <router-link :to="{name:'nouveau_restaurant'}">
+                <b-button
+                  variant="outline-primary"
+                  class="btnajout"
+                  style="margin-top:15px"
+                >+ Ajouter</b-button>
+              </router-link>
+            </b-card>
+
+            <b-card class="d-lg-none"
+            >
+              <b-card-text>Soyez le Bienvenue sur votre espace proprietaire, Veuillez ajouter tout les détails de votre restaurant (images, description, adresse...)</b-card-text>
               <router-link :to="{name:'nouveau_restaurant'}">
                 <b-button
                   variant="outline-primary"

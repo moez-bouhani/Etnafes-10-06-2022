@@ -139,13 +139,13 @@
                 >
 
                 <b-dropdown-item v-if="user.role == 1" href="/statistiques"
-                  >Dashboard</b-dropdown-item
+                  >Tableau de bord</b-dropdown-item
                 >
                 <!-- espace etanfes admin -->
                 <!-- client -->
                 <div v-if="espace == 'Espace Voyageur'">
                   <b-dropdown-item to="/dashboard_client">
-                    <router-link to="/dashboard_client">Dashboard</router-link>
+                    <router-link to="/dashboard_client">Tableau de bord</router-link>
                   </b-dropdown-item>
                   <b-dropdown-item to="/client">
                     <router-link to="/client">Profile</router-link>
@@ -159,7 +159,7 @@
                 <!-- artisan -->
                 <div v-if="espace == 'Espace Artisan'">
                   <b-dropdown-item to="/dashboard_femme">
-                    <router-link to="/dashboard_femme">Dashboard</router-link>
+                    <router-link to="/dashboard_femme">Tableau de bord</router-link>
                   </b-dropdown-item>
 
                   <b-dropdown-item to="/Artisan">
@@ -182,7 +182,7 @@
                 <!-- guide -->
                 <div v-if="espace == 'Espace Guide'">
                   <b-dropdown-item to="/dashboard_guide">
-                    <router-link to="/dashboard_guide">Dashboard</router-link>
+                    <router-link to="/dashboard_guide">Tableau de bord</router-link>
                   </b-dropdown-item>
 
                   <b-dropdown-item to="/guide">
@@ -195,9 +195,9 @@
                 </div>
 
                 <!-- agence -->
-                <div v-if="espace == 'Espace Préstataire de service'">
+                <div v-if="espace == 'Espace Prestataire de services'">
                   <b-dropdown-item to="/dashboard_agence">
-                    <router-link to="/dashboard_agence">Dashboard</router-link>
+                    <router-link to="/dashboard_agence">Tableau de bord</router-link>
                   </b-dropdown-item>
 
                   <b-dropdown-item to="/profil">
@@ -219,7 +219,7 @@
                 <div v-if="espace == 'Espace Hébergeur'">
                   <b-dropdown-item to="/dashboard_proprietaire">
                     <router-link to="/dashboard_proprietaire"
-                      >Dashboard</router-link
+                      >Tableau de bord</router-link
                     >
                   </b-dropdown-item>
 
@@ -249,7 +249,7 @@
                 <div v-if="espace == 'Espace Restaurant'">
                   <b-dropdown-item to="/dashboard_proprietaire_restau">
                     <router-link to="/dashboard_proprietaire_restau"
-                      >Dashboard</router-link
+                      >Tableau de bord</router-link
                     >
                   </b-dropdown-item>
 

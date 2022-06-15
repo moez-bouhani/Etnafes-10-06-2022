@@ -4,6 +4,55 @@
 
     <!-- sidebar -->
 <side-bar :background-color="backgroundColor">
+  <div class="dropdown d-lg-none" style="margin-top:15px">
+  <button v-if="espace=='Espace Prestataire de services'" style="margin-left:10px !important;padding:2px 10px 2px 10px !important" class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{espaceMobile}}
+  </button>
+
+  <button v-else style="margin-left:10px !important;padding:2px 10px 2px 10px !important" class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{espace}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-left:10px !important">
+    
+   
+    <a class="dropdown-item" @click="
+            typeEspace = 'Espace Voyageur';
+            saveEspace();
+          " href="/dashboard_client" style="color:#fff">Espace Voyageur</a>
+          
+    <a class="dropdown-item" @click="
+            typeEspace = 'Espace Artisan';
+            saveEspace();
+          "
+          href="/dashboard_femme" style="color:#fff">Espace Artisan</a>
+          
+    <a class="dropdown-item" @click="
+            typeEspace = 'Espace Guide';
+            saveEspace();
+          "
+          href="/dashboard_guide" style="color:#fff">Espace Guide</a>
+        
+          <a class="dropdown-item" @click="
+            typeEspace = 'Espace Prestataire de services';
+            saveEspace();
+          "
+          href="/dashboard_agence" style="color:#fff">Prestataire de services</a> 
+
+          <a class="dropdown-item" @click="
+            typeEspace = 'Espace Hébergeur';
+            saveEspace();
+          "
+          href="/dashboard_proprietaire" style="color:#fff">Espace Hébergeur</a>
+
+          
+
+          <a class="dropdown-item"  @click="
+            typeEspace = 'Espace Restaurant';
+            saveEspace();
+          "
+          href="/dashboard_proprietaire_restau" style="color:#fff">Espace Restaurant</a>
+  </div>
+</div>
 
       <div v-if="espace == 'Espace Voyageur'">
 
@@ -12,7 +61,7 @@
       <sidebar-link to="/dashboard_client" class="menuClient">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
-          <p style="color: #fff">Dashboard</p>
+          <p style="color: #fff">Tableau de bord</p>
         </template>
         <template v-else>
           <p>لوحة القيادة</p>
@@ -92,7 +141,7 @@
                  <sidebar-link class="menuAdmin" to="/dashboard_femme">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
-          <p style="color: #fff">Dashboard</p>
+          <p style="color: #fff">Tableau de bord</p>
         </template>
         <template v-else>
           <p>لوحة القيادة</p>
@@ -145,7 +194,7 @@
            <sidebar-link to="/dashboard_guide">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
-          <p style="color:#fff">Dashboard</p>
+          <p style="color:#fff">Tableau de bord</p>
         </template>
         <template v-else>
           <p>لوحة القيادة</p>
@@ -184,12 +233,12 @@
         </a>
       </li>
         </div>
-<div v-if="espace == 'Espace Préstataire de service'">
+<div v-if="espace == 'Espace Prestataire de services'">
       <!-- <mobile-menu slot="content"></mobile-menu> -->
       <sidebar-link to="/dashboard_agence" class="menuClient">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
-          <p style="color: #fff">Dashboard</p>
+          <p style="color: #fff">Tableau de bord</p>
         </template>
         <template v-else>
           <p>لوحة القيادة</p>
@@ -279,7 +328,7 @@
   <sidebar-link to="/dashboard_proprietaire">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
-          <p style="color: #fff">Dashboard</p>
+          <p style="color: #fff">Tableau de bord</p>
         </template>
         <template v-else>
           <p>لوحة القيادة</p>
@@ -325,14 +374,14 @@
         </template>
       </sidebar-link>
 
-      <sidebar-link to="/nouveauhebergement" class="menuClient">
+     <!--  <sidebar-link to="/nouveauhebergement" class="menuClient">
         <i class="tim-icons icon-bank"></i>
         <template v-if="!isRTL">
           <p style="color: #fff">
             Hébergeur
           </p>
         </template>
-      </sidebar-link>
+      </sidebar-link> -->
       <li class="nav-item menuClient">
         <a
           href
@@ -351,7 +400,7 @@
   <sidebar-link to="/dashboard_proprietaire_restau">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
-          <p style="color:#fff">Dashboard</p>
+          <p style="color:#fff">Tableau de bord</p>
         </template>
         <template v-else>
           <p>لوحة القيادة</p>
@@ -391,6 +440,9 @@
       </li>
    
 </div>
+
+
+      
  </side-bar>
       
     <sidebar-share :background-color.sync="backgroundColor"></sidebar-share>
@@ -442,6 +494,10 @@ export default {
     };
   },
   computed: {
+
+    espaceMobile(){
+return this.espace.slice(7);
+    },
     /* notifRes() {
       return Number(this.resheb) + Number(this.reslength);
     },
@@ -492,6 +548,10 @@ export default {
     this.fetchReservationsag(this.$store.state.propagence[0].id); */
   },
   methods: {
+
+    saveEspace() {
+      return localStorage.setItem("espace", this.typeEspace);
+    },
     fetchReservationsag(id) {
       fetch(
         `${apiDomain}/api/reservation-agence-adagence/${id}?token=${this.$store.state.token}`

@@ -94,9 +94,9 @@ export default {
           id: 4,
           url: "http://via.placeholder.com/500x500",
           bigUrl: "https://etnafes.com/espace/webp/espace-agence-etnafes.png.webp",
-          name: "Espace Préstataire de service",
-          description: "Espace Préstataire de service",
-          category: "Espace Préstataire de service",
+          name: "Espace Prestataire de services",
+          description: "Espace Prestataire de services",
+          category: "Espace Prestataire de services",
           to: "dashboard_agence",
         },
         {

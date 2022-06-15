@@ -196,7 +196,7 @@
         </button>
       </a>
       <!-- <b-button @click="generateReport">Imprimez</b-button> -->
-      <div>
+      <!-- <div v-if="reservation.paye == 0">
         <vue-html2pdf
           :show-layout="false"
           :float-layout="true"
@@ -272,7 +272,7 @@
             </div>
           </section>
         </vue-html2pdf>
-      </div>
+      </div> -->
     </div>
 
     <!--  <div class="container" v-else>

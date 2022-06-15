@@ -69,7 +69,7 @@
 
 
 
-          <div class="row user-tabs d-lg-none">
+          <div class="row user-tabs d-lg-none" style="height:153px">
             
             <div class="col-lg-8">
               

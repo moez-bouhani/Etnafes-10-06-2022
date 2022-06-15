@@ -124,11 +124,11 @@
 
         <b-dropdown-item
           @click="
-            typeEspace = 'Espace Préstataire de service';
+            typeEspace = 'Espace Prestataire de services';
             saveEspace();
           "
           href="/dashboard_agence"
-          >Préstataire de service</b-dropdown-item
+          >Prestataire de services</b-dropdown-item
         >
         <b-dropdown-item
           @click="
@@ -208,7 +208,7 @@
             >
               <li class="nav-link">
                 <a href="/dashboard_client" class="nav-item dropdown-item"
-                  >Dashboard</a
+                  >Tableau de bord</a
                 >
               </li>
 
@@ -269,7 +269,7 @@
               v-if="espace == 'Espace Guide'"
             >
               <li class="nav-link">
-                <a href="/guide" class="nav-item dropdown-item">Dashboard</a>
+                <a href="/guide" class="nav-item dropdown-item">Tableau de bord</a>
               </li>
               <li class="nav-link">
                 <a href="/dashboard_guide" class="nav-item dropdown-item"
@@ -288,14 +288,14 @@
               </li>
             </ul>
 
-            <!-- Espace Préstataire de service -->
+            <!-- Espace Prestataire de services -->
             <ul
               class="dropdown-menu dropdown-navbar"
-              v-if="espace == 'Espace Préstataire de service'"
+              v-if="espace == 'Espace Prestataire de services'"
             >
               <li class="nav-link">
                 <a href="/dashboard_agence" class="nav-item dropdown-item"
-                  >Dashboard</a
+                  >Tableau de bord</a
                 >
               </li>
               <li class="nav-link">
@@ -328,7 +328,7 @@
             >
               <li class="nav-link">
                 <a href="/dashboard_proprietaire" class="nav-item dropdown-item"
-                  >Dashboard</a
+                  >Tableau de bord</a
                 >
               </li>
 
@@ -373,7 +373,7 @@
                 <a
                   href="/dashboard_proprietaire_restau"
                   class="nav-item dropdown-item"
-                  >Dashboard</a
+                  >Tableau de bord</a
                 >
               </li>
               <li class="nav-link">

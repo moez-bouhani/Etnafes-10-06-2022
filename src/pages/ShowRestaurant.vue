@@ -4,7 +4,7 @@
       <ol class="breadcrumb" style="background-color: #a6bfe6 !important">
         <li class="breadcrumb-item">
           <!-- <a href="/nouveaurestaurant">Espace Restaurant</a> -->
-          <router-link :to="{ name: 'nouveau_restaurantactive' }"
+          <router-link :to="{ name: 'Restaurant' }"
             >Espace Restaurant</router-link
           >
         </li>
