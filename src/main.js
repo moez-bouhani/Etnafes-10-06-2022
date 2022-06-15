@@ -126,14 +126,14 @@ Vue.component('p-radio', PrettyRadio);
 import CoreuiVue from '@coreui/vue';
 Vue.use(CoreuiVue);
 
-import VueSocketIO from 'vue-socket.io'
+/* import VueSocketIO from 'vue-socket.io'
 Vue.use(new VueSocketIO({
   debug: true,
   connection: 'http://localhost:8890',
-  // connection: 'https://www.node01.etnafes.shop',
+ connection: 'https://www.node01.etnafes.shop',
 
 
-}))
+})) */
 
 
 

@@ -32,7 +32,7 @@
 
         <!-- <router-link to="/packs"> Nos Circuits </router-link> -->
       </div>
-      <button
+      <!-- <button
         class="navbar-toggler"
         type="button"
         @click="toggleMenu"
@@ -44,7 +44,7 @@
         <span class="navbar-toggler-bar navbar-kebab"></span>
         <span class="navbar-toggler-bar navbar-kebab"></span>
         <span class="navbar-toggler-bar navbar-kebab"></span>
-      </button>
+      </button> -->
 
       <b-nav-item
         style="list-style: none; width: 50%"
