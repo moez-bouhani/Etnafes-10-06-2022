@@ -1,22 +1,6 @@
 <template>
   <div>
-    <modal
-      :show.sync="searchModalVisible_inv"
-      class="modal-search"
-      id="searchModal"
-      :centered="false"
-      :show-close="true"
-    >
-      <input
-        aria-label="label"
-        slot="header"
-        v-model="searchQuery"
-        type="text"
-        class="form-control"
-        id="inlineFormInputGroup"
-        placeholder="SEARCH"
-      />
-    </modal>
+   
 
     <b-modal
       id="modal-restaurant"

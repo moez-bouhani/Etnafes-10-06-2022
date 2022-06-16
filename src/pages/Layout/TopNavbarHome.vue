@@ -97,11 +97,16 @@
                 <b-dropdown-item href="#">RU</b-dropdown-item>
                 <b-dropdown-item href="#">FA</b-dropdown-item>
               </b-nav-item-dropdown>
-              <b-nav-item v-if="loggedIn">
+              <router-link to='/espace_etanfes'>
+              <button  style="padding:2px 15px 2px 15px !important;border-radius:10px;margin: 5px !important;background: red !important;" class="btn btn-danger btn-sm" type="button">
+    Quitter {{ espace }}
+  </button>
+              </router-link>
+              <!-- <b-nav-item v-if="loggedIn">
                 <router-link class="nav-link" to="/espace_etanfes"
                   >Quitter &nbsp;{{ espace }}</router-link
                 >
-              </b-nav-item>
+              </b-nav-item> -->
               <b-nav-item-dropdown right v-if="loggedIn">
                 <template v-slot:button-content>
                   <em>{{ user.nom }} {{ user.prenom }}</em>
