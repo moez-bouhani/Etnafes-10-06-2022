@@ -1191,7 +1191,7 @@
                   class="d-none d-lg-block"
                   style="margin-left: 20px; margin-top: 7px; color: #000"
                 >
-                  {{ pack.titre }}
+                  {{ pack.titre }} 
                 </h2>
 
                 <h2
@@ -1203,7 +1203,7 @@
                     color: #000;
                   "
                 >
-                  {{ pack.titre }}
+                  {{ pack.titre }} 
                 </h2>
               </div>
 
@@ -2702,7 +2702,7 @@
                 <router-link
                   @click.native="scrollToTop"
                   :to="{
-                    name: 'PaiementPack',
+                    name: 'PaiementPack_inv',
                     params: { id: pack.id },
                     query: {
                       ville_id: pack.ville_id,
@@ -2710,6 +2710,8 @@
                       nb_adulte: nb_adulte,
                       nb_enfant: nb_enfant,
                       ages: agestab,
+
+                      sender_id: sender_id
                     },
                   }"
                 >
@@ -2750,7 +2752,7 @@
                     pack.date_deb > new Date().toISOString().split('T')[0] &&
                     pack.nb_place_dispo != 0
                   "
-                  class="btn btn-outline-success mt-3"
+                  class="btn btn-outline-success mt-1"
                   style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
                   v-b-modal.modal-inscription-paiement-ligne
                   type="submit"
@@ -2764,9 +2766,12 @@
                     pack.date_deb > new Date().toISOString().split('T')[0] &&
                     pack.nb_place_dispo != 0
                   "
-                  class="btn btn-outline-success mt-3"
+                  class="btn btn-outline-success mt-1"
                   style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
+<<<<<<< HEAD
+=======
                  
+>>>>>>> 00509ebd773bbb24c4c178da89e58d6ec6dbff53
                   type="submit"
                   fill
                 >
@@ -2776,7 +2781,11 @@
             </div>
           </b-card>
         </div>
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> 00509ebd773bbb24c4c178da89e58d6ec6dbff53
         <div class="col-md-4" id="map" ref="map">
           <br />
           <div class="d-none d-lg-block">
@@ -3308,6 +3317,7 @@ export default {
       nbcomheb: "",
       restaurant: {},
       hebergementid: "",
+      sender_id: this.$route.query.sender_id,
       agestab: this.$route.query.ages ? this.$route.query.ages : [],
       loadingInscription: false,
       isLoadingVerifEmail: false,

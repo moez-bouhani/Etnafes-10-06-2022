@@ -1,6 +1,10 @@
 <template>
   <div>
+<<<<<<< HEAD
+    
+=======
    
+>>>>>>> 00509ebd773bbb24c4c178da89e58d6ec6dbff53
 
     <b-modal
       id="modal-restaurant"
