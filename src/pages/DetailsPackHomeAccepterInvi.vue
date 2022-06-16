@@ -2768,10 +2768,7 @@
                   "
                   class="btn btn-outline-success mt-1"
                   style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
-<<<<<<< HEAD
-=======
-                 
->>>>>>> 00509ebd773bbb24c4c178da89e58d6ec6dbff53
+
                   type="submit"
                   fill
                 >
@@ -2781,11 +2778,7 @@
             </div>
           </b-card>
         </div>
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 00509ebd773bbb24c4c178da89e58d6ec6dbff53
         <div class="col-md-4" id="map" ref="map">
           <br />
           <div class="d-none d-lg-block">
