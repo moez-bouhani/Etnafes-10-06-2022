@@ -8,11 +8,15 @@ import DashboardLayoutFemme from "@/pages/Layout/DashboardLayoutFemme.vue";
 
 import DashboardLayoutPropRestau from "@/pages/Layout/DashboardLayoutPropRestau.vue";
 import PaiementLigne from '@/pages/PaiementLigne.vue';
+import PaiementPack_inv from '@/pages/PaiementPack_inv.vue';
+
 import ReservationHebergement from '@/pages/ReservationHebergement.vue';
 import suivant_logement from '@/pages/suivant_logement.vue';
 import CommandeProduit from '@/pages/CommandeProduit.vue';
 
 import PaiementOffline from '@/pages/PaiementOffline.vue';
+import PaiementOffline_inv from '@/pages/PaiementOffline_inv.vue';
+
 import ProduitFemme from '@/pages/ProduitFemme.vue';
 import PaiementOfflineHebergement from '@/pages/PaiementOfflineHebergement.vue';
 
@@ -287,10 +291,24 @@ const routes = [
   },
 
   {
+    path: '/PaiementPack_inv/:id',
+    name: 'PaiementPack_inv',
+    component: PaiementPack_inv
+  },
+
+  {
     path: '/PaiementOffline/:id',
     name: 'PaiementOffline',
     component: PaiementOffline
   },
+
+  {
+    path: '/PaiementOffline_inv/:id',
+    name: 'PaiementOffline_inv',
+    component: PaiementOffline_inv
+  },
+
+  
 
   {
     path: '/PaiementOfflineHebergement/:id',
@@ -489,7 +507,7 @@ const routes = [
 
   {
     path: '/invitation/pack/:id',
-    name: 'Pack',
+    name: 'invitation_pack',
     component: DetailsPackHomeAccepterInvi
   },
 

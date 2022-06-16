@@ -1191,7 +1191,7 @@
                   class="d-none d-lg-block"
                   style="margin-left: 20px; margin-top: 7px; color: #000"
                 >
-                  {{ pack.titre }}
+                  {{ pack.titre }} 
                 </h2>
 
                 <h2
@@ -1203,7 +1203,7 @@
                     color: #000;
                   "
                 >
-                  {{ pack.titre }}
+                  {{ pack.titre }} 
                 </h2>
               </div>
 
@@ -2702,7 +2702,7 @@
                 <router-link
                   @click.native="scrollToTop"
                   :to="{
-                    name: 'PaiementPack',
+                    name: 'PaiementPack_inv',
                     params: { id: pack.id },
                     query: {
                       ville_id: pack.ville_id,
@@ -2710,6 +2710,8 @@
                       nb_adulte: nb_adulte,
                       nb_enfant: nb_enfant,
                       ages: agestab,
+
+                      sender_id: sender_id
                     },
                   }"
                 >
@@ -2750,7 +2752,7 @@
                     pack.date_deb > new Date().toISOString().split('T')[0] &&
                     pack.nb_place_dispo != 0
                   "
-                  class="btn btn-outline-success mt-3"
+                  class="btn btn-outline-success mt-1"
                   style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
                   v-b-modal.modal-inscription-paiement-ligne
                   type="submit"
@@ -2764,9 +2766,8 @@
                     pack.date_deb > new Date().toISOString().split('T')[0] &&
                     pack.nb_place_dispo != 0
                   "
-                  class="btn btn-outline-success mt-3"
+                  class="btn btn-outline-success mt-1"
                   style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
-                  v-b-modal.modal-invitation
                   type="submit"
                   fill
                 >
@@ -2776,42 +2777,7 @@
             </div>
           </b-card>
         </div>
-        <b-modal
-          style="margin-top: 74px !important"
-          id="modal-invitation"
-          :user="'user'"
-          :title="user.nom + ' ' + user.prenom"
-        >
-          <form class="mb-3">
-            <div class="row m-0" style="padding: 10px">
-              <span style="color: #333">
-                - Invité un(e) personne <br />
-                - Gagnier 2000 DT a votre compte sur chaque réservation réussite
-                de votre part.
-              </span>
-            </div>
-            <div class="row m-0">
-              <div class="col-lg-11 col-md-12 col-xl-11" style="padding: 10px">
-                <input disabled type="text" v-model="code" />
-              </div>
 
-              <div class="col-lg-1 ol-md-12 col-xl-1">
-                <button
-                  type="button"
-                  v-clipboard:copy="code"
-                  v-clipboard:success="onCopy"
-                  v-clipboard:error="onError"
-                >
-                  <img
-                    style="margin: 10px 0 10px 0px"
-                    @click="ajouter_invitation_copied"
-                    src="/copy/etnafes-tourisme-copy.png"
-                  />
-                </button>
-              </div>
-            </div>
-          </form>
-        </b-modal>
         <div class="col-md-4" id="map" ref="map">
           <br />
           <div class="d-none d-lg-block">
@@ -3343,6 +3309,7 @@ export default {
       nbcomheb: "",
       restaurant: {},
       hebergementid: "",
+      sender_id: this.$route.query.sender_id,
       agestab: this.$route.query.ages ? this.$route.query.ages : [],
       loadingInscription: false,
       isLoadingVerifEmail: false,

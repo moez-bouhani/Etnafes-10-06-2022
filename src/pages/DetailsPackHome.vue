@@ -1,5 +1,7 @@
 <template>
   <div>
+    
+
     <b-modal
       id="modal-restaurant"
       :title="restaurant.nom"
@@ -1187,7 +1189,7 @@
         <div class="col-md-8">
           <b-card no-body>
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-4">
                 <h2
                   class="d-none d-lg-block"
                   style="margin-left: 20px; margin-top: 7px; color: #000"
@@ -1270,6 +1272,32 @@
                     >
                   </h4>
                 </div>
+              </div>
+
+              <div class="col-md-4 d-none d-lg-block">
+                <!--     <button 
+                  class="btn btn-link"
+                  id="search-button"
+                  data-toggle="modal"
+                  data-target="#searchModal"
+                >
+                  Ivitation personnes
+                </button> -->
+
+                <button
+                  v-if="
+                    loggedIn &&
+                    pack.date_deb > new Date().toISOString().split('T')[0] &&
+                    pack.nb_place_dispo != 0
+                  "
+                  class="btn btn-outline-success"
+                  style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
+                  v-b-modal.modal-invitation
+                  type="submit"
+                  fill
+                >
+                  Invité personne
+                </button>
               </div>
             </div>
             <b-tabs content-class="mt-3" justified class="d-none d-lg-block">
@@ -2730,59 +2758,71 @@
                   </b-button>
 
                   <!-- invitation personne -->
-                  <!-- <div>
-                    <input type="text" v-model="message" />
-                    <button
-                      type="button"
-                      v-clipboard:copy="message"
-                      v-clipboard:success="onCopy"
-                      v-clipboard:error="onError"
-                    >
-                      <img
-                        style="margin-top: -70px; margin-left: 143px"
-                        src="/copy/etnafes-tourisme-copyy.png"
-                      />
-                    </button>
-                  </div> -->
                 </router-link>
 
-                <!--      <button
-                  v-if="
-                    !loggedIn &&
-                    pack.date_deb > new Date().toISOString().split('T')[0] &&
-                    pack.nb_place_dispo != 0
-                  "
-                  class="btn btn-outline-success mt-3"
-                  style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
-                  v-b-modal.modal-inscription-paiement-ligne
-                  type="submit"
-                  fill
-                >
-                  Invité personne
-                </button>
                 <button
                   v-if="
                     loggedIn &&
                     pack.date_deb > new Date().toISOString().split('T')[0] &&
                     pack.nb_place_dispo != 0
                   "
-                  class="btn btn-outline-success mt-3"
+                  class="btn btn-outline-success mt-1"
                   style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
-                  v-b-modal.modal-invitation
-                  type="submit"
-                  fill
+                  @click="show_invi = !show_invi"
                 >
                   Invité personne
-                </button> -->
+                </button>
               </b-button-group>
             </div>
           </b-card>
+
+          <b-card
+            v-if="show_invi == true"
+            style="border: 1px solid #e76a0b"
+            class="mt-2"
+          >
+            <div class="container">
+              <span style="color: #333">
+                - Inviter un(e) personne <br />
+                - Gagnier 2 DT à votre compte sur chaque réservation réussite de
+                votre part.
+              </span>
+
+              <br />
+
+              <div class="row m-0 d-flex justify-content-between">
+                <div
+                  class="col-lg-11 col-md-11 col-sm-11"
+                  style="padding: 10px"
+                >
+                  <input disabled type="text" v-model="code" id="copie_code" />
+                </div>
+
+                <div>
+                  <button
+                    title="Copié code"
+                    type="button"
+                    v-clipboard:copy="code"
+                    v-clipboard:success="onCopy"
+                    v-clipboard:error="onError"
+                  >
+                    <img
+                      style="margin: 10px 0 10px 0px"
+                      @click="ajouter_invitation_copied"
+                      src="/copy/etnafes-tourisme-copy.png"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </b-card>
         </div>
-        <!--    <b-modal
+        <b-modal
+          v-if="loggedIn"
           style="margin-top: 74px !important"
           id="modal-invitation"
           :user="'user'"
-          :title="user.nom + ' ' + user.prenom"
+          title="user.nom + ' ' + user.prenom"
         >
           <form class="mb-3">
             <div class="row m-0" style="padding: 10px">
@@ -2794,12 +2834,30 @@
             </div>
             <div class="row m-0">
               <div class="col-lg-11 col-md-12 col-xl-11" style="padding: 10px">
-                <input disabled type="text" v-model="code" />
+                <input type="text" v-model="code" />
               </div>
 
-              <div class="col-lg-1 col-md-12 col-xl-1">
+              <!--   <div class="col-lg-1 col-md-12 col-xl-1">
                 <button
                   title="Copié code"
+                  type="button"
+             
+
+                   v-clipboard:copy="code"
+                    v-clipboard:success="onCopy"
+                    v-clipboard:error="onError"
+                >
+                  <img
+                    style="margin: 10px 0 10px 0px"
+                    @click="ajouter_invitation_copied"
+                    src="/copy/etnafes-tourisme-copy.png"
+                  />
+                </button>
+              </div> -->
+
+              <div class="container">
+                <input type="text" v-model="message" />
+                <button
                   type="button"
                   v-clipboard:copy="code"
                   v-clipboard:success="onCopy"
@@ -2814,7 +2872,8 @@
               </div>
             </div>
           </form>
-        </b-modal> -->
+        </b-modal>
+
         <div class="col-md-4" id="map" ref="map">
           <br />
           <div class="d-none d-lg-block">
@@ -3329,6 +3388,7 @@ export default {
 
   data() {
     return {
+      show_invi: false,
       message: "Copy These Text",
       programmespack: [],
       hebergementpack: [],
@@ -3642,7 +3702,7 @@ export default {
         this.user.id +
         "&pack_id=" +
         this.$route.params.id +
-        "/" +
+        "&name=" +
         this.user.nom
       );
     },
@@ -3664,7 +3724,7 @@ export default {
         })
         .then((response) => {
           this.$noty.success("code copié.");
-          window.location.reload();
+          /*  window.location.reload(); */
           /*   if (response.status == 200) {
             if (confirm("avis bien reçu")) {
                 this.$noty.success("code code copié.");
@@ -3686,10 +3746,6 @@ export default {
       formData.append("pack_id", this.$router.params.id);
       formData.append("code", this.code);
 
-      /*   formData.append("adresse", this.zone.adresse.formatted_address);
-      formData.append("latitude", this.zone.center.lat);
-      formData.append("longitude", this.zone.center.lng); */
-
       axios
         .post(`${apiDomain}/api/ajouter_invitation_copied`, formData, {
           headers: {
@@ -3697,7 +3753,7 @@ export default {
           },
         })
         .then((res) => {
-          this.$noty.success("code code copié.");
+          this.$noty.success("code copié.");
         })
         .catch((error) => {
           if (error.response && error.response.status == 400) {
@@ -3705,14 +3761,22 @@ export default {
           }
         });
     },
-    onCopy: function (e) {
-      // this.ajouter_invitation_copied();
+    /*    onCopy: function (e) {
+
       alert("Tu viens de copier: " + e.text);
-      /* this.$noty.success("code code copié."); */
+   
     },
     onError: function (e) {
       alert("Échec de la copie des textes");
+    }, */
+
+    onCopy: function (e) {
+      /* alert("You just copied: " + e.text); */
     },
+    onError: function (e) {
+      alert("Failed to copy texts");
+    },
+
     performLoginEnLigne() {
       this.isLoading = true;
       this.$store
@@ -3721,7 +3785,7 @@ export default {
           password: this.password,
         })
         .then((res) => {
-           this.saveEspace();
+          this.saveEspace();
           this.isLoading = false;
           this.$router.push({
             name: "PaiementPack",
@@ -3850,7 +3914,7 @@ export default {
           password: this.password,
         })
         .then((res) => {
-            this.saveEspace();
+          this.saveEspace();
           this.isLoading = false;
           this.$router.push({
             name: "PaiementAgence",
@@ -3918,7 +3982,7 @@ export default {
         })
         .then((res) => {
           this.loadingInscription = false;
-  this.saveEspace();
+          this.saveEspace();
           /*  if (response.status == 20) { */
 
           this.$noty.success("veuillez vérifier votre compte.");
