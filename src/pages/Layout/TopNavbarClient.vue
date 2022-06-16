@@ -26,7 +26,7 @@
           <img
             loading="lazy"
             class="style_img_top_nav_cli"
-            src="/images/logo-etnafes-couleur.png"
+            src="/images/logo-etnafes-couleur.png.webp"
           />
         </router-link>
 

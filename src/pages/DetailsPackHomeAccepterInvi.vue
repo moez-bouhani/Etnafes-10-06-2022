@@ -2766,7 +2766,7 @@
                   "
                   class="btn btn-outline-success mt-3"
                   style="border-radius: 6px 6px 6px 6px; margin-left: 20px"
-                  v-b-modal.modal-invitation
+                 
                   type="submit"
                   fill
                 >
@@ -2776,42 +2776,7 @@
             </div>
           </b-card>
         </div>
-        <b-modal
-          style="margin-top: 74px !important"
-          id="modal-invitation"
-          :user="'user'"
-          :title="user.nom + ' ' + user.prenom"
-        >
-          <form class="mb-3">
-            <div class="row m-0" style="padding: 10px">
-              <span style="color: #333">
-                - Invité un(e) personne <br />
-                - Gagnier 2000 DT a votre compte sur chaque réservation réussite
-                de votre part.
-              </span>
-            </div>
-            <div class="row m-0">
-              <div class="col-lg-11 col-md-12 col-xl-11" style="padding: 10px">
-                <input disabled type="text" v-model="code" />
-              </div>
-
-              <div class="col-lg-1 ol-md-12 col-xl-1">
-                <button
-                  type="button"
-                  v-clipboard:copy="code"
-                  v-clipboard:success="onCopy"
-                  v-clipboard:error="onError"
-                >
-                  <img
-                    style="margin: 10px 0 10px 0px"
-                    @click="ajouter_invitation_copied"
-                    src="/copy/etnafes-tourisme-copy.png"
-                  />
-                </button>
-              </div>
-            </div>
-          </form>
-        </b-modal>
+    
         <div class="col-md-4" id="map" ref="map">
           <br />
           <div class="d-none d-lg-block">

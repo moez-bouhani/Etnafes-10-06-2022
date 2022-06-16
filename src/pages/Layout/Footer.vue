@@ -26,7 +26,7 @@
                 <img loading="lazy"
                   alt="media web services"
                   class="width_img_footer img_num1"
-                  src="/logos/MWS-MEDIA--WEB-SERVICES-tourism--ETNAFES-voyage.jpg"
+                  src="/logos/MWS-MEDIA--WEB-SERVICES-tourism--ETNAFES-voyage.jpg.webp"
                 />
               </div>
             </span>
@@ -39,7 +39,7 @@
                 <img loading="lazy"
                   alt="EDJEF"
                   class="width_img_footer img_num2"
-                  src="/logos/EDJEF--ETNAFES-voyage.jpg" 
+                  src="/logos/EDJEF--ETNAFES-voyage.jpg.webp" 
                 />
               </div>
             </span>
@@ -68,7 +68,7 @@
                 <img loading="lazy"
                   alt="Tunisia Inspiring"
                   class="width_img_footer img_num4"
-                  src="/logos/tourism--ETNAFES-voyage.jpg" 
+                  src="/logos/tourism--ETNAFES-voyage.jpg.webp" 
                 />
               </div>
             </span>

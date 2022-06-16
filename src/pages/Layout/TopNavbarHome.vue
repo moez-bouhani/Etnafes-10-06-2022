@@ -8,7 +8,7 @@
               loading="lazy"
               class="logo_top_nav"
               alt="logo"
-              src="/images/logo-etnafes-couleur-blanc.png"
+              src="/images/logo-etnafes-couleur-blanc.png.webp"
               :class="{ change_size: scrollPosition > 50 }"
             />
           </router-link>

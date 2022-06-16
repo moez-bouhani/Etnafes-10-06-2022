@@ -489,7 +489,7 @@ const routes = [
 
   {
     path: '/invitation/pack/:id',
-    name: 'Pack',
+    name: 'invitationPack',
     component: DetailsPackHomeAccepterInvi
   },
 
