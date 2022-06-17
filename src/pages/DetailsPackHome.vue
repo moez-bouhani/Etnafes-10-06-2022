@@ -2980,7 +2980,7 @@
 
             <GmapMarker
               icon="/Etnafes-icon-femme artisanne.png"
-              v-for="(zo, index) in markersfemmeZones"
+              v-for="(zo, index) in markersfemmeTrajet"
               :key="'zo' + index"
               :position="zo.position"
               @click="
@@ -3477,7 +3477,7 @@ export default {
       markers: [],
       InfoDepanneur: [],
       markersh: [],
-      markersfemmeZones: [],
+      markersfemmeTrajet: [],
       markersfemme: [],
 
       places: [],
@@ -3545,14 +3545,14 @@ export default {
     //femmes selon zones
 
     Bus.$on("markers_fetched", (data) => {
-      this.markersfemmeZones = data.markersfemmeZones;
-      if (this.markersfemmeZones.length > 0) {
-        this.center = data.markersfemmeZones[0].position;
+      this.markersfemmeTrajet = data.markersfemmeTrajet;
+      if (this.markersfemmeTrajet.length > 0) {
+        this.center = data.markersfemmeTrajet[0].position;
       }
     });
 
     Bus.$on("marker_result_clicked", (index) => {
-      let targetMarker = this.markersfemmeZones[index];
+      let targetMarker = this.markersfemmeTrajet[index];
       this.center = targetMarker.position;
       this.toggleInfoWindow(targetMarker, index);
     });
