@@ -760,6 +760,98 @@
                   </button>
                 </div>
               </card>
+
+              <!-- card trajet pack -->
+<card class="mt-2" style="border: solid 1px #7a7979; padding: 15px">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4>
+                      <b>Veuillez choisir les villes du trajet</b>
+                    </h4>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div
+                      v-for="(zone, index) in trajetvillepack"
+                      :key="index"
+                      style="border: 1px solid #ff931f; margin-bottom: 20px"
+                    >
+                      <div class="row" style="padding: 10px">
+                        <div class="col-md-1">
+                          <label>&nbsp;</label>
+                          <button
+                            type="button"
+                            v-on:click="removeTrajet(index)"
+                            class="btn btn-block btn-danger btdelete"
+                          >
+                            <i
+                              style="color: #fff !important"
+                              class="fa fa-trash text-danger fa-lg"
+                            ></i>
+                          </button>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label style="line-height: 35px">
+                            <b>Ville trajet {{ index + 1 }}</b>
+                          </label>
+                          <div class="form-group">
+                            <select
+                              v-model="zone.ville_id"
+                              class="form-control"
+                              required
+                            >
+                              <option value disabled selected>
+                                gouvernorat
+                              </option>
+                              <option
+                                :name="`trajetvillepack[${index}][sous_villes_id]`"
+                                v-for="ville in villes"
+                                v-bind:key="ville.id"
+                                v-bind:value="ville.id"
+                              >
+                                {{ ville.nom }}
+                              </option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <select
+                              v-model="zone.sous_villes_id"
+                              class="form-control"
+                              required
+                            >
+                              <option value disabled selected>ville</option>
+                              <option
+                                v-show="ville.ville_id == zone.ville_id"
+                                v-for="ville in svilles"
+                                v-bind:key="ville.id"
+                                v-bind:value="ville.id"
+                                 :name="`trajetvillepack[${index}][sous_villes_id]`"
+                              >
+                                {{ ville.nom }}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <button
+                    type="button"
+                    v-on:click="addNewTrajet"
+                    class="btn btn-block btn-outline-success orange"
+                  >
+                    + Trajet Pack
+                  </button>
+                </div>
+              </card>
+              <!-- end trajet pack -->
               <br />
 
               <br />
@@ -841,6 +933,13 @@ export default {
       packcard: true,
       ville_id: "",
       zonesville: [],
+trajetvillepack :[
+  {
+sous_villes_id:""
+
+  }
+],
+
 
       villepack: [
         {
@@ -1015,6 +1114,10 @@ export default {
     removeZone: function (index, villepack) {
       Vue.delete(this.villepack, index);
     },
+
+      removeTrajet: function (index, trajetvillepack) {
+      Vue.delete(this.trajetvillepack, index);
+    },
     addNewCircuit: function () {
       this.villepack.push({
         zonesville: [],
@@ -1029,6 +1132,11 @@ export default {
       });
     },
 
+addNewTrajet: function () {
+      this.trajetvillepack.push({
+        sous_villes_id: "",
+      });
+    },
     addRow: function () {
       this.zonepack.push(Vue.util.extend({}, this.zone));
     },
@@ -1148,6 +1256,11 @@ export default {
             // console.log(zidpack);
           }
         }
+      }
+
+      for (var m = 0; m < this.trajetvillepack.length; m++) {
+        let trajet_pack = this.trajetvillepack[m].sous_villes_id;
+        formData.append("trajetvillepack[" + m + "][sous_villes_id]", trajet_pack);
       }
 
       /* for (var i = 0; i < this.hebergementpack.hebergement_id.length; i++) {

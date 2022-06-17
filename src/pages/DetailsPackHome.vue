@@ -1284,7 +1284,7 @@
                   Ivitation personnes
                 </button> -->
 
-                <button
+                <!-- <button
                   v-if="
                     loggedIn &&
                     pack.date_deb > new Date().toISOString().split('T')[0] &&
@@ -1297,7 +1297,7 @@
                   fill
                 >
                   Invité personne
-                </button>
+                </button> -->
               </div>
             </div>
             <b-tabs content-class="mt-3" justified class="d-none d-lg-block">
