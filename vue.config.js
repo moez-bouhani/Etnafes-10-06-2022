@@ -11,7 +11,7 @@ module.exports = {
         timeout: 0,
         staticDir: path.resolve("dist"),
 
-       routes: ["/"]
+       routes: ["/", "/packs"]
       //  routes: ["/"]
 
       //  routes: ["/", "/packs", "/hebergementlibre", "/artisans", "/allvilles", "/contact", "/resultatsHome", "/resultats"]
