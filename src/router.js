@@ -7,6 +7,9 @@ import DashboardLayoutFemme from "@/pages/Layout/DashboardLayoutFemme.vue";
 
 
 import DashboardLayoutPropRestau from "@/pages/Layout/DashboardLayoutPropRestau.vue";
+import PaiementPack_inv from '@/pages/PaiementPack_inv.vue';
+import PaiementOffline_inv from '@/pages/PaiementOffline_inv.vue';
+
 import PaiementLigne from '@/pages/PaiementLigne.vue';
 import PaiementPack_inv from '@/pages/PaiementPack_inv.vue';
 
@@ -295,7 +298,6 @@ const routes = [
     name: 'PaiementPack_inv',
     component: PaiementPack_inv
   },
-
   {
     path: '/PaiementOffline/:id',
     name: 'PaiementOffline',
@@ -507,7 +509,7 @@ const routes = [
 
   {
     path: '/invitation/pack/:id',
-    name: 'invitation_pack',
+    name: 'invitationPack',
     component: DetailsPackHomeAccepterInvi
   },
 

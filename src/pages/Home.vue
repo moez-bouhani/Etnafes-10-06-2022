@@ -3096,7 +3096,7 @@
                   <img
                     loading="lazy"
                     class="card-img"
-                    src="/images/guides-touristique3-etnafes-voyage.jpg"
+                    src="/images/guides-touristique3-etnafes-voyage.jpg.webp"
                     alt="Card image cap"
                   />
 
