@@ -97,10 +97,19 @@
                 <b-dropdown-item href="#">RU</b-dropdown-item>
                 <b-dropdown-item href="#">FA</b-dropdown-item>
               </b-nav-item-dropdown>
-              <router-link to='/espace_etanfes'>
-              <button  style="padding:2px 15px 2px 15px !important;border-radius:10px;margin: 5px !important;background: red !important;" class="btn btn-danger btn-sm" type="button">
-    Quitter {{ espace }}
-  </button>
+              <router-link v-if="loggedIn" to="/espace_etanfes">
+                <button
+                  style="
+                    padding: 2px 15px 2px 15px !important;
+                    border-radius: 10px;
+                    margin: 5px !important;
+                    background: red !important;
+                  "
+                  class="btn btn-danger btn-sm"
+                  type="button"
+                >
+                  Quitter {{ espace }}
+                </button>
               </router-link>
               <!-- <b-nav-item v-if="loggedIn">
                 <router-link class="nav-link" to="/espace_etanfes"
@@ -150,7 +159,9 @@
                 <!-- client -->
                 <div v-if="espace == 'Espace Voyageur'">
                   <b-dropdown-item to="/dashboard_client">
-                    <router-link to="/dashboard_client">Tableau de bord</router-link>
+                    <router-link to="/dashboard_client"
+                      >Tableau de bord</router-link
+                    >
                   </b-dropdown-item>
                   <b-dropdown-item to="/client">
                     <router-link to="/client">Profile</router-link>
@@ -164,7 +175,9 @@
                 <!-- artisan -->
                 <div v-if="espace == 'Espace Artisan'">
                   <b-dropdown-item to="/dashboard_femme">
-                    <router-link to="/dashboard_femme">Tableau de bord</router-link>
+                    <router-link to="/dashboard_femme"
+                      >Tableau de bord</router-link
+                    >
                   </b-dropdown-item>
 
                   <b-dropdown-item to="/Artisan">
@@ -187,7 +200,9 @@
                 <!-- guide -->
                 <div v-if="espace == 'Espace Guide'">
                   <b-dropdown-item to="/dashboard_guide">
-                    <router-link to="/dashboard_guide">Tableau de bord</router-link>
+                    <router-link to="/dashboard_guide"
+                      >Tableau de bord</router-link
+                    >
                   </b-dropdown-item>
 
                   <b-dropdown-item to="/guide">
@@ -202,7 +217,9 @@
                 <!-- agence -->
                 <div v-if="espace == 'Espace Prestataire de services'">
                   <b-dropdown-item to="/dashboard_agence">
-                    <router-link to="/dashboard_agence">Tableau de bord</router-link>
+                    <router-link to="/dashboard_agence"
+                      >Tableau de bord</router-link
+                    >
                   </b-dropdown-item>
 
                   <b-dropdown-item to="/profil">
