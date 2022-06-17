@@ -8,10 +8,10 @@ import DashboardLayoutFemme from "@/pages/Layout/DashboardLayoutFemme.vue";
 
 import DashboardLayoutPropRestau from "@/pages/Layout/DashboardLayoutPropRestau.vue";
 import PaiementPack_inv from '@/pages/PaiementPack_inv.vue';
-import PaiementOffline_inv from '@/pages/PaiementOffline_inv.vue';
+
 
 import PaiementLigne from '@/pages/PaiementLigne.vue';
-import PaiementPack_inv from '@/pages/PaiementPack_inv.vue';
+
 
 import ReservationHebergement from '@/pages/ReservationHebergement.vue';
 import suivant_logement from '@/pages/suivant_logement.vue';
